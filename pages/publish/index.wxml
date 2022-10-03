@@ -3,7 +3,7 @@
         <van-tab title="图片上传">
             <view class="tips_text">请上传图片</view>
             <view class="upload_img flex-row flex-align-c">
-                <view  class="upload_img_box" wx:for="{{fileimgsList}}"  key="{{index}}">
+                <view  class="upload_img_box" wx:for="{{fileimgsList}}" wx:key="*this">
                     <image class="" src="{{item.tempFilePath}}" />
                 </view>
                 <view class="plus_box">
@@ -44,9 +44,14 @@
         <text class="foot_btns" bindtap="userBtns">@用户</text>
     </view>
     <view class="foot_adress" bindtap="addAdressBtn">
-        <van-icon name="location-o" />
-        <text class="address">添加地点</text>
+        <!-- <van-icon name="location-o" /> -->
+        <van-button plain hairline icon="location-o">添加地点</van-button>
+        <!-- <text class="address">添加地点</text> -->
     </view>
+    <view class="foot_adress" wx:if="{{addressName}}">
+        <text class="address">{{addressName}}</text>
+    </view>
+      
     <view class="foot_bottons_btns flex-row">
         <view class="foot_drafts">
             <van-icon name="todo-list-o" />

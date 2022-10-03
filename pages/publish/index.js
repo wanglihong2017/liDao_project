@@ -1,6 +1,6 @@
 // pages/publish/index.js
 const qiniuUploader = require("../../utils/qiniuUploader");
-import { api_getToken,api_addfisharticle,api_getUserFollowFish} from "../../utils/api";
+import { api_getToken,api_addfisharticle,api_getUserFollowFish,api_getCity} from "../../utils/api";
 Page({
   /**
    * 页面的初始数据
@@ -46,7 +46,9 @@ Page({
     latitude:'',
     longitude:'',
     getaddress:false,
-    userIds:''
+    userIds:'',
+    addressName:'',
+    addressPopup:false,
   },
   uploadsimgs(){
     let that = this
@@ -238,6 +240,21 @@ Page({
         that.data.longitude = res.longitude
         that.setData({
           getaddress:true
+        })
+        let params = {
+          key:'AUGBZ-QENCP-YQPDT-LONCQ-N6LYK-SJBQQ',                    
+          location:`${res.latitude},${res.longitude}`
+        }
+        api_getCity(params).then((res)=>{
+            console.log('00000',res) //获取城市列表
+            let {status,result} = res
+            console.log(status)
+            console.log(result)
+            if(status===0){
+              that.setData({
+                addressName:result.address_component.province + result.address_component.city 
+              })
+            }
         })
       }
      })
