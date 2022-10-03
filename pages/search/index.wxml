@@ -8,7 +8,8 @@
     <waterfall-item custom-class="product-item-box" wx:for="{{products}}" wx:key="index">
       <view class="water_flow_box" bindtap="getDetailBtn" data-id="{{item.id}}" data-userImg = "{{item.userImgPath}}">
         <view class="img_box">
-          <image src="{{public.getImgs(item.imgPath,1)}}" mode="aspectFill"></image>
+           <image  wx:if="{{item.imgType==1}}" src="{{public.getImgs(item.imgPath,1)}}" mode="aspectFill"></image>
+           <image  wx:if="{{item.imgType==2}}" src="{{item.imgPath+'?vframe/jpg/offset/0'}}" mode="aspectFill"></image>
           <view class="water_flow_header">
             <text>{{item.title}}</text>
           </view>

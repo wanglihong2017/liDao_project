@@ -209,7 +209,7 @@ Page({
         userId:wx.getStorageSync('userId') || '',
         articleType:1, //根据跳转判断
         title:that.data.titlemessage,
-        imgType:1,
+        imgType:that.data.getchooseIndex===0?1:2,
         coverPath:'', //封面图片地址
         imgPath:getImgData.join(','),
         topic:that.data.topicText.name,//话题
