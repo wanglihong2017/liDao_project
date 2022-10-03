@@ -1,0 +1,112 @@
+<wxs src="./../../utils/public.wxs" module="public"></wxs>
+<view class="">
+    <view class="container_box">
+        <swiper indicator-dots="{{indicatorDots}}" style='height:{{Height}}'>
+            <block wx:for="{{public.getImgs(details.imgPath)}}" wx:key="*this">
+                <swiper-item>
+                    <view class="image_box">
+                        <image class=""  mode="widthFix" bindload='imgHeight' src="{{item}}" />
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="section_text">
+        <view class="title_text">{{details.title}}</view>
+        <view class="describe_text">{{details.content}}</view>
+    </view>
+    <view class="time_box flex-row flex-justify-b">
+        <view>
+           <van-icon name="guide-o" />
+            <text>{{details.createAt}} {{details.cityName}}</text>
+        </view>
+         <view wx:if="{{isMypublish}}" class="delete_box" bindtap="deleteBtns">
+           <van-icon name="delete-o" />
+        </view>
+        <view wx:if="{{!isMypublish}}" class="delete_box" bindtap="addFollowBtn" data-isFollow="{{details.isFollow}}">
+            <van-button round  size="mini" color="{{details.isFollow===0?'#ef3f14':'#999'}}" type="info">{{details.isFollow===0?'关注':'已关注'}}</van-button>
+        </view>
+          
+    </view>
+      <van-dialog id="van-dialog" />
+       <van-divider />
+    <view class="serch_box">
+        <text class="serch_box_text">共{{countNum}}条评论</text>
+    </view>
+    <view class="flex-row flex-align-c serch_box">
+        <view class="serch_header">
+            <image class="" src="{{headImgs}}"></image>
+        </view>
+        <van-search style="width:90%" shape="round" bindtap="openSearchBtn" background="#fff" disabled placeholder="喜欢就给个评论支持一下~"></van-search>
+    </view>
+    <van-empty  wx:if="{{commentList.length==0}}" description="这里是一片芳草地" />
+    <!-- 评论列表 -->
+    <view  wx:for="{{commentList}}" wx:key="{{index}}">
+        <view class="flex-row flex-align-c serch_box">
+            <view class="serch_header">
+                <image class="" src="{{item.userImgPath}}"></image>
+            </view>
+            <view class="title_box">
+                <view class="sub_text">{{item.userName}}</view>
+                <view class="comment_text">
+                    {{item.content}}
+                    <tetx class="sub_text">{{item.createAt}}</tetx>
+                </view>
+            </view>
+            <view bindtap="changeLike" class="get_box" data-isGiveUp = "{{item.isGiveUp}}">
+                <van-icon color="{{item.isGiveUp===0?'#ed3f14':'#000'}}" name="like-o" />
+            </view>
+        </view>
+        <view class="flex-row flex-align-c serch_box" wx:if="{{item.detailList.length!=0}}">
+            <view class="serch_header"></view>
+            <view class="flex-row flex-align-c" wx:for="{{item.detailList}}" wx:for-item="pro" wx:key="{{pro.parentId}}">
+                <view class="reply_header">
+                    <image class="" src="{{pro.replyUserImgPath}}"></image>
+                </view>
+                <view class="reply_text">
+                    <view class="sub_text">{{pro.replyUserName}}</view>
+                    <view class="comment_text">
+                        回复
+                        <text class="sub_text">{{pro.userName}}</text>
+                        <text class="comment_text">{{pro.content}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+         <van-divider />
+    </view>
+    <view  class="comment_list"></view>
+      
+    <!-- 评论弹框 -->
+    <van-overlay show="{{ showBtns }}" bind:click="onClickHide" />
+    <view class="foots_input_box" wx:if="{{showBtns}}">
+        <van-search ref="searchText" focus="{{showBtns}}" shape="round" value="{{ reviewValue }}" placeholder="喜欢就给个评论支持一下~" use-action-slot bind:change="reviewValueonChange">
+            <view slot="action" bind:tap="sendBtns">发送</view>
+        </van-search>
+    </view>
+    <!-- 底部评论点赞 -->
+    <view class="flex-row flex-align-c prize_box">
+        <van-search value="{{ value }}" label="" disabled bindtap="openSearchBtn" placeholder="说点什么" use-left-icon-slot="true"   shape="round" 	 bind:change="onChange" bind:search="onSearch">
+            <view slot="left-icon" bind:tap="onClick"><van-icon name="edit" /></view>
+            <view slot="action" bind:tap="onClick">搜索</view>
+        </van-search>
+        <view class="flex-row flex-align-c serch_bos" bindtap="likeBtns" data-isGiveUp="{{details.isGiveUp}}">
+            <van-icon name="like-o" wx:if="{{details.isGiveUp==0}}" />
+            <van-icon name="like"wx:if="{{details.isGiveUp==1}}"  color="#ed3f14" />
+            <text wx:if="{{details.giveUpQty}}">{{details.giveUpQty}}</text>
+            <text wx:else>点赞</text>
+        </view>
+        <view class="flex-row flex-align-c serch_bos" bindtap="starBtns" data-collectionQty = "{{details.isCollection}}">
+              <van-icon name="star-o" wx:if="{{details.isCollection==0}}" />
+              <van-icon name="star" wx:if="{{details.isCollection==1}}" color="#ed3f14" />
+              <text wx:if="{{details.collectionQty}}">{{details.collectionQty}}</text>
+              <text wx:else>收藏</text>
+        </view>
+         <view class="flex-row flex-align-c serch_bos" bindtap="openSearchBtn">
+             <van-icon name="chat-o" />
+              <text wx:if="{{details.hot}}">{{details.hot}}</text>
+              <text wx:else>评论</text>
+        </view>
+          
+    </view>
+</view>

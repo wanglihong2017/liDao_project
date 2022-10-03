@@ -1,0 +1,38 @@
+.details_list{
+    width: 90%;
+    margin: 40rpx auto 20rpx;
+}
+.head_image{
+    width: 100rpx; 
+    height: 100rpx
+}
+.head_image image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.title_box{
+    margin-left: 20rpx;
+}
+.official{
+    padding-bottom: 16rpx;
+    font-size: 26rpx;
+    margin-top: 20rpx;
+}
+.title_box .sub_title{
+    font-size: 20rpx;
+    color: #ccc;
+}
+.comment_foots{
+    width: 40%;
+    margin: 20rpx 166rpx;
+}
+/* --------- */
+.foots_input_box{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: #fff;
+  }

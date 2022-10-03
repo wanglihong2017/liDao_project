@@ -1,0 +1,110 @@
+.details_box{
+    width: 90%;
+    margin: 40rpx auto 20rpx;
+}
+.head_image{
+    width: 100rpx; 
+    height: 100rpx
+}
+.head_image image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.title_box{
+    margin-left: 20rpx;
+}
+.official{
+    padding-bottom: 16rpx;
+    font-size: 26rpx;
+}
+.title_box .sub_title{
+    font-size: 20rpx;
+    color: #ccc;
+}
+ .posts_all{
+     margin-top: 20rpx;
+     font-size: 26rpx;
+     text-align: right;
+ }
+
+
+ /**index.wxss**/
+.tab_color  .van-tabs__line{
+    background: #fff;
+}
+.follow_box{
+    text-align: center;
+    margin-top: 20%;
+}
+.follow_text{
+    margin-top: 20rpx;
+    color: #bbbec4;
+    font-size: 24rpx;
+}
+.water_flow_box{
+   width: 100%;
+   margin: 0 auto;
+   background: #fff;
+}
+.water_flow_box image{
+    width: 100%;
+}
+.water_flow_header{
+    padding: 6px;
+}
+.water_flow_text{
+    padding: 6px;
+    color: #bbbec4;
+    font-size: 24rpx;
+}
+.search_header_box{
+    position: relative;
+}
+.search_header{
+    width: 58%;
+    margin: 0 auto;
+}
+.search_box{
+    position: absolute;
+    top: 50%;
+    right: 20rpx;
+    padding: 20rpx 40rpx;
+    transform: translateY(-50%);
+    z-index: 999;
+}
+.tabs_box{
+    padding: 20rpx 10rpx;
+}
+.headimgs_box{
+    width: 40rpx;
+    height: 40rpx;
+}
+.headimgs_box image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.headimgs_text{
+    width: 180rpx;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    font-size: 24rpx;
+    color: #bbbec4;
+    padding-left: 4rpx;
+}
+.foot_box{
+   width: 90%;
+   margin: 0 auto;
+}
+.praise_box{
+    width: 100rpx;
+}
+.praise_box text{
+    display: inline-block;
+    padding-left: 10rpx;
+    font-size: 26rpx;
+    color: #bbbec4;
+}
+

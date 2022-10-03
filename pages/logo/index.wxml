@@ -1,0 +1,30 @@
+<view class="my_box">
+    <view>
+        <image class="img_logo" src="../../assets/logo.png" />
+    </view>
+    <view class='content'>
+        <view>请绑定手机号</view>
+        <view class="font_text">以便我们为您提供更好的服务</view>
+    </view>
+    <view class="foot_btn">
+        <button type="warn" disabled="{{!checked}}" open-type="getPhoneNumber"  bindgetphonenumber="getPhoneNumber">授权登录 </button>
+    </view>
+    <view class="agreement_foot">
+        <van-checkbox value="{{ checked }}" checked-color="#ed3f14" bind:change="onChange">
+            <text class="">{{companName}}</text>
+            <text class="">{{agreementName}}</text>
+        </van-checkbox>
+    </view>
+    <van-dialog use-slot title="温馨标题" show="{{ checked }}" bind:cancel="onClose" show-cancel-button confirm-button-open-type="getUserInfo" bind:getuserinfo="getUserInfo">
+        <text class="agreement_text">若手机号未注册将进入注册流程，注册即为同意</text>
+    </van-dialog>
+    <!-- <van-action-sheet
+        title="温馨提示"
+        description="若手机号未注册将进入注册流程，注册即为同意"
+        show="{{ checked }}"
+        actions="{{ actions }}"
+        bind:close="onClose"
+        bind:getuserinfo="getUserInfo"
+     /> -->
+
+</view>

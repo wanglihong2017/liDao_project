@@ -1,0 +1,19 @@
+<view>
+    <view wx:for="{{followArrey}}" wx:key="index" data-item="{{item}}" bindtap="goFans">
+        <view class="follow_box flex-row flex-align-c flex-justify-b">
+            <view class="flex-row flex-align-c">
+                <view class="head_imgs">
+                    <image class="" src="{{item.imgPath}}"></image>
+                </view>
+                <view class="head_text">
+                    <view>{{item.userName}}</view>
+                    <text>发布时间*{{item.createAt}}</text>
+                    <!-- <view>{{item.articleCount}}</view> -->
+                </view>
+            </view>
+            <van-button  type="info"  color="#ed3f14" size="mini">查看</van-button>
+        </view>
+        <van-divider />
+    </view>
+    <van-empty wx:if="{{followArrey.length===0}}" description="暂未关注" />
+</view>

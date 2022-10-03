@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-empty": "@vant/weapp/empty/index",
+    "waterfall": "/components/waterfall-layout/waterfall",
+    "van-icon": "@vant/weapp/icon/index",
+    "waterfall-item": "/components/waterfall-layout/waterfall-item"
+  },
+  "navigationBarTitleText": "我的发布"
+}

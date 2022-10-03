@@ -1,0 +1,53 @@
+<view>
+    <van-search value="{{ value }}" placeholder="请输入搜索关键词" use-action-slot bind:change="onChange">
+        <view slot="action" bind:tap="onSearch">搜索</view>
+    </van-search>
+    <van-tabs active="{{ active }}" bind:change="ontabChange">
+        <van-tab title="最新"></van-tab>
+        <van-tab title="最多点赞"></van-tab>
+        <van-tab title="最多评论"></van-tab>
+    </van-tabs>
+    <!-- 详情页 -->
+    <view class="comment_list_boxs" bindtap="goDetails" wx:if="{{onLineData.length!=0}}" wx:for="{{onLineData}}" key="{{index}}" data-id="{{item.id}}" data-userImg = "{{item.userImgPath}}">
+       <view class="comment_boxs">
+            <view class="comment_header">
+            <image src="{{item.userImgPath}}"></image>
+        </view>
+        <view class="comment_foots">
+            <view class="comment_foots_header">{{item.userName}}</view>
+            <view>
+                <text class="comment_foots_title">{{item.createAt }}</text>
+            </view>
+        </view>
+       </view>
+       <view class="comment_text">
+           <view class="comment_text_header">
+               {{item.title}}
+           </view>
+            <view class="comment_foots_title" wx:if="{{item.topic && item.topic!='undefined'}}">
+                <text>{{item.topic}}</text>
+            </view>   
+       </view>
+       <view class="flex-row row_border">
+          <view class="border-row">
+             <van-icon name="chat-o" />
+             <text class="get_num">6</text>
+          </view>  
+          <view class="border-row">
+             <van-icon name="like-o" />
+             <text class="get_num">6</text>
+          </view> 
+           <view class="border-row">
+             <van-icon name="star-o" />
+             <text class="get_num">6</text>
+          </view>   
+       </view>
+      <van-divider />
+    </view>
+    <!-- 我要提问 -->
+    <view class="foot_plus" bindtap="goInqueryBtns">
+        <van-icon name="plus" />
+        <view><text class="">我要问诊</text></view>
+    </view>
+    <van-empty wx:if="{{onLineData.length===0}}" description="暂无数据" />
+</view>

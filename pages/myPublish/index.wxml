@@ -1,0 +1,30 @@
+  <!-- 瀑布流 -->
+  <wxs src="./../../utils/public.wxs" module="public"></wxs>
+  <waterfall custom-class="waterfall-box" wx:if="{{products.length!=0}}" loading="{{updateLoading}}"  isAllLoaded="{{isAllLoaded}}">
+    <waterfall-item custom-class="product-item-box" wx:for="{{products}}" wx:key="index">
+      <view class="water_flow_box" bindtap="getDetailBtn" data-id="{{item.id}}" data-userImg = "{{item.userImgPath}}">
+        <view class="img_box">
+          <image src="{{public.getImgs(item.imgPath,1)}}" mode="aspectFill"></image>
+          <view class="water_flow_header">
+            <text>{{item.title}}</text>
+          </view>
+          <view class="water_flow_text">
+            <text>{{item.content}}</text>
+          </view>
+        </view>
+        <view class="flex-row flex-justify-b foot_box">
+          <view class="flex-row">
+            <view class="headimgs_box">
+              <image src="{{item.userImgPath}}"></image>
+            </view>
+            <view class="headimgs_text">{{item.userName}}</view>
+          </view>
+          <view class="praise_box">
+            <van-icon name="like-o" />
+            <text class="">{{item.giveUpQty}}</text>
+          </view>
+        </view>
+      </view>
+    </waterfall-item>
+  </waterfall>
+   <van-empty wx:if="{{products.length===0}}" description="暂未发布" />

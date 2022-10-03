@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "foots":"/components/foot/index",
+    "waterfall": "/components/waterfall-layout/waterfall",
+    "waterfall-item": "/components/waterfall-layout/waterfall-item"
+  },
+  "navigationBarTitleText": "鱼友圈"
+}

@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/inquiry/index",
+    "pages/publish/index",
+    "pages/logo/index",
+    "pages/search/index",
+    "pages/my/index",
+    "pages/news/index",
+    "pages/follow/index",
+    "pages/commentList/index",
+    "pages/myPublish/index",
+    "pages/myFollow/index",
+    "pages/myCollect/index",
+    "pages/detailsPage/index",
+    "pages/myFans/index",
+    "pages/othersDetails/index",
+    "pages/salePage/index"
+  ],
+  "requiredPrivateInfos": [
+    "getFuzzyLocation"
+  ],
+  "permission": {
+    "scope.userFuzzyLocation": {
+      "desc": "你的位置信息将用于展示附近鱼友的信息"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "鲤道",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

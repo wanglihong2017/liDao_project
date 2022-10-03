@@ -1,0 +1,74 @@
+<view class="">
+    <van-tabs active="{{ active }}" bind:change="onTabChange">
+        <van-tab title="图片上传">
+            <view class="tips_text">请上传图片</view>
+            <view class="upload_img flex-row flex-align-c">
+                <view  class="upload_img_box" wx:for="{{fileimgsList}}"  key="{{index}}">
+                    <image class="" src="{{item.tempFilePath}}" />
+                </view>
+                <view class="plus_box">
+                    <van-icon bindtap="uploadsimgs" size="26" name="plus" />
+                </view>
+            </view>
+        </van-tab>
+        <!-- <van-tab title="视频上传">
+            <view class="tips_text">请上传视频</view>
+             <view class="video_img">
+                <view  class="video_img_box" wx:for="{{videoList}}" key="{{index}}">
+                   <view class="video_boxs">
+                     <video id="myVideo" src="{{item.tempFilePath}}" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+                   </view>
+                </view>
+                <view class="plus_box">
+                    <van-icon bindtap="uploadsvideos" size="26" name="plus" />
+                </view>
+            </view>
+        </van-tab> -->
+    </van-tabs>
+    <!-- <view wx:for="{{fileList}}">
+         <image class="" src="{{item.tempFilePath}}"/>
+    </view>
+    <button bindtap="uploadsvideos">图片上传</button> -->
+    <view class="text_title">
+        <van-cell-group>
+            <van-field value="{{ titlemessage }}" bind:change="onChange" type="text" placeholder="填写标题会有更多攒哦" autosize />
+        </van-cell-group>
+    </view>
+    <view class="text_title">
+        <van-cell-group>
+            <van-field value="{{ textmessage }}" bind:change="onChangeText" type="textarea" border="{{ false }}" placeholder="说说此时的心情" autosize />
+        </van-cell-group>
+    </view>
+    <view class="foot_box">
+        <text class="foot_btns" bindtap="townTalk">#话题</text>
+        <text class="foot_btns" bindtap="userBtns">@用户</text>
+    </view>
+    <view class="foot_adress" bindtap="addAdressBtn">
+        <van-icon name="location-o" />
+        <text class="address">添加地点</text>
+    </view>
+    <view class="foot_bottons_btns flex-row">
+        <view class="foot_drafts">
+            <van-icon name="todo-list-o" />
+            <view class="address">存草稿箱</view>
+        </view>
+        <view>
+            <van-button  style="width:500rpx" bindtap="publishBtns" color="#ed3f14" round type="info">发布帖子</van-button>
+        </view>
+    </view>
+    <!-- 弹框 -->
+        <van-action-sheet
+            show="{{ showPopup }}"
+            actions="{{ actions }}"
+            bind:close="onClose"
+            bind:select="onSelect"
+            cancel-text="取消"
+         />
+          <van-action-sheet
+            show="{{ userPopup }}"
+            actions="{{ useractions }}"
+            bind:close="onUserClose"
+            bind:select="onUserSelect"
+            cancel-text="取消"
+         />
+</view>

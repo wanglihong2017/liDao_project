@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "waterfall": "/components/waterfall-layout/waterfall",
+    "waterfall-item": "/components/waterfall-layout/waterfall-item",
+    "van-empty": "@vant/weapp/empty/index"
+  },
+  "navigationBarTitleText": "搜索"
+}

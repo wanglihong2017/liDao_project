@@ -1,0 +1,29 @@
+<view>
+    <view class="details_box" wx:for="{{listComment}}" wx:key="index">
+        <view class="flex-row flex-justify-b flex-align-c details_list" bindtap="goDetails">
+            <view class="flex-row flex-align-c">
+                <view class="head_image">
+                    <image src="{{item.img}}"></image>
+                </view>
+                <view class="title_box">
+                    <view class="official">{{item.officialText}}</view>
+                    <view class="sub_title">{{item.subText}} {{item.time}}</view>
+                    <view class="official">{{item.officialText}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="comment_foots flex-row flex-justify-b">
+            <van-button icon="chat-o" plain size="mini" color="#495060" bindtap="commentBtn" custom-style="border: none;" type="primary">
+                回复评论
+            </van-button>
+        </view>
+        <van-divider />
+    </view>
+    <!-- 评论弹框 -->
+    <van-overlay show="{{ showBtns }}" bind:click="onClickHide" />
+    <view class="foots_input_box" wx:if="{{showBtns}}">
+        <van-search ref="searchText" focus="{{showBtns}}" shape="round" value="{{ reviewValue }}" placeholder="喜欢就给个评论支持一下~" use-action-slot bind:change="reviewValueonChange">
+            <view slot="action" bind:tap="sendBtns">发送</view>
+        </van-search>
+    </view>
+</view>

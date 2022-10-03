@@ -1,0 +1,18 @@
+<view>
+    <view wx:for="{{followArrey}}" wx:key="index">
+        <view class="follow_box flex-row flex-align-c flex-justify-b" bindtap="goFans">
+            <view class="flex-row flex-align-c">
+                <view class="head_imgs">
+                    <image class="" src="{{item.headimgs}}"></image>
+                </view>
+                <view class="head_text">
+                    <view>{{item.name}}</view>
+                    <text>发布*{{item.publishNum}}</text>
+                </view>
+            </view>
+            <van-button  type="info"  color="#ed3f14" size="mini">回粉</van-button>
+        </view>
+        <van-divider />
+    </view>
+    <van-empty wx:if="{{followArrey.length===0}}" description="暂未关注" />
+</view>

@@ -1,0 +1,54 @@
+.comment_list_boxs{
+    margin: 20rpx  30rpx;
+}
+.comment_boxs{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+}
+.comment_header{
+    width:90rpx;
+    height:90rpx;
+}
+.comment_header image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    align-items: center
+}
+.comment_foots{
+    margin-left: 20rpx;
+}
+.comment_foots_header{
+    margin-top: 20rpx;
+}
+.comment_foots_title{
+    font-size: 24rpx;
+    color: #bbbec4;
+}
+.comment_text_header{
+    margin: 20rpx 0;
+}
+.comment_text{
+    width: 90%;
+    margin: 20rpx auto;
+}
+.get_num{
+    display: inline-block;
+    margin-left: 10rpx;
+    color: #999;
+    font-size: 20rpx;
+}
+.foot_plus{
+    width: 120rpx;
+    height: 100rpx;
+    text-align: center;
+    position: fixed;
+    right: 0;
+    bottom: 80rpx;
+}
+.foot_plus text{
+  font-size: 26rpx;
+  color: #999;
+}

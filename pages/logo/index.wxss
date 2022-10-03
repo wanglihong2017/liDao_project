@@ -1,0 +1,32 @@
+.my_box{
+    width: 100%;
+    text-align: center;
+    margin-top: 100rpx;
+}
+.img_logo{
+    width: 300rpx;
+    height: 300rpx;
+}
+.content view{
+    padding: 16rpx 0;
+}
+.foot_btn{
+    width: 80%;
+    margin: 20rpx auto;
+}
+.font_text{
+    font-size: 22rpx;
+    color: #ccc;
+}
+.agreement_foot{
+    width: 80%;
+    margin: 60rpx auto 0;
+}
+.agreement_foot text{
+    font-size: 24rpx;
+    color: #ed3f14;
+}
+.agreement_text{
+    display: inline-block;
+    padding: 40rpx 20rpx;
+}

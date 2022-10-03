@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-divider": "@vant/weapp/divider/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "foots":"/components/foot/index"
+  },
+  "navigationBarTitleText": "我的"
+}

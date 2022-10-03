@@ -1,0 +1,59 @@
+<wxs src="./../../utils/public.wxs" module="public"></wxs>
+<view>
+    <view class="details_box">
+        <view class="flex-row flex-align-c">
+            <view class="head_image">
+                <image src="{{headDatas.imgPath}}"></image>
+            </view>
+            <view class="title_box">
+                <view class="official">{{headDatas.userName}}</view>
+                <view class="sub_title">{{headDatas.createAt}}</view>
+            </view>
+        </view>
+        <view class="posts_all">共发布:{{headDatas.articleCount}}帖子</view>
+          
+    </view>
+     <!-- <waterfall custom-class="waterfall-box" loading="{{updateLoading}}" isAllLoaded="{{isAllLoaded}}">
+        <waterfall-item custom-class="product-item-box" wx:for="{{products}}" wx:key="index">
+            <view class="water_flow_box" bindtap="goDetailBtns" data-item="{{item}}">
+                <view class="img_box">
+                    <image src="{{public.getImgs(item.imgPath,1)}}" mode="aspectFill"></image>
+                    <view class="water_flow_header">
+                        <text>{{item.title}}</text>
+                    </view>
+                    <view class="water_flow_text">
+                        <text>{{item.content}}</text>
+                    </view>
+                </view>
+            </view>
+        </waterfall-item>
+    </waterfall> -->
+    <!-- 瀑布流 -->
+  <waterfall custom-class="waterfall-box" loading="{{updateLoading}}"  isAllLoaded="{{isAllLoaded}}">
+    <waterfall-item custom-class="product-item-box" wx:for="{{products}}" wx:key="index">
+      <view class="water_flow_box" bindtap="goDetailBtns" data-id="{{item.id}}" data-userImg = "{{item.userImgPath}}">
+        <view class="img_box">
+          <image src="{{public.getImgs(item.imgPath,1)}}" mode="aspectFill"></image>
+          <view class="water_flow_header">
+            <text>{{item.title}}</text>
+          </view>
+          <view class="water_flow_text">
+            <text>{{item.content}}</text>
+          </view>
+        </view>
+        <view class="flex-row flex-justify-b foot_box">
+          <view class="flex-row">
+            <view class="headimgs_box">
+              <image src="{{item.userImgPath}}"></image>
+            </view>
+            <view class="headimgs_text">{{item.userName}}</view>
+          </view>
+          <view class="praise_box">
+            <van-icon name="like-o" />
+            <text class="">{{item.giveUpQty}}</text>
+          </view>
+        </view>
+      </view>
+    </waterfall-item>
+  </waterfall>
+</view>

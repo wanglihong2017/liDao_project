@@ -1,0 +1,15 @@
+<view class="details_box" wx:for="{{listComment}}" wx:key="*this" bindtap="goFollowDetails">
+    <view class="flex-row flex-justify-b flex-align-c details_list">
+        <view class="flex-row flex-align-c">
+            <view class="head_image">
+                <image src="{{item.img}}"></image>
+            </view>
+            <view class="title_box">
+                <view class="official">{{item.officialText}}</view>
+                <view class="sub_title">{{item.subText}} {{item.time}}</view>
+            </view>
+        </view>
+        <van-button type="primary"  color="#ed3f14" plain size="mini">关注</van-button>
+    </view>
+    <van-divider />
+</view>
