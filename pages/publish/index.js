@@ -49,6 +49,7 @@ Page({
     userIds:'',
     addressName:'',
     addressPopup:false,
+    getchooseIndex:1
   },
   uploadsimgs(){
     let that = this
@@ -74,8 +75,8 @@ Page({
       maxDuration: 30,
       success: function (res) {
         console.log( res)
-        var filePath = res.tempFiles[0].tempFilePath;
-        var file_length = res.tempFiles.length;
+        var filePath = res.tempFiles;
+        var file_length = filePath.length;
         that.setData({
           count: file_length,
           videoList:res.tempFiles
@@ -118,16 +119,6 @@ Page({
     }
   )
   },
-  initQiniu(token) {
-    var options = {
-      region: "SCN", // 华东区
-      uptoken: token,
-      domain: "https://files.q.lidaokoi.com/",
-      uploadURL: "https://up-z2.qiniup.com",
-      uptokenURL: "https://files.q.lidaokoi.com/api/uptoken",
-    };
-    qiniuUploader.init(options);
-  },
   getToken() {
     api_getToken().then((res) => {
       console.log(res);
@@ -135,10 +126,12 @@ Page({
       if(code==='0'){
         this.data.upToken = data
       }
-      // this.initQiniu(data);
     });
   },
-  onTabChange(event) {},
+  onTabChange(event) {
+    this.data.getchooseIndex = event.detail.index
+    // console.log('1111',event.detail.index)
+  },
   onChange(event) {
     this.setData({
       titlemessage: event.detail
@@ -195,13 +188,18 @@ Page({
       })
       return false
     }
-    var filePath = this.data.fileimgsList;
+    var filePath
+    if(this.data.getchooseIndex===0){
+      filePath = this.data.fileimgsList
+    }else if(this.data.getchooseIndex===1){
+      filePath = this.data.videoList
+    }
     var file_length = filePath.length;
     let that = this
     var getImgData =[]
       for(var i = 0; i < file_length; i++){
           wx.showLoading()
-          var getfilePath = that.data.fileimgsList[i].tempFilePath;
+          var getfilePath = filePath[i].tempFilePath;
           var d = await this.getURl(getfilePath)
           console.log('this.getURl(getfilePath)',d )
           getImgData.push(d)

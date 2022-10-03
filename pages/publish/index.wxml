@@ -11,7 +11,7 @@
                 </view>
             </view>
         </van-tab>
-        <!-- <van-tab title="视频上传">
+        <van-tab title="视频上传">
             <view class="tips_text">请上传视频</view>
              <view class="video_img">
                 <view  class="video_img_box" wx:for="{{videoList}}" key="{{index}}">
@@ -19,16 +19,12 @@
                      <video id="myVideo" src="{{item.tempFilePath}}" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
                    </view>
                 </view>
-                <view class="plus_box">
+                <view class="plus_box" wx:if="{{videoList.length===0}}">
                     <van-icon bindtap="uploadsvideos" size="26" name="plus" />
                 </view>
             </view>
-        </van-tab> -->
+        </van-tab>
     </van-tabs>
-    <!-- <view wx:for="{{fileList}}">
-         <image class="" src="{{item.tempFilePath}}"/>
-    </view>
-    <button bindtap="uploadsvideos">图片上传</button> -->
     <view class="text_title">
         <van-cell-group>
             <van-field value="{{ titlemessage }}" bind:change="onChange" type="text" placeholder="填写标题会有更多攒哦" autosize />
