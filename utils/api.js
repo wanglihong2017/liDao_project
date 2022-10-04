@@ -23,7 +23,8 @@ const api_getCollectionFishList = (params) => request(baseUrl +'/luckyfish/fisha
 const api_collectionUp = (params) => request(baseUrl +'/luckyfish/oper/v1/collectionUp',{...params},'POST',2) //收藏按钮
 const api_nearbyFish = (params) => request(baseUrl +'/luckyfish/fisharticle/v1/nearbyFish',{...params},'GET',2) //发表图文
 const api_addFollow = (params) => request(baseUrl +'/luckyfish/user/v1/addFollow',{...params},'POST',2) //关注
-const api_getNewMessage = (params) => request(baseUrl +'/luckyfish/message/v1/getNewMessage',{...params},'GET',2) //消息
+const api_getNewMessage = (params) => request(baseUrl +'/luckyfish/message/v1/getNewMessage',{...params},'GET',2) //消息通知
+const api_getNewMessageList = (params) => request(baseUrl +'/luckyfish/message/v1/getList',{...params},'GET',2) //消息列表
 module.exports = {
     api_getCity,
     api_checktiken,
@@ -48,5 +49,6 @@ module.exports = {
     api_collectionUp,
     api_nearbyFish,
     api_addFollow,
-    api_getNewMessage
+    api_getNewMessage,
+    api_getNewMessageList
 }

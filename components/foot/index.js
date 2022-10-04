@@ -7,6 +7,10 @@ Component({
     choosseActive:{
       type:Number,
       value:0
+    },
+    setCodeNun:{
+      type:Number,
+      value:0
     }
   },
   observers:{

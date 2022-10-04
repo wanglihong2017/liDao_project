@@ -30,7 +30,7 @@ Page({
   },
   goInqueryBtns(){
     wx.navigateTo({
-      url:'/pages/publish/index?docter=1'
+      url:'/pages/publish/index?articleType=1'
     })
   },
   getInquiryList(){

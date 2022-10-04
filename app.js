@@ -32,6 +32,8 @@ App({
   globalData: {
     userInfo: null,
     userImg:null,
-    othersDetails:{}
+    othersDetails:{},
+    followList:[],
+    commentList:[]
   }
 })

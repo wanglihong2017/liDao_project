@@ -8,8 +8,8 @@
     align-items: center;
 }
 .comment_header{
-    width:90rpx;
-    height:90rpx;
+    width:80rpx;
+    height:80rpx;
 }
 .comment_header image{
     width: 100%;
@@ -22,6 +22,7 @@
 }
 .comment_foots_header{
     margin-top: 20rpx;
+    color: #999;
 }
 .comment_foots_title{
     font-size: 24rpx;
@@ -29,6 +30,7 @@
 }
 .comment_text_header{
     margin: 20rpx 0;
+    color: #999;
 }
 .comment_text{
     width: 90%;

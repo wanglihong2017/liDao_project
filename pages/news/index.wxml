@@ -4,14 +4,14 @@
         <van-tabbar-item icon="contact" dot>新增关注</van-tabbar-item>
         <van-tabbar-item icon="chat-o" dot>评论和@</van-tabbar-item>
     </van-tabbar>
-    <view class="details_box" wx:for="{{listComment}}" wx:key="index" bindtap="goDetails">
+    <view class="details_box" wx:for="{{listComment}}" wx:key="index" bindtap="goDetails" data-id="{{item.id}}" data-userImg = "{{item.postUserImgPath}}">
         <view class="flex-row details_list">
             <view class="head_image">
-                <image src="{{item.img}}"></image>
+                <image src="{{item.postUserImgPath}}"></image>
             </view>
             <view class="title_box">
-                <view class="official">{{item.officialText}}</view>
-                <view class="sub_title">{{item.subText}} {{item.time}}</view>
+                <view class="official">{{item.postUserName}}</view>
+                <view class="sub_title">赞了你的笔记 {{item.createAt}}</view>
             </view>
         </view>
         <van-divider />

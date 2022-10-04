@@ -13,7 +13,8 @@ Page({
     firstProducts:[],
     twoProducts:[],
     tabShow:false,
-    choosseActive:0
+    choosseActive:0,
+    setCodeNun:1
   },
   // 事件处理函数
   onChange(event) {
@@ -131,7 +132,12 @@ Page({
   },
   getNewMessage(){
     api_getNewMessage({userId:wx.getStorageSync("userId") || ""}).then((res)=>{
-      console.log('22222222111',res)
+      let {code,data} = res
+      if(code==='0'){
+        this.setData({
+          setCodeNun:data
+        })
+      }
     })
   },
   onClose(){

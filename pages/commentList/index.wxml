@@ -3,12 +3,12 @@
         <view class="flex-row flex-justify-b flex-align-c details_list" bindtap="goDetails">
             <view class="flex-row flex-align-c">
                 <view class="head_image">
-                    <image src="{{item.img}}"></image>
+                    <image src="{{item.postUserImgPath}}"></image>
                 </view>
                 <view class="title_box">
-                    <view class="official">{{item.officialText}}</view>
-                    <view class="sub_title">{{item.subText}} {{item.time}}</view>
-                    <view class="official">{{item.officialText}}</view>
+                    <view class="sub_title">{{item.postUserName}}</view>
+                    <view class="official">{{item.commentContent}}</view>
+                    <view class="sub_title">{{item.articleType===1?'鱼友圈':'在线问诊'}}{{item.createAt}}</view>
                 </view>
             </view>
         </view>

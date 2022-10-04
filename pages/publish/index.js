@@ -48,7 +48,8 @@ Page({
     userIds:'',
     addressName:'',
     addressPopup:false,
-    getchooseIndex:0
+    getchooseIndex:0,
+    getarticleType:1
   },
   uploadsimgs(){
     let that = this
@@ -206,7 +207,7 @@ Page({
       // console.log('-------that.data.imglist-----', getImgData.join(','))
       let params = {
         userId:wx.getStorageSync('userId') || '',
-        articleType:1, //根据跳转判断
+        articleType:this.data.getarticleType, //根据跳转判断
         title:that.data.titlemessage,
         imgType:that.data.getchooseIndex===0?1:2,
         coverPath:'', //封面图片地址
@@ -274,6 +275,9 @@ Page({
   onLoad(options) {
     this.getToken()
     this.getUserFollowFish()
+    if(options.articleType){
+      this.data.getarticleType = 2
+    }
   },
   userBtns(){
     this.setData({userPopup:true})

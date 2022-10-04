@@ -1,39 +1,14 @@
 // pages/commentList/index.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    listComment:[
-      {
-        img:"https://sns-avatar-qc.xhscdn.com/avatar/5efea5d5de78f700019feb18.jpg?imageView2/1/w/540/format/jpg",
-        officialText:"清风不问烟雨",
-        subText:'赞了你的笔记',
-        time:'2022-08-16',
-      },
-      {
-        img:"https://sns-avatar-qc.xhscdn.com/avatar/5efea5d5de78f700019feb18.jpg?imageView2/1/w/540/format/jpg",
-        officialText:"Kyiro",
-        subText:'收藏了你的笔记111',
-        time:'2022-08-08',
-      }, {
-        img:"https://sns-avatar-qc.xhscdn.com/avatar/5efea5d5de78f700019feb18.jpg?imageView2/1/w/540/format/jpg",
-        officialText:"句号开始111",
-        subText:'赞了你的笔记111',
-        time:'2022-09-16',
-      }
-    ],
+    listComment:[],
     showBtns:false,
     reviewValue:'',
-    jiashudata:{
-      image: 'https://m.360buyimg.com/mobilecms/s750x750_jfs/t24625/227/54958853/292378/ae81b07/5b63c613Na9176fde.jpg!q80.dpg',
-      title: '显瘦中长款系带风衣',
-      describe: '柔软顺滑、上身挺括显瘦，垂坠飘逸、不易皱好打理。',
-      count: '888',
-      delCount: '666',
-      headtext:'花好月圆'
-    }
   },
   commentBtn(){
     this.setData({showBtns:true})
@@ -61,7 +36,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-      
+    if(app.globalData.commentList){
+      this.setData({
+        listComment:app.globalData.commentList
+      })
+    }
   },
 
   /**

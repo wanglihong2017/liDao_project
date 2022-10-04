@@ -3,8 +3,8 @@
     margin: 40rpx auto 20rpx;
 }
 .head_image{
-    width: 100rpx; 
-    height: 100rpx
+    width: 80rpx; 
+    height: 80rpx
 }
 .head_image image{
     width: 100%;

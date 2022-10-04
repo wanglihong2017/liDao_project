@@ -128,5 +128,5 @@
       <van-tab title="拍卖咨询"></van-tab>
     </van-tabs>
   </van-popup>
-  <foots choosseActive="{{choosseActive}}"></foots>
+  <foots choosseActive="{{choosseActive}}" setCodeNun="{{setCodeNun}}"></foots>
 </view>

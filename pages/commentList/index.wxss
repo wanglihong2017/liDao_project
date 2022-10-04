@@ -17,7 +17,7 @@
 .official{
     padding-bottom: 16rpx;
     font-size: 26rpx;
-    margin-top: 20rpx;
+    margin-top: 10rpx;
 }
 .title_box .sub_title{
     font-size: 20rpx;
