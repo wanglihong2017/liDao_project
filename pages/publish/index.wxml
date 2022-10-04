@@ -5,9 +5,12 @@
             <view class="upload_img flex-row flex-align-c">
                 <view  class="upload_img_box" wx:for="{{fileimgsList}}" wx:key="*this">
                     <image class="" src="{{item.tempFilePath}}" />
+                    <view class="van-uploader__preview-delete" data-index="{{index}}" bindtap="deleteBtns">
+                        <text class="van-icon van-icon-cross van-uploader__preview-delete-icon"></text>
+                    </view>
                 </view>
-                <view class="plus_box">
-                    <van-icon bindtap="uploadsimgs" size="26" name="plus" />
+                <view class="plus_box" wx:if="{{fileimgsList.length!=9}}">
+                    <van-icon bindtap="uploadsimgs" size="26" name="photo-o" />
                 </view>
             </view>
         </van-tab>
@@ -20,7 +23,7 @@
                    </view>
                 </view>
                 <view class="plus_box" wx:if="{{videoList.length===0}}">
-                    <van-icon bindtap="uploadsvideos" size="26" name="plus" />
+                    <van-icon bindtap="uploadsvideos" size="26" name="video-o" />
                 </view>
             </view>
         </van-tab>

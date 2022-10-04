@@ -22,17 +22,15 @@ Page({
     ],
   },
   getPhoneNumber(e){
-    console.log(e)
     let that = this
     api_getPhoneNo({code:e.detail.code}).then((res)=>{
       let { code,data } = JSON.parse(res)
-      console.log(data)
       if(code==0){
         that.data.form.phoneNo = data
         console.log('参数',that.data.form)
         api_login(that.data.form).then((result)=>{
-          console.log('3',res)
           let {code,data} = result
+          console.log('1111',code)
           if(code==='0'){
             wx.setStorageSync('token', data.token)
             wx.setStorageSync('userId', data.userId)
@@ -54,7 +52,6 @@ Page({
     });
   },
   getUserInfo(event) {
-    console.log('event',event)
     app.globalData.userInfo = event.detail.userInfo
     this.data.form.encryptedData = event.detail.encryptedData
     this.data.form.iv = event.detail.iv

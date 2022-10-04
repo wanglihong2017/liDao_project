@@ -1,6 +1,9 @@
 .container_box {
   width: 100%;
 }
+.container_box video{
+  width: 100%;
+}
 .container_box swiper {
   width: 100%;
 }

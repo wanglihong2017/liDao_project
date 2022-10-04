@@ -1,5 +1,4 @@
 // pages/publish/index.js
-const qiniuUploader = require("../../utils/qiniuUploader");
 import { api_getToken,api_addfisharticle,api_getUserFollowFish,api_getCity} from "../../utils/api";
 Page({
   /**
@@ -49,7 +48,7 @@ Page({
     userIds:'',
     addressName:'',
     addressPopup:false,
-    getchooseIndex:1
+    getchooseIndex:0
   },
   uploadsimgs(){
     let that = this
@@ -61,7 +60,7 @@ Page({
       success: function (res) {
         console.log('11',res)
         that.setData({
-          fileimgsList:res.tempFiles
+          fileimgsList:[...that.data.fileimgsList,...res.tempFiles]
         })
       }
     })
@@ -121,7 +120,7 @@ Page({
   },
   getToken() {
     api_getToken().then((res) => {
-      console.log(res);
+      // console.log(res);
       let { code, data } = res;
       if(code==='0'){
         this.data.upToken = data
@@ -246,8 +245,8 @@ Page({
         api_getCity(params).then((res)=>{
             console.log('00000',res) //获取城市列表
             let {status,result} = res
-            console.log(status)
-            console.log(result)
+            // console.log(status)
+            // console.log(result)
             if(status===0){
               that.setData({
                 addressName:result.address_component.province + result.address_component.city 
@@ -321,6 +320,14 @@ Page({
         url: '/pages/logo/index'
       })
    }
+  },
+  deleteBtns(e){
+    // console.log('22222333',e.currentTarget.dataset.index)
+    let index = e.currentTarget.dataset.index
+    this.data.fileimgsList.splice(index, 1)
+    this.setData({
+      fileimgsList:this.data.fileimgsList
+    })
   },
 
   /**

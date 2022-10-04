@@ -1,6 +1,6 @@
 <wxs src="./../../utils/public.wxs" module="public"></wxs>
 <view class="">
-    <view class="container_box">
+    <view class="container_box" wx:if="{{details.imgType===1}}">
         <swiper indicator-dots="{{indicatorDots}}" style='height:{{Height}}'>
             <block wx:for="{{public.getImgs(details.imgPath)}}" wx:key="*this">
                 <swiper-item>
@@ -11,6 +11,10 @@
             </block>
         </swiper>
     </view>
+    <view class="container_box" wx:if="{{details.imgType===2}}">
+         <video id="myVideo" src="{{details.imgPath}}" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+    </view>
+      
     <view class="section_text">
         <view class="title_text">{{details.title}}</view>
         <view class="describe_text">{{details.content}}</view>

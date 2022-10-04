@@ -1,4 +1,5 @@
 import {api_getFishList} from '../../utils/api'
+const app = getApp();
 Page({
 
   /**
@@ -11,7 +12,6 @@ Page({
     searchValue:''
   },
   onSearch(){
-    console.log('111',this.data.searchValue)
     let params = {
       lastNewId:'',
       lastHot:'',
@@ -26,6 +26,12 @@ Page({
           products:[...data.fishArticleList]
          })
       }
+    })
+  },
+  getDetailBtn(e){
+    app.globalData.userImg = e.currentTarget.dataset.userimg
+    wx.navigateTo({
+      url:`/pages/detailsPage/index?articleId=${e.currentTarget.dataset.id}&type=1`
     })
   },
   /**

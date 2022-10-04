@@ -25,7 +25,6 @@ Page({
     wx.getFuzzyLocation ({
       type: "wgs84",
       success (res) {
-        console.log('111222',res)
       let params = {
         lastNewId:'',
         userId:wx.getStorageSync('userId') || '',

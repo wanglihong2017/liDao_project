@@ -24,9 +24,8 @@ module.exports = {
                 header:header,
                 // 成功的回调函数
                 success(res) {
-                    console.log('res',res)
                     if(res.data.code==='401'){
-                        wx.redirectTo({
+                        wx.navigateTo({
                             url: '/pages/logo/index'
                         })
                     }

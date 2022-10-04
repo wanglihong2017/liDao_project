@@ -36,7 +36,6 @@ Page({
     })
   },
   onLoad(options) {
-    console.log(app.globalData.othersDetails)
     this.getfollowUserList()
     if(app.globalData.othersDetails){
       this.setData({

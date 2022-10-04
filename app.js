@@ -6,7 +6,6 @@ App({
     const token = wx.getStorageSync('token') || ''
     if(token){
       api_checktiken({token}).then((res)=>{
-        console.log('1111',res)
         let {code} = res
         if(code==='9999'){
           let params = {
