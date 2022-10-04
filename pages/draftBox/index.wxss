@@ -1,0 +1,25 @@
+/* pages/draftBox/index.wxss */
+.details_list{
+    width: 90%;
+    margin: 40rpx auto 20rpx;
+}
+.head_image{
+    width: 90rpx; 
+    height: 90rpx
+}
+.head_image image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.title_box{
+    margin-left: 20rpx;
+}
+.official{
+    padding-bottom: 16rpx;
+    font-size: 26rpx;
+}
+.title_box .sub_title{
+    font-size: 20rpx;
+    color: #ccc;
+}

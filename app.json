@@ -15,7 +15,8 @@
     "pages/detailsPage/index",
     "pages/myFans/index",
     "pages/othersDetails/index",
-    "pages/salePage/index"
+    "pages/salePage/index",
+    "pages/draftBox/index"
   ],
   "requiredPrivateInfos": [
     "getFuzzyLocation"

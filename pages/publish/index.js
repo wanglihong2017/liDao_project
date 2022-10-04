@@ -219,6 +219,7 @@ Page({
         longitude:that.data.longitude,
         address:'',
         userIds:that.data.userIds,//@多个用户
+        isDraft:0
       }
       api_addfisharticle(params).then((res)=>{
         let {code} = res
@@ -308,6 +309,37 @@ Page({
     this.setData({
       textmessage:this.data.textmessage + '@'+event.detail.name,
       userIds:event.detail.userId
+    })
+  },
+  draftBoxBtns(){
+    let that = this
+    let imgBox = []
+    that.data.fileimgsList.forEach((item)=>{
+      imgBox.push(item.tempFilePath)
+    })
+    let params = {
+      userId:wx.getStorageSync('userId') || '',
+      articleType:this.data.getarticleType, //根据跳转判断
+      title:that.data.titlemessage,
+      imgType:that.data.getchooseIndex===0?1:2,
+      coverPath:'', //封面图片地址
+      imgPath:imgBox.join(','),
+      topic:that.data.topicText.name,//话题
+      content:that.data.textmessage,
+      cityName:'',
+      latitude:that.data.latitude,
+      longitude:that.data.longitude,
+      address:'',
+      userIds:that.data.userIds,//@多个用户
+      isDraft:1
+    }
+    api_addfisharticle(params).then((res)=>{
+      let {code} = res
+      if(code==='0'){
+        wx.redirectTo({
+          url: '/pages/draftBox/index'
+        })
+      }
     })
   },
   /**

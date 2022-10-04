@@ -52,7 +52,7 @@
     </view>
       
     <view class="foot_bottons_btns flex-row">
-        <view class="foot_drafts">
+        <view class="foot_drafts" bindtap="draftBoxBtns">
             <van-icon name="todo-list-o" />
             <view class="address">存草稿箱</view>
         </view>
