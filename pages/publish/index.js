@@ -143,7 +143,7 @@ Page({
   },
    getURl(getfilePath){
     const promise = new Promise((resolve,reject)=>{
-      var key = Math.random().toString(36).substr(2); //生成一个随机字符串的文件名
+      var key = (new Date()).valueOf(); //生成一个随机字符串的文件名
       let that = this
       wx.uploadFile({
         url: 'https://up-z2.qiniup.com', //华东地区上传地址
@@ -200,7 +200,7 @@ Page({
           wx.showLoading()
           var getfilePath = filePath[i].tempFilePath;
           var d = await this.getURl(getfilePath)
-          console.log('this.getURl(getfilePath)',d )
+          // console.log('this.getURl(getfilePath)',d )
           getImgData.push(d)
       }
       // console.log('-------that.data.imglist-----', getImgData.join(','))
