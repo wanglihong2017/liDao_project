@@ -1,15 +1,16 @@
-<view class="details_box" wx:for="{{listComment}}" wx:key="*this" bindtap="goFollowDetails">
+<view class="details_box" wx:for="{{listComment}}" wx:key="*this" data-item="{{item}}" bindtap="goFollowDetails">
     <view class="flex-row flex-justify-b flex-align-c details_list">
         <view class="flex-row flex-align-c">
             <view class="head_image">
-                <image src="{{item.img}}"></image>
+                <image src="{{item.postUserImgPath}}"></image>
             </view>
             <view class="title_box">
-                <view class="official">{{item.officialText}}</view>
-                <view class="sub_title">{{item.subText}} {{item.time}}</view>
+                <view class="official">{{item.postUserName}}</view>
+                <view class="sub_title">{{item.content}}</view>
+                <view class="sub_title">{{item.createAt}}</view>
             </view>
         </view>
-        <van-button type="primary"  color="#ed3f14" plain size="mini">关注</van-button>
+        <van-button type="primary" round  color="#ed3f14" plain size="mini">查看</van-button>
     </view>
     <van-divider />
 </view>

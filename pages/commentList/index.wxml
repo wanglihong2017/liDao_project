@@ -1,6 +1,6 @@
 <view>
     <view class="details_box" wx:for="{{listComment}}" wx:key="index">
-        <view class="flex-row flex-justify-b flex-align-c details_list" bindtap="goDetails">
+        <view class="flex-row flex-justify-b flex-align-c details_list"  data-id="{{item.articleId}}" data-userImg = "{{item.userImgPath}}" bindtap="goDetails">
             <view class="flex-row flex-align-c">
                 <view class="head_image">
                     <image src="{{item.postUserImgPath}}"></image>
@@ -13,7 +13,8 @@
             </view>
         </view>
         <view class="comment_foots flex-row flex-justify-b">
-            <van-button icon="chat-o" plain size="mini" color="#495060" bindtap="commentBtn" custom-style="border: none;" type="primary">
+            <!-- <van-button icon="chat-o" plain size="mini" color="#495060" bindtap="commentBtn" custom-style="border: none;" type="primary"> -->
+            <van-button icon="chat-o" plain size="mini" color="#495060" data-id="{{item.articleId}}" data-userImg = "{{item.userImgPath}}" bindtap="goDetails" custom-style="border: none;" type="primary">
                 回复评论
             </van-button>
         </view>

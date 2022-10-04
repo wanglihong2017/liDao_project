@@ -8,7 +8,6 @@ Page({
   data: {
     listComment:[]
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -19,7 +18,8 @@ Page({
       })
     }
   },
-  goFollowDetails(){
+  goFollowDetails(e){
+    app.globalData.othersDetails = e.currentTarget.dataset.item
     wx.navigateTo({
       url: '/pages/othersDetails/index'
     })

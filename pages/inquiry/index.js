@@ -7,17 +7,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-    value: '',
+    inquiryvalue: '',
     active: 0,
     onLineData:[]
   },
   onChange(e) {
     this.setData({
-      value: e.detail,
+      inquiryvalue: e.detail,
     });
   },
   onSearch() {
-    console.log('111')
+    let params = {
+      lastNewId:'',
+      lastHot:'',
+      pageSize:10,
+      searchText:this.data.inquiryvalue,
+      userId:wx.getStorageSync('userId') || ''
+    }
+    api_onlineAsk(params).then((res)=>{
+      let { code,data } = res
+      if(code==='0'){
+        this.setData({
+          onLineData:data.fishArticleList
+        })
+      }
+    })
   },
   ontabChange(event) {
    
