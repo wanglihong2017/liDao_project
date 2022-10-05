@@ -14,11 +14,11 @@
                 <view class="follow_btns">粉丝</view>
             </view>
              <view class="classify_text" bindtap="goCollectBtn">
-                <view>{{detailsData.giveUp}}</view>
+                <view>{{detailsData.collectionCount}}</view>
                 <view class="follow_btns">收藏</view>
              </view>
              <view class="classify_text">
-                <view>{{detailsData.collectionCount}}</view>
+                <view>{{detailsData.giveUp}}</view>
                 <view class="follow_btns">获赞</view>
             </view>
         </view>

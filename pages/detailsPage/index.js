@@ -105,7 +105,7 @@ Page({
       userId: wx.getStorageSync("userId"),
       targetUserId: this.data.details.userId,
       id: this.data.articleId,
-      articleType: 1,
+      articleType: this.data.articleType,
       upType: 1,
       type: index === 1 ? 0 : 1,
     };
@@ -125,7 +125,7 @@ Page({
       userId: wx.getStorageSync("userId"),
       targetUserId: this.data.details.userId,
       id: this.data.articleId,
-      articleType: 1,
+      articleType:this.data.articleType,
       type: index === 1 ? 0 : 1,
     };
     api_collectionUp(params).then((res) => {

@@ -39,7 +39,7 @@ Page({
   goDetails(e){
     app.globalData.userImg = e.currentTarget.dataset.userimg
     wx.navigateTo({
-      url:`/pages/detailsPage/index?articleId=${e.currentTarget.dataset.id}&type=1`
+      url:`/pages/detailsPage/index?articleId=${e.currentTarget.dataset.id}&type=2`
     })
   },
   goInqueryBtns(){
