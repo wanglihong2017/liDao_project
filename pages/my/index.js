@@ -44,6 +44,11 @@ Page({
        }
     })
   },
+  goDraftBtns(){
+    wx.navigateTo({
+      url: '/pages/draftBox/index'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

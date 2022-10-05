@@ -1,5 +1,6 @@
 // pages/draftBox/index.js
 import {api_getDraftList} from '../../utils/api'
+const app = getApp()
 Page({
 
   /**
@@ -16,6 +17,12 @@ Page({
             draftList:data
           })
        }
+    })
+  },
+  publishBtns(e){
+    app.globalData.draftBox = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url: '/pages/publish/index?articleType='+  e.currentTarget.dataset.item.articleType+'&draft=1'
     })
   },
   /**

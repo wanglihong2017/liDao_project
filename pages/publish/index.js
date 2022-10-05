@@ -1,5 +1,6 @@
 // pages/publish/index.js
 import { api_getToken,api_addfisharticle,api_getUserFollowFish,api_getCity} from "../../utils/api";
+const app = getApp()
 Page({
   /**
    * 页面的初始数据
@@ -279,6 +280,29 @@ Page({
     if(options.articleType){
       this.data.getarticleType = 2
     }
+    if(app.globalData.draftBox && options.draft){
+      console.log('app.globalData.draftBox',app.globalData.draftBox)
+      let getData = app.globalData.draftBox
+      this.setData({
+        titlemessage:getData.content,
+        textmessage:getData.title
+      })
+      this.data.latitude = getData.latitude
+      this.data.longitude = getData.longitude
+      if(getData.imgType===1){
+        this.data.getchooseIndex = 0
+        this.setData({
+          fileimgsList:JSON.parse(getData.imgPath),
+          active:0
+        })
+      }else{
+        this.data.getchooseIndex = 1
+        this.setData({
+          videoList:JSON.parse(getData.imgPath),
+          active:1
+        })
+      }
+    }
   },
   userBtns(){
     this.setData({userPopup:true})
@@ -323,7 +347,7 @@ Page({
       title:that.data.titlemessage,
       imgType:that.data.getchooseIndex===0?1:2,
       coverPath:'', //封面图片地址
-      imgPath:imgBox.join(','),
+      imgPath:this.data.getchooseIndex===0?JSON.stringify(this.data.fileimgsList):JSON.stringify(this.data.videoList),
       topic:that.data.topicText.name,//话题
       content:that.data.textmessage,
       cityName:'',

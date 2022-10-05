@@ -28,5 +28,6 @@
         <van-cell title="我的发布" is-link bind:click="goPublishBtn" />
         <van-cell title="我的关注" is-link bind:click="goFollowBtn" />
         <van-cell title="我的收藏" is-link bind:click="goCollectBtn" />
+         <van-cell title="我的草稿箱" is-link bind:click="goDraftBtns" />
         <foots choosseActive="{{choosseActive}}"></foots>
 </view>
