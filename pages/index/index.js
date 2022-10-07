@@ -156,7 +156,9 @@ Page({
     }
   },
   onPullDownRefresh(){
-    
+    setTimeout(()=>{
+      wx.stopPullDownRefresh()
+    },500)
   },
   onReachBottom(){
     if(!(this.data.lastNewId===-1 && this.data.lastHot===-1)){
