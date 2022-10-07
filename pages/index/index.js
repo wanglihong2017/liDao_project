@@ -1,6 +1,6 @@
 // index.js
 // 获取应用实例
-import {api_getCity,api_getFishList,api_getFollowFish,api_nearbyFish,api_getNewMessage} from '../../utils/api'
+import {api_getCity,api_getFishList,api_getFollowFish,api_nearbyFish,api_getNewMessage,api_giveUp} from '../../utils/api'
 const app = getApp();
 
 Page({
@@ -98,6 +98,7 @@ Page({
     })
   },
   getList(lastNewId="",lastHot=""){
+    console.log('lastNewId',lastNewId) 
     let params = {
       lastNewId:lastNewId,
       lastHot:lastHot,
@@ -146,6 +147,29 @@ Page({
   },
   onClose(){
     this.setData({ tabShow: false })
+  },
+  giveUpBtns(e){
+    console.log(e.currentTarget.dataset.item)
+    let getData = e.currentTarget.dataset.item 
+    let params = {
+      userId: wx.getStorageSync("userId"),
+      targetUserId: getData.userId,
+      id: getData.id,
+      articleType:getData.articleType,
+      upType: 1,
+      type: getData.isGiveUp === 1 ? 0 : 1,
+    };
+    api_giveUp(params).then((res) => {
+      let { code } = res;
+      if (code === "0") {
+        let index =  this.data.products.findIndex((item)=> item.id === getData.id)
+        // var isGiveUp = "products[" + index + "].isGiveUp"; //这里必须这样拼接
+        // this.setData({ //异步刷新，就是渲染
+        //     [isGiveUp] : getData.isGiveUp === 1 ? 0 : 1 //修改值为0
+        // })
+        this.getList()
+      }
+    });
   },
   onShow() {
     this.setData({

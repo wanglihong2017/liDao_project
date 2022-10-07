@@ -52,8 +52,9 @@
             </view>
             <view class="headimgs_text">{{item.userName}}</view>
           </view>
-          <view class="praise_box">
-            <van-icon name="like-o" />
+          <view class="praise_box" catchtap="giveUpBtns" data-item="{{item}}" >
+            <van-icon name="like-o"  wx:if="{{item.isGiveUp===0}}"/>
+            <van-icon name="like"  color="#ed3f14" wx:if="{{item.isGiveUp===1}}"/>
             <text class="">{{item.giveUpQty}}</text>
           </view>
         </view>
@@ -81,8 +82,9 @@
             </view>
             <view class="headimgs_text">{{item.userName}}</view>
           </view>
-          <view class="praise_box">
-            <van-icon name="like-o" />
+          <view class="praise_box" catchtap="giveUpBtns"  data-item="{{item}}">
+              <van-icon name="like-o"  wx:if="{{item.isGiveUp===0}}"/>
+             <van-icon name="like"  color="#ed3f14" wx:if="{{item.isGiveUp===1}}"/>
             <text class="">{{item.giveUpQty}}</text>
           </view>
         </view>
@@ -110,8 +112,9 @@
             </view>
             <view class="headimgs_text">{{item.userName}}</view>
           </view>
-          <view class="praise_box">
-            <van-icon name="like-o" />
+          <view class="praise_box" catchtap="giveUpBtns"  data-item="{{item}}">
+             <van-icon name="like-o"  wx:if="{{item.isGiveUp===0}}"/>
+            <van-icon name="like"  color="#ed3f14" wx:if="{{item.isGiveUp===1}}"/>
             <text class="">{{item.giveUpQty}}</text>
           </view>
         </view>
