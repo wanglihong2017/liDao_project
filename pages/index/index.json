@@ -8,5 +8,6 @@
     "waterfall": "/components/waterfall-layout/waterfall",
     "waterfall-item": "/components/waterfall-layout/waterfall-item"
   },
-  "navigationBarTitleText": "鱼友圈"
+  "navigationBarTitleText": "鱼友圈",
+  "enablePullDownRefresh":true
 }

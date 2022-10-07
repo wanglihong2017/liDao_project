@@ -14,7 +14,9 @@ Page({
     twoProducts:[],
     tabShow:false,
     choosseActive:0,
-    setCodeNun:1
+    setCodeNun:1,
+    lastNewId:'',
+    lastHot:''
   },
   // 事件处理函数
   onChange(event) {
@@ -95,10 +97,10 @@ Page({
       url:`/pages/detailsPage/index?articleId=${e.currentTarget.dataset.id}&type=1`
     })
   },
-  getList(){
+  getList(lastNewId="",lastHot=""){
     let params = {
-      lastNewId:'',
-      lastHot:'',
+      lastNewId:lastNewId,
+      lastHot:lastHot,
       pageSize:10,
       searchText:'',
       userId:wx.getStorageSync('userId') || ''
@@ -106,6 +108,8 @@ Page({
     api_getFishList(params).then((res)=>{
       let {code,data} = res
       if(code === '0' ){
+         this.data.lastNewId = data.lastNewId
+         this.data.lastHot = data.lastHot
          this.setData({
           products:[...data.fishArticleList]
          })
@@ -151,4 +155,12 @@ Page({
       this.getNewMessage()
     }
   },
+  onPullDownRefresh(){
+    
+  },
+  onReachBottom(){
+    if(!(this.data.lastNewId===-1 && this.data.lastHot===-1)){
+      this.getList(this.data.lastNewId,this.data.lastHot)
+    }
+  }
 });
