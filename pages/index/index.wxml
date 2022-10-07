@@ -13,7 +13,7 @@
       </view>
     </view>
   </view>
-  <view class="tab_color">
+  <view class="tab_color" wx:if="{{active===1}}">
     <van-tabs active="{{ tabactive }}" bind:change="goPageBtns">
       <van-tab title="鱼友圈"></van-tab>
       <van-tab bindtap="saleBtns" title="拍卖资讯"></van-tab>
