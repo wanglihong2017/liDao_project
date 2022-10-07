@@ -1,18 +1,18 @@
 <view>
-    <view wx:for="{{followArrey}}" wx:key="index">
-        <view class="follow_box flex-row flex-align-c flex-justify-b" bindtap="goFans">
+    <view wx:for="{{followArrey}}"wx:key="index" >
+        <view class="follow_box flex-row flex-align-c flex-justify-b" data-item="{{item}}" bindtap="goFans">
             <view class="flex-row flex-align-c">
                 <view class="head_imgs">
-                    <image class="" src="{{item.headimgs}}"></image>
+                    <image class="" src="{{item.imgPath}}"></image>
                 </view>
                 <view class="head_text">
-                    <view>{{item.name}}</view>
-                    <text>发布*{{item.publishNum}}</text>
+                    <view class="details">{{item.userName}}</view>
+                    <text class="details">发帖 * {{item.articleCount}}</text>
                 </view>
             </view>
             <van-button  type="info"  color="#ed3f14" size="mini">回粉</van-button>
         </view>
         <van-divider />
     </view>
-    <van-empty wx:if="{{followArrey.length===0}}" description="暂未关注" />
+    <van-empty wx:if="{{followArrey.length===0}}" description="多发帖子，可以获得更多粉丝哦" />
 </view>

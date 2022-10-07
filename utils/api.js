@@ -25,7 +25,8 @@ const api_nearbyFish = (params) => request(baseUrl +'/luckyfish/fisharticle/v1/n
 const api_addFollow = (params) => request(baseUrl +'/luckyfish/user/v1/addFollow',{...params},'POST',2) //关注
 const api_getNewMessage = (params) => request(baseUrl +'/luckyfish/message/v1/getNewMessage',{...params},'GET',2) //消息通知
 const api_getNewMessageList = (params) => request(baseUrl +'/luckyfish/message/v1/getList',{...params},'GET',2) //消息列表
-const api_getDraftList = (params) => request(baseUrl +'/luckyfish/fisharticle/v1/getDraftList',{...params},'GET',2) //消息列表
+const api_getDraftList = (params) => request(baseUrl +'/luckyfish/fisharticle/v1/getDraftList',{...params},'GET',2) //草稿箱消息
+const api_getFollowMe = (params) => request(baseUrl +'/luckyfish/user/v1/getFollowMe',{...params},'GET',2) //我的粉丝
 module.exports = {
     api_getCity,
     api_checktiken,
@@ -52,5 +53,6 @@ module.exports = {
     api_addFollow,
     api_getNewMessage,
     api_getNewMessageList,
-    api_getDraftList
+    api_getDraftList,
+    api_getFollowMe
 }

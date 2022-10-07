@@ -2,6 +2,8 @@
   "usingComponents": {
     "van-divider": "@vant/weapp/divider/index",
     "van-cell": "@vant/weapp/cell/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-icon": "@vant/weapp/icon/index",
     "foots":"/components/foot/index"
   },
   "navigationBarTitleText": "我的"

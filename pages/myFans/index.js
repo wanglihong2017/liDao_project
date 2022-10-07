@@ -1,31 +1,38 @@
 // pages/myCollection/index.js
+import { api_getFollowMe } from '../../utils/api'
+const app =  getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    followArrey:[
-      {
-        headimgs:'https://sns-avatar-qc.xhscdn.com/avatar/5efea5d5de78f700019feb18.jpg?imageView2/1/w/540/format/jpg',
-        name:'清风不问秋月',
-        publishNum:6
-      },
-      {
-        headimgs:'https://sns-avatar-qc.xhscdn.com/avatar/5efea5d5de78f700019feb18.jpg?imageView2/1/w/540/format/jpg',
-        name:'清风不问秋月',
-        publishNum:6
-      }
-    ]
+    followArrey:[]
   },
-
+  getList(num){
+    let params = {
+      userId:wx.getStorageSync('userId') || '',
+      pageNum:num,
+      pageSize:10
+    }
+    api_getFollowMe(params).then((res)=>{
+      let { code,data } = res
+      if(code==='0'){
+        this.setData({
+          followArrey:data
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.getList(1)
   },
-  goFans(){
+  goFans(e){
+    console.log('111',e.currentTarget.dataset.item)
+    app.globalData.othersDetails = e.currentTarget.dataset.item
     wx.navigateTo({
       url: '/pages/othersDetails/index'
     })

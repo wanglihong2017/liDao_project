@@ -9,7 +9,8 @@ Page({
   data: {
     userData:{},
     detailsData:{},
-    choosseActive:4
+    choosseActive:4,
+    upShow:false
   },
   goPublishBtn(){
     wx.navigateTo({
@@ -48,6 +49,14 @@ Page({
     wx.navigateTo({
       url: '/pages/draftBox/index'
     })
+  },
+  giveUpNums(){
+    this.setData({
+      upShow:true
+    })
+  },
+  onClose() {
+    this.setData({ upShow: false });
   },
   /**
    * 生命周期函数--监听页面加载

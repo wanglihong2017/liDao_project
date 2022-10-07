@@ -14,7 +14,7 @@
 .head_text{
     padding-left: 16rpx;
 }
-.head_text text{
+.head_text .details{
     font-size: 26rpx;
     color: #999;
 }

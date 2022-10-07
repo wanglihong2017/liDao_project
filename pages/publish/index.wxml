@@ -57,7 +57,7 @@
             <view class="address">存草稿箱</view>
         </view>
         <view>
-            <van-button  style="width:500rpx" bindtap="publishBtns" color="#ed3f14" round type="info">发布帖子</van-button>
+            <van-button  disabled="{{fileimgsList.length===0 || videoList.length===0}}" style="width:500rpx" bindtap="publishBtns" color="#ed3f14" round type="info">发布帖子</van-button>
         </view>
     </view>
     <!-- 弹框 -->

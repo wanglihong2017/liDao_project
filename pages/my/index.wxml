@@ -17,7 +17,7 @@
                 <view>{{detailsData.collectionCount}}</view>
                 <view class="follow_btns">收藏</view>
              </view>
-             <view class="classify_text">
+             <view class="classify_text" bindtap="giveUpNums">
                 <view>{{detailsData.giveUp}}</view>
                 <view class="follow_btns">获赞</view>
             </view>
@@ -28,6 +28,30 @@
         <van-cell title="我的发布" is-link bind:click="goPublishBtn" />
         <van-cell title="我的关注" is-link bind:click="goFollowBtn" />
         <van-cell title="我的收藏" is-link bind:click="goCollectBtn" />
-         <van-cell title="我的草稿箱" is-link bind:click="goDraftBtns" />
+        <van-cell title="我的草稿箱" is-link bind:click="goDraftBtns" />
         <foots choosseActive="{{choosseActive}}"></foots>
+        <van-dialog
+            use-slot
+            title="获赞与收藏"
+            show="{{ upShow }}"
+            confirmButtonText="我知道了"
+            bind:close="onClose"
+            >
+           <view class="upShow_box"><van-icon color="#2d8cf0" name="todo-list" />
+               <text class="text_shows" >
+                   当前发布的笔记 {{detailsData.sendCount}}
+               </text> 
+            </view>
+           <view class="upShow_box"><van-icon color="#ed3f14" name="like" />
+              <text class="text_shows" >
+                   当前获得点赞数 {{detailsData.giveUp}}
+               </text> 
+           </view>
+           <view class="upShow_box"><van-icon color="#ff9900" name="star" />
+              <text class="text_shows" >
+                   当前获得收藏数 {{detailsData.collectionCount}}
+               </text> 
+           </view>
+        </van-dialog>
+
 </view>
