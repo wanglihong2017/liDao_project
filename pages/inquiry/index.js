@@ -33,9 +33,6 @@ Page({
       }
     })
   },
-  ontabChange(event) {
-   
-  },
   goDetails(e){
     app.globalData.userImg = e.currentTarget.dataset.userimg
     wx.navigateTo({

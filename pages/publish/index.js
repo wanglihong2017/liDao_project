@@ -182,12 +182,6 @@ Page({
         icon: 'error',
       })
       return false
-    }else if(!this.data.getaddress){
-      wx.showToast({
-        title: `请授权`,
-        icon: 'error',
-      })
-      return false
     }
     var filePath
     if(this.data.getchooseIndex===0){

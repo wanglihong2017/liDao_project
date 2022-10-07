@@ -1,6 +1,6 @@
 <wxs src="./../../utils/public.wxs" module="public"></wxs>
 <view>
-    <van-search value="{{ searchValue }}" placeholder="请输入要搜索的内容" use-action-slot bind:search="onSearch">
+    <van-search value="{{ searchValue }}" placeholder="请输入要搜索的内容"  bind:change="onChange" use-action-slot bind:search="onSearch">
         <view slot="action" bind:tap="onSearch">搜索</view>
     </van-search>
     <!-- 瀑布流 -->

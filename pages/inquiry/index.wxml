@@ -2,11 +2,11 @@
     <van-search value="{{ inquiryvalue }}" placeholder="请输入搜索关键词" use-action-slot bind:change="onChange">
         <view slot="action" bind:tap="onSearch">搜索</view>
     </van-search>
-    <van-tabs active="{{ active }}" bind:change="ontabChange">
+    <!-- <van-tabs active="{{ active }}" bind:change="ontabChange">
         <van-tab title="最新"></van-tab>
         <van-tab title="最多点赞"></van-tab>
         <van-tab title="最多评论"></van-tab>
-    </van-tabs>
+    </van-tabs> -->
     <!-- 详情页 -->
     <view class="comment_list_boxs" bindtap="goDetails" wx:if="{{onLineData.length!=0}}" wx:for="{{onLineData}}" key="{{index}}" data-id="{{item.id}}" data-userImg = "{{item.userImgPath}}">
        <view class="comment_boxs">

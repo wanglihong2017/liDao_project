@@ -117,3 +117,7 @@
 .delete_box{
   margin-right: 40rpx;
 }
+.reply_box{
+  width: 540rpx;
+  margin: 0 auto;
+}

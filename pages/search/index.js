@@ -11,19 +11,24 @@ Page({
     products:[],
     searchValue:''
   },
+  onChange(e){
+    this.setData({
+      searchValue: e.detail,
+    })
+  },
   onSearch(){
     let params = {
       lastNewId:'',
       lastHot:'',
       pageSize:10,
-      searchText:'',
+      searchText:this.data.searchValue,
       userId:wx.getStorageSync('userId') || ''
     }
     api_getFishList(params).then((res)=>{
       let {code,data} = res
       if(code === '0' ){
          this.setData({
-          products:[...data.fishArticleList]
+          products:data.fishArticleList
          })
       }
     })

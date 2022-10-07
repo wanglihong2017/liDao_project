@@ -61,6 +61,7 @@
                 <van-icon color="{{item.isGiveUp===0?'#ed3f14':'#000'}}" name="like-o" />
             </view>
         </view>
+        <view class="reply_box"><van-button round  size="mini">回复</van-button></view>  
         <view class="flex-row flex-align-c serch_box" wx:if="{{item.detailList.length!=0}}">
             <view class="serch_header"></view>
             <view class="flex-row flex-align-c" wx:for="{{item.detailList}}" wx:for-item="pro" wx:key="{{pro.parentId}}">
