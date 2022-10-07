@@ -129,7 +129,7 @@ Page({
     //    })
     //   }
     //  })  
-     this.getList()
+    //  this.getList()
   },
   tabShowBtns(){
     this.setData({ tabShow: true })
@@ -154,6 +154,7 @@ Page({
     if(wx.getStorageSync("userId")){
       this.getNewMessage()
     }
+    this.getList()
   },
   onPullDownRefresh(){
     setTimeout(()=>{

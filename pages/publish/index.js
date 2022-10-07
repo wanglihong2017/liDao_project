@@ -220,7 +220,7 @@ Page({
         let {code} = res
         if(code==='0'){
           wx.redirectTo({
-            url: '/pages/myPublish/index'
+            url: '/pages/index/index'
           })
         }
       })
