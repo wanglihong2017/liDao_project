@@ -98,7 +98,6 @@ Page({
     })
   },
   getList(lastNewId="",lastHot=""){
-    console.log('lastNewId',lastNewId) 
     let params = {
       lastNewId:lastNewId,
       lastHot:lastHot,
@@ -111,8 +110,10 @@ Page({
       if(code === '0' ){
          this.data.lastNewId = data.lastNewId
          this.data.lastHot = data.lastHot
+         let getData= [...this.data.products,...data.fishArticleList]
+         console.log('getData',getData)
          this.setData({
-          products:[...data.fishArticleList]
+          products:getData
          })
       }
     })
@@ -149,7 +150,6 @@ Page({
     this.setData({ tabShow: false })
   },
   giveUpBtns(e){
-    console.log(e.currentTarget.dataset.item)
     let getData = e.currentTarget.dataset.item 
     let params = {
       userId: wx.getStorageSync("userId"),
@@ -162,12 +162,34 @@ Page({
     api_giveUp(params).then((res) => {
       let { code } = res;
       if (code === "0") {
-        let index =  this.data.products.findIndex((item)=> item.id === getData.id)
-        // var isGiveUp = "products[" + index + "].isGiveUp"; //这里必须这样拼接
-        // this.setData({ //异步刷新，就是渲染
-        //     [isGiveUp] : getData.isGiveUp === 1 ? 0 : 1 //修改值为0
-        // })
-        this.getList()
+        if(this.data.active==1){
+          var index =  this.data.products.findIndex((item)=> item.id === getData.id)
+          var isGiveUp = "products[" + index + "].isGiveUp" //这里必须这样拼接
+          var giveUpQty = "products[" + index + "].giveUpQty"
+          var giveUpQtyNum = this.data.products[index].giveUpQty
+          this.setData({ //异步刷新，就是渲染
+              [isGiveUp] : getData.isGiveUp === 1 ? 0 : 1, //修改值为0
+              [giveUpQty] :getData.isGiveUp === 1 ? giveUpQtyNum-1:giveUpQtyNum+1
+          })
+        }else if(this.data.active==2){
+          var index =  this.data.twoProducts.findIndex((item)=> item.id === getData.id)
+          var isGiveUp = "twoProducts[" + index + "].isGiveUp" //这里必须这样拼接
+          var giveUpQty = "twoProducts[" + index + "].giveUpQty"
+          var giveUpQtyNum = this.data.twoProducts[index].giveUpQty
+          this.setData({ //异步刷新，就是渲染
+              [isGiveUp] : getData.isGiveUp === 1 ? 0 : 1, //修改值为0
+              [giveUpQty] :getData.isGiveUp === 1 ? giveUpQtyNum-1:giveUpQtyNum+1
+          })
+        }else if(this.data.active==0){
+          var index =  this.data.firstProducts.findIndex((item)=> item.id === getData.id)
+          var isGiveUp = "firstProducts[" + index + "].isGiveUp" //这里必须这样拼接
+          var giveUpQty = "firstProducts[" + index + "].giveUpQty"
+          var giveUpQtyNum = this.data.firstProducts[index].giveUpQty
+          this.setData({ //异步刷新，就是渲染
+              [isGiveUp] : getData.isGiveUp === 1 ? 0 : 1, //修改值为0
+              [giveUpQty] :getData.isGiveUp === 1 ? giveUpQtyNum-1:giveUpQtyNum+1
+          })
+        }
       }
     });
   },
