@@ -69,7 +69,7 @@ Page({
     }
    }
     if(event.detail.name===1){
-      this.getList()
+        this.getList()
     }
   },
   searchBtns(){
@@ -209,7 +209,9 @@ Page({
   },
   onReachBottom(){
     if(!(this.data.lastNewId===-1 && this.data.lastHot===-1)){
-      this.getList(this.data.lastNewId,this.data.lastHot)
+       if(this.data.lastNewId!='' && this.data.lastHot!=''){
+         this.getList(this.data.lastNewId,this.data.lastHot)
+       }
     }
   }
 });

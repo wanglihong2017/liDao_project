@@ -28,8 +28,9 @@ module.exports = {
                         wx.navigateTo({
                             url: '/pages/logo/index'
                         })
+                        return
                     }
-                    else if (res.statusCode === 200) {
+                    else if (res.statusCode === 200 && res.data.code==='0') {
                     // 将response的数据resolve出去
                         resolve(res.data)
                         wx.hideLoading()
