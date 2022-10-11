@@ -12,7 +12,7 @@
         </swiper>
     </view>
     <view class="container_box" wx:if="{{details.imgType===2}}">
-         <video id="myVideo" src="{{details.imgPath}}" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+         <video id="myVideo" autoplay 	danmu-btn="{{false}}" src="{{details.imgPath}}" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
     </view>
       
     <view class="section_text">
