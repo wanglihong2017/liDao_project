@@ -24,6 +24,7 @@ Page({
     active:event.detail.name
    })
    if(event.detail.name===2){
+    this.data.twoProducts = []
      let that  = this
     wx.getFuzzyLocation ({
       type: "wgs84",
@@ -48,6 +49,7 @@ Page({
      })
    }
    if(event.detail.name===0){
+    this.data.firstProducts = []
     if(!wx.getStorageSync('token')){
       wx.navigateTo({
         url: '/pages/logo/index'
@@ -69,6 +71,7 @@ Page({
     }
    }
     if(event.detail.name===1){
+        this.data.products = []
         this.getList()
     }
   },

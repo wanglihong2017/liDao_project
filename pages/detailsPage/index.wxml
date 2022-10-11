@@ -5,7 +5,7 @@
             <block wx:for="{{public.getImgs(details.imgPath)}}" wx:key="*this">
                 <swiper-item>
                     <view class="image_box">
-                        <image class=""  mode="widthFix" bindload='imgHeight' src="{{item}}" />
+                        <image class="" show-menu-by-longpress  mode="widthFix" bindload='imgHeight' src="{{item}}" />
                     </view>
                 </swiper-item>
             </block>

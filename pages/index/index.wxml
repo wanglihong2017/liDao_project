@@ -3,7 +3,7 @@
 <view class="">
   <view class="search_header_box">
     <view class="search_header">
-      <van-tabs sticky active="{{ active }}" bind:click="onChange">
+      <van-tabs active="{{ active }}" bind:click="onChange">
         <van-tab title="关注"></van-tab>
         <van-tab title="发现"></van-tab>
         <van-tab title="附近"></van-tab>
