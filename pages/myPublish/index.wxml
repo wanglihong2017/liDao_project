@@ -1,5 +1,9 @@
   <!-- 瀑布流 -->
-  <wxs src="./../../utils/public.wxs" module="public"></wxs>
+   <wxs src="./../../utils/public.wxs" module="public"></wxs>
+  <van-tabs active="{{ active }}" bind:change="onChange">
+  <van-tab title="鱼友圈"></van-tab>
+  <van-tab title="在线问诊"></van-tab>
+</van-tabs>
   <waterfall custom-class="waterfall-box" wx:if="{{products.length!=0}}" loading="{{updateLoading}}"  isAllLoaded="{{isAllLoaded}}">
     <waterfall-item custom-class="product-item-box" wx:for="{{products}}" wx:key="index">
       <view class="water_flow_box" bindtap="getDetailBtn" data-id="{{item.id}}" data-userImg = "{{item.userImgPath}}">

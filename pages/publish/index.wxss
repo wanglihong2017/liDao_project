@@ -77,8 +77,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 14px;
-    height: 14px;
+    width: 50rpx;
+    height: 50rpx;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 0 0 0 12px;
 }
@@ -87,7 +87,7 @@
     top: -2px;
     right: -2px;
     color: #fff;
-    font-size: 16px;
+    font-size:50rpx;
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
 }
@@ -101,6 +101,7 @@
 }
 .van-icon-cross:before {
     content: '\e6a7';
+    font-size:52rpx;
 }
 .van-icon:before {
     display: inline-block;

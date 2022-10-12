@@ -8,7 +8,8 @@ Page({
   data: {
     updateLoading:false,
     isAllLoaded:true,
-    products:[]
+    products:[],
+    active:0
   },
   getDetailBtn(e){
     app.globalData.userImg = e.currentTarget.dataset.userimg
@@ -16,14 +17,19 @@ Page({
       url:`/pages/detailsPage/index?articleId=${e.currentTarget.dataset.id}&type=1`
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
+  onChange(event){
+    let name  = event.detail.name===0? 1:2
+    this.getList(name)
+    this.setData({
+      products:[]
+    })
+  },
+  getList(articleType=1){
     let params = {
       userId:wx.getStorageSync('userId') || '',
       lastNewId:'',
-      pageSize:10
+      pageSize:10,
+      articleType
     }
     api_getUserFishList(params).then((res)=>{
       let {code,data} = res
@@ -33,6 +39,12 @@ Page({
         })
       }
     })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(options) {
+    this.getList()
   },
 
   /**
