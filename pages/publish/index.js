@@ -229,6 +229,7 @@ Page({
               console.log(res)
             })
           }
+          this.disable()
         }
       })
   },
@@ -307,6 +308,7 @@ Page({
         })
       }
     }
+    this.upPop()
   },
   userBtns(){
     this.setData({userPopup:true})
@@ -364,9 +366,34 @@ Page({
     api_addfisharticle(params).then((res)=>{
       let {code} = res
       if(code==='0'){
+        this.disable()
         wx.redirectTo({
           url: '/pages/draftBox/index'
         })
+      }
+    })
+  },
+  upPop(){
+    wx.enableAlertBeforeUnload({
+      message:'你编辑还没完成，确定要退出吗',
+      success(res) {
+        console.log('success:', res)
+      },
+      fail(res) {
+        console.log('fail:', res)
+      },
+    })
+  },
+  disable() {
+    wx.disableAlertBeforeUnload({
+      success(res) {
+        console.log('success:', res)
+      },
+      fail(res) {
+        console.log('fail:', res)
+      },
+      complete(res) {
+        console.log('complete:', res)
       }
     })
   },
