@@ -1,7 +1,7 @@
 /* pages/draftBox/index.wxss */
 .details_list{
     width: 90%;
-    margin: 40rpx auto 20rpx;
+    margin: 0 auto;
 }
 .head_image{
     width: 90rpx; 
@@ -22,4 +22,13 @@
 .title_box .sub_title{
     font-size: 20rpx;
     color: #ccc;
+}
+.dele_btns{
+    width: 100rpx;
+    height: 160rpx;
+    line-height: 160rpx;
+    background: #ed3f14;
+    color: #fff;
+    padding: 20rpx;
+    text-align: center;
 }

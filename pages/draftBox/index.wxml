@@ -1,17 +1,29 @@
-<view class="details_box" wx:for="{{draftList}}" wx:key="*this" data-item="{{item}}" bindtap="publishBtns">
-    <view class="flex-row flex-justify-b flex-align-c details_list">
-        <view class="flex-row flex-align-c">
-            <view class="head_image">
-                <image src="{{item.userImgPath}}"></image>
-            </view>
-            <view class="title_box">
-                <view class="official">{{item.userName}}</view>
-                <view class="sub_title">{{item.content}}</view>
-                <view class="sub_title">{{item.createAt}}</view>
-            </view>
+<view class="details_box" wx:for="{{draftList}}" wx:key="*this" >
+    <van-swipe-cell right-width="{{ 70 }}">
+        <van-cell-group>
+            <van-cell title="" value="">
+                <view class="flex-row flex-justify-b flex-align-c details_list">
+                    <view class="flex-row flex-align-c">
+                        <view class="head_image">
+                            <image src="{{item.userImgPath}}"></image>
+                        </view>
+                        <view class="title_box">
+                            <view class="official">{{item.userName}}</view>
+                            <view class="sub_title">{{item.content}}</view>
+                            <view class="sub_title">{{item.createAt}}</view>
+                        </view>
+                    </view>
+                    <van-button type="primary" round color="#ed3f14" data-item="{{item}}"  bindtap="publishBtns" plain size="mini">
+                        去发布
+                    </van-button>
+                </view>
+            </van-cell>
+        </van-cell-group>
+        <view slot="right" >
+             <view class="dele_btns" data-id="{{item.id}}" bindtap="deleBtns">
+                删除
+             </view>  
         </view>
-        <van-button type="primary" round  color="#ed3f14" plain size="mini">去发布</van-button>
-    </view>
-    <van-divider />
+    </van-swipe-cell>
 </view>
- <van-empty wx:if="{{draftList.length===0}}" description="草稿箱为空" />
+<van-empty wx:if="{{draftList.length===0}}" description="草稿箱为空" />

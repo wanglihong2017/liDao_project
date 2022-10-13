@@ -1,5 +1,5 @@
 // pages/publish/index.js
-import { api_getToken,api_addfisharticle,api_getUserFollowFish,api_getCity} from "../../utils/api";
+import { api_getToken,api_addfisharticle,api_getUserFollowFish,api_getCity,api_deleteDraft} from "../../utils/api";
 const app = getApp()
 Page({
   /**
@@ -50,7 +50,8 @@ Page({
     addressName:'',
     addressPopup:false,
     getchooseIndex:0,
-    getarticleType:1
+    getarticleType:1,
+    draftType:0
   },
   uploadsimgs(){
     let that = this
@@ -222,6 +223,12 @@ Page({
           wx.redirectTo({
             url: '/pages/index/index'
           })
+          if(this.data.draftType==1){
+            console.log(app.globalData.draftBox.id)
+            api_deleteDraft({id:app.globalData.draftBox.id}).then((res)=>{
+              console.log(res)
+            })
+          }
         }
       })
   },
@@ -273,6 +280,9 @@ Page({
     this.getUserFollowFish()
     if(options.articleType){
       this.data.getarticleType = 2
+    }
+    if(options.draft){
+      this.data.draftType = options.draft
     }
     if(app.globalData.draftBox && options.draft){
       console.log('app.globalData.draftBox',app.globalData.draftBox)

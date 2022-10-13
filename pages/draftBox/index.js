@@ -1,5 +1,5 @@
 // pages/draftBox/index.js
-import {api_getDraftList} from '../../utils/api'
+import {api_getDraftList,api_deleteDraft} from '../../utils/api'
 const app = getApp()
 Page({
 
@@ -23,6 +23,14 @@ Page({
     app.globalData.draftBox = e.currentTarget.dataset.item
     wx.navigateTo({
       url: '/pages/publish/index?articleType='+  e.currentTarget.dataset.item.articleType+'&draft=1'
+    })
+  },
+  deleBtns(e){
+    api_deleteDraft({id:e.currentTarget.dataset.id}).then((res)=>{
+      let { code } = res
+      if(code === '0'){
+        this.getDraftList()
+      }
     })
   },
   /**
