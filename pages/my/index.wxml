@@ -29,7 +29,7 @@
         <van-cell title="我的关注" is-link bind:click="goFollowBtn" />
         <van-cell title="我的收藏" is-link bind:click="goCollectBtn" />
         <van-cell title="我的草稿箱" is-link bind:click="goDraftBtns" />
-        <foots choosseActive="{{choosseActive}}"></foots>
+        <foots choosseActive="{{choosseActive}}" setCodeNun="{{setCodeNun}}"></foots>
         <van-dialog
             use-slot
             title="获赞与收藏"

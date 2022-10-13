@@ -1,5 +1,5 @@
 // pages/news/index.js
-import { api_getNewMessageList } from '../../utils/api'
+import { api_getNewMessageList,api_read } from '../../utils/api'
 const app = getApp()
 Page({
 
@@ -28,6 +28,9 @@ Page({
   },
   goDetails(e){
     app.globalData.userImg = e.currentTarget.dataset.userimg
+    api_read({id:e.currentTarget.dataset.id}).then((res)=>{
+      console.log('wwqq',res)
+    })
     wx.navigateTo({
       url:`/pages/detailsPage/index?articleId=${e.currentTarget.dataset.id}&type=1`
     })

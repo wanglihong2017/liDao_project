@@ -10,7 +10,8 @@ Page({
     userData:{},
     detailsData:{},
     choosseActive:4,
-    upShow:false
+    upShow:false,
+    setCodeNun:1
   },
   goPublishBtn(){
     wx.navigateTo({
@@ -64,6 +65,11 @@ Page({
   onLoad(options) {
     if(wx.getStorageSync('userId')){
       this.getMyDataDetails()
+    }
+    if(app.globalData.giveUpNum){
+      this.setData({
+        setCodeNun:app.globalData.giveUpNum
+      })
     }
   },
 

@@ -88,6 +88,7 @@
   bottom: 0;
   left: 0;
   z-index: 8888;
+  padding: 16rpx 0;
 }
 .prize_box .serch_bos{
   width: 136rpx;

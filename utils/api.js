@@ -27,7 +27,8 @@ const api_getNewMessage = (params) => request(baseUrl +'/luckyfish/message/v1/ge
 const api_getNewMessageList = (params) => request(baseUrl +'/luckyfish/message/v1/getList',{...params},'GET',2) //消息列表
 const api_getDraftList = (params) => request(baseUrl +'/luckyfish/fisharticle/v1/getDraftList',{...params},'GET',2) //草稿箱消息
 const api_getFollowMe = (params) => request(baseUrl +'/luckyfish/user/v1/getFollowMe',{...params},'GET',2) //我的粉丝
-const api_deleteDraft = (params) => request(baseUrl +'/luckyfish/fisharticle/v1/deleteDraft',{...params},'POST',2) //我的粉丝
+const api_deleteDraft = (params) => request(baseUrl +'/luckyfish/fisharticle/v1/deleteDraft',{...params},'POST',2) //我的粉丝 
+const api_read = (params) => request(baseUrl +'/luckyfish/message/v1/read',{...params},'POST',2) //消息已读
 module.exports = {
     api_getCity,
     api_checktiken,
@@ -56,5 +57,6 @@ module.exports = {
     api_getNewMessageList,
     api_getDraftList,
     api_getFollowMe,
-    api_deleteDraft
+    api_deleteDraft,
+    api_read
 }

@@ -151,6 +151,7 @@ Page({
         this.setData({
           setCodeNun:data
         })
+        app.globalData.giveUpNum =data
       }
     })
   },

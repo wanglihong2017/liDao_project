@@ -35,6 +35,7 @@ App({
     othersDetails:null,
     followList:null,
     commentList:null,
-    draftBox:null
+    draftBox:null,
+    giveUpNum:1
   }
 })
