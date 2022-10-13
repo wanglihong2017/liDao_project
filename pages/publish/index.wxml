@@ -50,7 +50,7 @@
     <view class="foot_adress" wx:if="{{addressName}}">
         <text class="address">{{addressName}}</text>
     </view>
-      
+    <view style="height:88rpx"></view>
     <view class="foot_bottons_btns flex-row">
         <view class="foot_drafts" bindtap="draftBoxBtns">
             <van-icon name="todo-list-o" />

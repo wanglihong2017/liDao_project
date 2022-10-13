@@ -253,7 +253,7 @@ Page({
             // console.log(result)
             if(status===0){
               that.setData({
-                addressName:result.address_component.province + result.address_component.city 
+                addressName:result.address_component.province + result.address_component.city + result.address_component.district 
               })
             }
         })
