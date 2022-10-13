@@ -14,4 +14,4 @@
     </view>
     <van-divider />
 </view>
- <van-empty wx:if="{{listComment.length===0}}" description="暂无新增关注" />
+ <van-empty wx:if="{{listComment.length===0}}" description="多发帖子可以获得更多关注哦~" />

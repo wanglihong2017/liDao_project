@@ -1,5 +1,6 @@
 // pages/follow/index.js
 const app = getApp()
+import {api_read} from "../../utils/api"
 Page({
 
   /**
@@ -20,6 +21,10 @@ Page({
   },
   goFollowDetails(e){
     app.globalData.othersDetails = e.currentTarget.dataset.item
+    app.globalData.userImg = e.currentTarget.dataset.userimg
+    api_read({id:e.currentTarget.dataset.item.id}).then((res)=>{
+      console.log('wwqq',res)
+    })
     wx.navigateTo({
       url: '/pages/othersDetails/index'
     })

@@ -20,11 +20,12 @@
         </view>
         <van-divider />
     </view>
+     <van-empty wx:if="{{listComment.length===0}}" description="多发帖子可以获得更多评论哦~" />
     <!-- 评论弹框 -->
-    <van-overlay show="{{ showBtns }}" bind:click="onClickHide" />
+    <!-- <van-overlay show="{{ showBtns }}" bind:click="onClickHide" />
     <view class="foots_input_box" wx:if="{{showBtns}}">
         <van-search ref="searchText" focus="{{showBtns}}" shape="round" value="{{ reviewValue }}" placeholder="喜欢就给个评论支持一下~" use-action-slot bind:change="reviewValueonChange">
             <view slot="action" bind:tap="sendBtns">发送</view>
         </van-search>
-    </view>
+    </view> -->
 </view>
