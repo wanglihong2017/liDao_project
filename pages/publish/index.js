@@ -288,8 +288,8 @@ Page({
       console.log('app.globalData.draftBox',app.globalData.draftBox)
       let getData = app.globalData.draftBox
       this.setData({
-        titlemessage:getData.content,
-        textmessage:getData.title
+        titlemessage:getData.title,
+        textmessage:getData.content
       })
       this.data.latitude = getData.latitude
       this.data.longitude = getData.longitude
