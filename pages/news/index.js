@@ -51,7 +51,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.getList()
+    
   },
 
   /**
@@ -66,6 +66,7 @@ Page({
    */
   onShow() {
     this.setData({ active: 0})
+    this.getList()
   },
 
   /**
