@@ -4,7 +4,7 @@
         <van-tabbar-item icon="contact" dot>新增关注</van-tabbar-item>
         <van-tabbar-item icon="chat-o" dot>评论和@</van-tabbar-item>
     </van-tabbar>
-    <view class="details_box" wx:for="{{listComment}}" wx:key="index" bindtap="goDetails" data-id="{{item.id}}" data-userImg = "{{item.postUserImgPath}}">
+    <view class="details_box" wx:for="{{listComment}}" wx:key="index" bindtap="goDetails" data-id="{{item.id}}" data-articleId ="{{item.articleId}}" data-userImg = "{{item.postUserImgPath}}">
         <view class="flex-row details_list">
             <view class="head_image">
                 <image src="{{item.postUserImgPath}}"></image>

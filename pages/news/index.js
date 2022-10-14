@@ -27,12 +27,13 @@ Page({
     }
   },
   goDetails(e){
+    console.log(e.currentTarget.dataset)
     app.globalData.userImg = e.currentTarget.dataset.userimg
     api_read({id:e.currentTarget.dataset.id}).then((res)=>{
       console.log('wwqq',res)
     })
     wx.navigateTo({
-      url:`/pages/detailsPage/index?articleId=${e.currentTarget.dataset.id}&type=1`
+      url:`/pages/detailsPage/index?articleId=${e.currentTarget.dataset.articleid}&type=1`
     })
   },
   getList(){

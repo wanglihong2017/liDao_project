@@ -184,6 +184,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    console.log(options)
     this.getDetails(options.articleId);
     this.data.articleId = options.articleId;
     this.data.articleType = options.type;
