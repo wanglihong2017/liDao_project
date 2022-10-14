@@ -29,8 +29,9 @@ Page({
     })
   },
   goDetails(e){
+    console.log('e.currentTarget.dataset',e.currentTarget.dataset)
     app.globalData.userImg = e.currentTarget.dataset.userimg
-    api_read({id:e.currentTarget.dataset.id}).then((res)=>{
+    api_read({id:e.currentTarget.dataset.tzid}).then((res)=>{
       console.log('wwqq',res)
     })
     wx.navigateTo({
@@ -42,6 +43,7 @@ Page({
    */
   onLoad(options) {
     if(app.globalData.commentList){
+      console.log(app.globalData.commentList)
       this.setData({
         listComment:app.globalData.commentList
       })

@@ -11,7 +11,7 @@ Page({
     detailsData:{},
     choosseActive:4,
     upShow:false,
-    setCodeNun:1
+    setCodeNun:0
   },
   goPublishBtn(){
     wx.navigateTo({
