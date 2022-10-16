@@ -3,7 +3,7 @@
     <view class="details_box">
         <view class="flex-row flex-align-c">
             <view class="head_image">
-                <image src="{{headDatas.imgPath || headDatas.postUserImgPath}}"></image>
+                <image src="{{ headDatas.userImgPath || headDatas.imgPath || headDatas.postUserImgPath}}"></image>
             </view>
             <view class="title_box">
                 <view class="official">{{headDatas.userName || headDatas.postUserName}}</view>

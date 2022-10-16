@@ -50,7 +50,7 @@
         </view>
         <view class="flex-row flex-justify-b foot_box">
           <view class="flex-row">
-            <view class="headimgs_box">
+            <view class="headimgs_box" catchtap="goMydetails"  data-item="{{item}}">
               <image src="{{item.userImgPath}}"></image>
             </view>
             <view class="headimgs_text">{{item.userName}}</view>
@@ -83,7 +83,7 @@
         </view>
         <view class="flex-row flex-justify-b foot_box">
           <view class="flex-row">
-            <view class="headimgs_box">
+            <view class="headimgs_box" catchtap="goMydetails"  data-item="{{item}}">
               <image src="{{item.userImgPath}}"></image>
             </view>
             <view class="headimgs_text">{{item.userName}}</view>
@@ -116,8 +116,8 @@
           </view>
         </view>
         <view class="flex-row flex-justify-b foot_box">
-          <view class="flex-row">
-            <view class="headimgs_box">
+          <view class="flex-row" >
+            <view class="headimgs_box" catchtap="goMydetails"  data-item="{{item}}">
               <image src="{{item.userImgPath}}"></image>
             </view>
             <view class="headimgs_text">{{item.userName}}</view>

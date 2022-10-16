@@ -141,6 +141,12 @@ Page({
     //  })  
     //  this.getList()
   },
+  goMydetails(e){
+    app.globalData.othersDetails = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url: '/pages/othersDetails/index'
+    })
+  },
   tabShowBtns(){
     this.setData({ tabShow: true })
   },
@@ -209,6 +215,9 @@ Page({
     if(wx.getStorageSync("userId")){
       this.getNewMessage()
     }
+    this.setData({
+      products:[]
+    })
     this.getList()
   },
   onPullDownRefresh(){

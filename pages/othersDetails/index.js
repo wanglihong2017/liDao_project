@@ -41,6 +41,7 @@ Page({
       this.setData({
         headDatas:app.globalData.othersDetails
       })
+      console.log('app.globalData.othersDetails',app.globalData.othersDetails.userImgPath)
     }
   },
 
