@@ -57,8 +57,9 @@
                     <tetx class="sub_text">{{item.createAt}}</tetx>
                 </view>
             </view>
-            <view bindtap="changeLike" class="get_box" data-isGiveUp = "{{item.isGiveUp}}">
-                <van-icon color="{{item.isGiveUp===0?'#ed3f14':'#000'}}" name="like-o" />
+            <view bindtap="changeLike" class="get_box" data-isGiveUp = "{{item.isGiveUp}}" data-id = "{{item.id}}">
+                <van-icon wx:if="{{item.isGiveUp===0}}" color="#000" name="like-o" />
+                <van-icon wx:if="{{item.isGiveUp===1}}" color="#ed3f14" name="like" />
             </view>
         </view>
         <!-- <view class="reply_box"><van-button round  size="mini">回复</van-button></view>   -->

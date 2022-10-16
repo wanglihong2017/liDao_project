@@ -106,7 +106,7 @@ Page({
       targetUserId: this.data.details.userId,
       id: this.data.articleId,
       articleType: this.data.articleType,
-      upType: 1,
+      upType:1,
       type: index === 1 ? 0 : 1,
     };
     api_giveUp(params).then((res) => {
@@ -118,6 +118,24 @@ Page({
   },
   likeBtns(e) {
     this.api_giveUpBtn(e.currentTarget.dataset.isgiveup);
+  },
+  changeLike(e){
+      //点赞
+      let params = {
+        userId: wx.getStorageSync("userId"),
+        targetUserId: this.data.details.userId,
+        id: this.data.articleId,
+        articleType: this.data.articleType,
+        upType:2,
+        type: e.currentTarget.dataset.isgiveup === 1 ? 0 : 1,
+        commentId:e.currentTarget.dataset.id
+      };
+      api_giveUp(params).then((res) => {
+        let { code } = res;
+        if (code === "0") {
+          this.getCommentList(this.data.articleId, this.data.articleType);
+        }
+      });
   },
   starBtns(e) {
     let index = e.currentTarget.dataset.collectionqty
@@ -184,7 +202,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options)
     this.getDetails(options.articleId);
     this.data.articleId = options.articleId;
     this.data.articleType = options.type;
