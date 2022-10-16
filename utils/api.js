@@ -30,6 +30,7 @@ const api_getFollowMe = (params) => request(baseUrl +'/luckyfish/user/v1/getFoll
 const api_deleteDraft = (params) => request(baseUrl +'/luckyfish/fisharticle/v1/deleteDraft',{...params},'POST',2) //我的粉丝 
 const api_read = (params) => request(baseUrl +'/luckyfish/message/v1/read',{...params},'POST',2) //消息已读
 const api_userinfo = (params) => request(baseUrl +'/luckyfish/user/v1/update',{...params},'POST',2) //修改个人信息
+const api_getOtFishList = (params) => request(baseUrl +'/luckyfish/fisharticle/v1/getOtFishList',{...params},'GET',2) //修改个人信息
 module.exports = {
     api_getCity,
     api_checktiken,
@@ -60,5 +61,6 @@ module.exports = {
     api_getFollowMe,
     api_deleteDraft,
     api_read,
-    api_userinfo
+    api_userinfo,
+    api_getOtFishList
 }

@@ -12,7 +12,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    console.log(options)
+    if(options){
+      this.setData({
+        lidaoSrc: options.url
+      })
+    }
   },
 
   /**
@@ -26,9 +31,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    this.setData({
-      lidaoSrc: `https://ai.lidaokoi.com/zt/ttl/2205.html`
-    })
+   
   },
 
   /**
