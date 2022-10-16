@@ -93,7 +93,15 @@ Page({
       })
     }else if(event.detail.index===2 && event.detail.title ==='鲤道头条'){
       wx.navigateTo({
-        url: '/pages/headLines/index'
+        url: '/pages/headLines/index?index=4'
+      })
+    }else if(event.detail.index===3 && event.detail.title ==='答鱼友问'){
+      wx.navigateTo({
+        url: '/pages/headLines/index?index=5'
+      })
+    }else if(event.detail.index===4 && event.detail.title ==='鲤道课堂'){
+      wx.navigateTo({
+        url: '/pages/headLines/index?index=6'
       })
     }
   },

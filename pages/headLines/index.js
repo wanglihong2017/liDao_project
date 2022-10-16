@@ -6,11 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    setNum:'',
     consultList:[]
   },
   getList(){
     let params = {
-      articleType:4,
+      articleType:this.data.setNum,
       pageSize:10,
       pageNum:1,
       userId:wx.getStorageSync('userId'),
@@ -30,6 +31,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    console.log('options',options.index)
+    this.data.setNum = options.index
     this.getList()
   },
 

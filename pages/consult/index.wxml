@@ -8,3 +8,4 @@
     </view>  
     <van-divider />
 </view>
+<van-empty wx:if="{{consultList.length===0}}" description="暂无数据" />
