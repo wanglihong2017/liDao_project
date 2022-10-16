@@ -87,6 +87,7 @@ Page({
     })
   },
   goPageBtns(event){
+    console.log(this.data.tabactive)
     if(event.detail.index===1 && event.detail.title ==='拍卖资讯'){
       wx.navigateTo({
         url: '/pages/consult/index'
@@ -215,7 +216,8 @@ Page({
   },
   onShow() {
     this.setData({
-      choosseActive:0
+      choosseActive:0,
+      tabactive:0
     })
     if(wx.getStorageSync("userId")){
       this.getNewMessage()
