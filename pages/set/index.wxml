@@ -1,0 +1,6 @@
+<view>
+  <van-cell-group>
+    <van-field value="{{ value }}" placeholder="请输入用户名" border="{{ false }}" bind:change="onChange" />
+  </van-cell-group>
+
+</view>

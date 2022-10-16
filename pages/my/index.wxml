@@ -1,5 +1,5 @@
 <view class="details_box" >
-        <view class="flex-row flex-align-c">
+        <view class="flex-row flex-align-c" bindtap="setPersonal">
             <view class="head_image">
                 <image src="{{userData.imgPath}}"></image>
             </view>

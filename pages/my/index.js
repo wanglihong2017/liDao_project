@@ -18,6 +18,11 @@ Page({
       url: '/pages/myPublish/index'
     })
   },
+  setPersonal(){
+    wx.navigateTo({
+      url: '/pages/set/index'
+    })
+  },
   goFansBtn(){
     wx.navigateTo({
       url: '/pages/myFans/index'
