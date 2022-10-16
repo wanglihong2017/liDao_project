@@ -139,7 +139,7 @@ Page({
     //    })
     //   }
     //  })  
-    //  this.getList()
+      this.getList()
   },
   goMydetails(e){
     app.globalData.othersDetails = e.currentTarget.dataset.item
@@ -215,8 +215,8 @@ Page({
     if(wx.getStorageSync("userId")){
       this.getNewMessage()
     }
-    this.data.products = []
-    this.getList()
+    // this.data.products = []
+    // this.getList()
   },
   onPullDownRefresh(){
     setTimeout(()=>{
