@@ -1,6 +1,5 @@
 // pages/consult/index.js
 import {api_getOtFishList} from '../../utils/api'
-const app = getApp();
 Page({
 
   /**
@@ -25,12 +24,6 @@ Page({
           consultList:data.fishArticleList
         })
       }
-    })
-  },
-  gosalePage(){
-    app.globalData.headData = this.data.consultList
-    wx.navigateTo({
-      url: '/pages/headDetails/index'
     })
   },
   /**

@@ -1,4 +1,4 @@
-<view class="consult_box" wx:for="{{consultList}}" bindtap="gosalePage" data-url = "{{item.content}}">
+<view class="consult_box" wx:for="{{consultList}}" data-url = "{{item.content}}">
     <view>
        <image style="width:100%;height:300rpx"  mode="widthFix"   src="{{item.imgPath}}"></image>
     </view>

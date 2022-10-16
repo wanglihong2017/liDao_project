@@ -36,7 +36,6 @@ App({
     followList:null,
     commentList:null,
     draftBox:null,
-    giveUpNum:1,
-    headData:null
+    giveUpNum:1
   }
 })
