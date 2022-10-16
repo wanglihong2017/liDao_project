@@ -19,6 +19,13 @@ Page({
       }
     });
   },
+  deleteBtns(e){
+    let index = e.currentTarget.dataset.index
+    this.data.fileimgsList.splice(index, 1)
+    this.setData({
+      fileimgsList:this.data.fileimgsList
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -34,7 +41,7 @@ Page({
   },
   onChange(event) {
     // event.detail 为当前输入的值
-    console.log(event.detail);
+    this.data.value = event.detail
   },
   uploadsimgs(){
     let that = this
@@ -78,14 +85,26 @@ Page({
     return promise
   },
   async submitBtns(){
-   console.log(this.data.fileimgsList[0].tempFilePath)
-  //  let url =  await this.getURl(getfilePath)
+    let imgPath =  await this.getURl(this.data.fileimgsList[0].tempFilePath)
     let params = {
-      userName:'',
-      img_url:''
+      id:wx.getStorageSync('userId'),
+      userName:this.data.value,
+      imgPath
     }
     api_userinfo(params).then((res)=>{
-      console.log(res)
+       let { code } = res
+       if(code==='0'){
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 2000
+        })  
+       setTimeout(()=>{
+        wx.navigateBack({
+          delta: 1  // 返回上一级页面。
+        })    
+       },2000)  
+       }
     })
   },
   /**
