@@ -1,6 +1,26 @@
 <view>
   <van-cell-group>
-    <van-field value="{{ value }}" placeholder="请输入用户名" border="{{ false }}" bind:change="onChange" />
+    <van-field label="昵称" value="{{ value }}" placeholder="请输入昵称" border="{{ false }}" bind:change="onChange" />
   </van-cell-group>
-
+  <view class="jiange_box"></view>
+  <van-row>
+    <van-col span="7">
+      <view class="head_imgs">用户头像</view>
+    </van-col>
+    <van-col span="17">
+      <view class="plus_box" wx:if="{{fileimgsList.length!=1}}">
+        <van-icon bindtap="uploadsimgs" size="26" name="photo-o" />
+      </view>
+      <view class="upload_img_box" wx:for="{{fileimgsList}}" wx:key="*this">
+        <image class="" src="{{item.tempFilePath}}" />
+        <view class="van-uploader__preview-delete" data-index="{{index}}" bindtap="deleteBtns">
+          <text class="van-icon van-icon-cross van-uploader__preview-delete-icon"></text>
+        </view>
+      </view>
+    </van-col>
+  </van-row>
+  <view class="jiange_box">
+    <van-button type="danger" bindtap="submitBtns" size="large">提交修改</van-button>
+  </view>
+    
 </view>

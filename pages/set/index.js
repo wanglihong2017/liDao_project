@@ -1,4 +1,5 @@
 // pages/set/index.js
+import { api_getToken,api_userinfo} from "../../utils/api";
 Page({
 
   /**
@@ -6,13 +7,23 @@ Page({
    */
   data: {
     value: '',
+    fileimgsList:[],
+    upToken:''
   },
-
+  getToken() {
+    api_getToken().then((res) => {
+      // console.log(res);
+      let { code, data } = res;
+      if(code==='0'){
+        this.data.upToken = data
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.getToken()
   },
 
   /**
@@ -24,6 +35,58 @@ Page({
   onChange(event) {
     // event.detail 为当前输入的值
     console.log(event.detail);
+  },
+  uploadsimgs(){
+    let that = this
+    wx.chooseMedia({
+      count: 1,
+      mediaType: ['image'],
+      sourceType: ['album', 'camera'],
+      maxDuration: 30,
+      success: function (res) {
+        console.log('11',res)
+        that.setData({
+          fileimgsList:res.tempFiles
+        })
+      }
+    })
+  },
+  getURl(getfilePath){
+    const promise = new Promise((resolve,reject)=>{
+      var key = (new Date()).valueOf(); //生成一个随机字符串的文件名
+      let that = this
+      wx.uploadFile({
+        url: 'https://up-z2.qiniup.com', //华东地区上传地址
+        filePath: getfilePath,
+        name: 'file',
+        formData:{
+         'token': that.data.upToken,//刚刚获取的上传凭证
+         'key': key//这里是为文件设置上传后的文件名
+        },
+        success: function(res){
+         var data = res.data;//七牛会返回一个包含hash值和key的JSON字符串
+         if(typeof data==='string')data = JSON.parse(data.trim());//解压缩
+          resolve('https://files.q.lidaokoi.com/' + data.key)
+          wx.hideLoading()
+         },
+        fail:function (res) {
+          reject(res)
+          wx.hideLoading()
+        }
+       })
+    })
+    return promise
+  },
+  async submitBtns(){
+   console.log(this.data.fileimgsList[0].tempFilePath)
+  //  let url =  await this.getURl(getfilePath)
+    let params = {
+      userName:'',
+      img_url:''
+    }
+    api_userinfo(params).then((res)=>{
+      console.log(res)
+    })
   },
   /**
    * 生命周期函数--监听页面显示
