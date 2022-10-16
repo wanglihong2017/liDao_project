@@ -2,7 +2,15 @@
     width: 680rpx;
     margin: 0 auto 20rpx;
 }
-.consult_box text{
+.title_text{
+    padding: 10px 0;
+}
+.details_text{
+    color: #999;
+    font-size: 24rpx;
+}
+.time_text{
+    text-align: right;
     color: #999;
     font-size: 24rpx;
 }

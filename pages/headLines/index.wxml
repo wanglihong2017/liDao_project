@@ -2,9 +2,14 @@
     <view>
        <image style="width:100%;height:300rpx"  mode="widthFix"   src="{{item.imgPath}}"></image>
     </view>
+    <view class="title_text">
+         <text class="">{{item.title}}</text>   
+    </view>
     <view>
-        <!-- <rich-text nodes="{{item.content}}"></rich-text> -->
-        <text class="">{{item.title}}</text>   
-    </view>  
+        <rich-text class="details_text" nodes="{{item.content}}"></rich-text>  
+    </view> 
+    <view class="time_text">
+        <text class="">发表时间:{{item.createAt}}</text>   
+    </view>
     <van-divider />
 </view>
