@@ -1,0 +1,10 @@
+<view class="consult_box" wx:for="{{consultList}}" bindtap="gosalePage" data-url = "{{item.content}}">
+    <view>
+       <image style="width:100%;height:300rpx"  mode="widthFix"   src="{{item.imgPath}}"></image>
+    </view>
+    <view>
+        <!-- <rich-text nodes="{{item.content}}"></rich-text> -->
+        <text class="">{{item.title}}</text>   
+    </view>  
+    <van-divider />
+</view>

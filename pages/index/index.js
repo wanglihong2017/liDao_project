@@ -91,13 +91,10 @@ Page({
       wx.navigateTo({
         url: '/pages/consult/index'
       })
-    }else{
-      if(event.detail.index !=0){
-        wx.showToast({
-          title: `${event.detail.title}正在开发中,敬请期待`,
-          icon: 'error',
-        });
-      }
+    }else if(event.detail.index===2 && event.detail.title ==='鲤道头条'){
+      wx.navigateTo({
+        url: '/pages/headLines/index'
+      })
     }
   },
   getDetailBtn(e){
@@ -188,7 +185,7 @@ Page({
           })
         }else if(this.data.active==2){
           var index =  this.data.twoProducts.findIndex((item)=> item.id === getData.id)
-          var isGiveUp = "twoProducts[" + index + "].isGiveUp" //这里必须这样拼接
+          var isGiveUp = "twoProducts[" + index + "].isGiveUp" 
           var giveUpQty = "twoProducts[" + index + "].giveUpQty"
           var giveUpQtyNum = this.data.twoProducts[index].giveUpQty
           this.setData({ //异步刷新，就是渲染
@@ -197,7 +194,7 @@ Page({
           })
         }else if(this.data.active==0){
           var index =  this.data.firstProducts.findIndex((item)=> item.id === getData.id)
-          var isGiveUp = "firstProducts[" + index + "].isGiveUp" //这里必须这样拼接
+          var isGiveUp = "firstProducts[" + index + "].isGiveUp" 
           var giveUpQty = "firstProducts[" + index + "].giveUpQty"
           var giveUpQtyNum = this.data.firstProducts[index].giveUpQty
           this.setData({ //异步刷新，就是渲染

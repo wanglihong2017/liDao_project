@@ -18,7 +18,8 @@
     "pages/salePage/index",
     "pages/draftBox/index",
     "pages/set/index",
-    "pages/consult/index"
+    "pages/consult/index",
+    "pages/headLines/index"
   ],
   "requiredPrivateInfos": [
     "getFuzzyLocation"
