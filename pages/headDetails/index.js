@@ -1,5 +1,4 @@
-// pages/consult/index.js
-import {api_getOtFishList} from '../../utils/api'
+// pages/headDetails/index.js
 const app = getApp();
 Page({
 
@@ -7,37 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    consultList:[]
+
   },
-  getList(){
-    let params = {
-      articleType:4,
-      pageSize:10,
-      pageNum:1,
-      userId:wx.getStorageSync('userId'),
-      lastNewId:'',
-      searchText:''
-    }
-    api_getOtFishList(params).then((res)=>{
-      let { code,data }= res
-      if(code === '0'){
-        this.setData({
-          consultList:data.fishArticleList
-        })
-      }
-    })
-  },
-  gosalePage(){
-    app.globalData.headData = this.data.consultList
-    wx.navigateTo({
-      url: '/pages/headDetails/index'
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.getList()
+    console.log('app.globalData.headData',app.globalData.headData)
   },
 
   /**
