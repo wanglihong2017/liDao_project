@@ -215,9 +215,7 @@ Page({
     if(wx.getStorageSync("userId")){
       this.getNewMessage()
     }
-    this.setData({
-      products:[]
-    })
+    this.data.products = []
     this.getList()
   },
   onPullDownRefresh(){

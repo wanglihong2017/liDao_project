@@ -29,3 +29,14 @@
 .flex-justify-b {
   justify-content: space-between;
 }
+.video_boxs {
+  position: relative;
+}
+.video_imgs{
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
