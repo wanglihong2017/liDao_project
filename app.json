@@ -17,7 +17,8 @@
     "pages/othersDetails/index",
     "pages/salePage/index",
     "pages/draftBox/index",
-    "pages/set/index"
+    "pages/set/index",
+    "pages/consult/index"
   ],
   "requiredPrivateInfos": [
     "getFuzzyLocation"

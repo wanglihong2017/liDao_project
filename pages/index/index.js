@@ -89,7 +89,7 @@ Page({
   goPageBtns(event){
     if(event.detail.index===1 && event.detail.title ==='拍卖资讯'){
       wx.navigateTo({
-        url: '/pages/salePage/index'
+        url: '/pages/consult/index'
       })
     }else{
       if(event.detail.index !=0){
