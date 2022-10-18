@@ -38,7 +38,7 @@ Component({
         active: event.detail 
       })
       if( event.detail ===0){
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/index/index'
         })
       }
@@ -53,12 +53,12 @@ Component({
         })
       }
       if( event.detail ===3){
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/news/index'
         })
       }
       if( event.detail ===4){
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/my/index'
         })
       }

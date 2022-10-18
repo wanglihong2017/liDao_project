@@ -10,7 +10,9 @@ Page({
     active: 0,
     listComment:[],
     followList:[],
-    commentList:[]
+    choosseActive:3,
+    commentList:[],
+    setCodeNun:0
   },
   onChange(event) {
     // event.detail 的值为当前选中项的索引
@@ -52,7 +54,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    
+    if(app.globalData.giveUpNum){
+      this.setData({
+        setCodeNun:app.globalData.giveUpNum
+      })
+    }
   },
 
   /**
@@ -66,7 +72,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    this.setData({ active: 0})
+    this.setData({ 
+      active: 0,
+      choosseActive:3
+    })
     this.getList()
   },
 

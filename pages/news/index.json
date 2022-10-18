@@ -3,7 +3,8 @@
     "van-tabbar": "@vant/weapp/tabbar/index",
     "van-tabbar-item": "@vant/weapp/tabbar-item/index",
     "van-divider": "@vant/weapp/divider/index",
-    "van-empty": "@vant/weapp/empty/index"
+    "van-empty": "@vant/weapp/empty/index",
+    "foots":"/components/foot/index"
   },
   "navigationBarTitleText": "消息提醒"
 }
