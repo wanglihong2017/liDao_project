@@ -34,7 +34,8 @@ Page({
     Height: "",
     commentType:1,
     replayIds:'',
-    parentId:''
+    parentId:'',
+    getuserId:''
   },
   deleteBtns() {
     Dialog.confirm({
@@ -237,6 +238,9 @@ Page({
         headImgs: app.globalData.userImg,
       });
     }
+    this.setData({
+      getuserId:wx.getStorageSync("userId") || ""
+    })
   },
 
   /**
