@@ -32,6 +32,8 @@ Page({
     countNum: 0,
     articleType: 1,
     Height: "",
+    commentType:1,
+    replayIds:''
   },
   deleteBtns() {
     Dialog.confirm({
@@ -63,18 +65,34 @@ Page({
         url: "/pages/logo/index",
       });
     } else {
-      this.setData({ showBtns: true });
+      this.setData({ 
+        showBtns: true ,
+        commentType:1
+      });
+    }
+  },
+  replyBtns(e){
+    if (!wx.getStorageSync("token")) {
+      wx.navigateTo({
+        url: "/pages/logo/index",
+      });
+    } else {
+      this.setData({ 
+        showBtns: true ,
+        commentType:2,
+        replayIds:e.currentTarget.dataset.id
+      });
     }
   },
   sendBtns(parentId = "") {
     let params = {
       articleId: this.data.articleId,
-      articleType: 1,
+      articleType: this.data.articleType,
       userId: wx.getStorageSync("userId"),
-      commentType: 1,
+      commentType: this.data.commentType,
       parentId: "",
       content: this.data.reviewValue,
-      userIds: "", //用户id
+      userIds: this.data.replayIds, //用户id
     };
     api_addComment(params).then((res) => {
       let { code } = res;
