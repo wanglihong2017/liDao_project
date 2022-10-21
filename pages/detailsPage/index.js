@@ -33,7 +33,8 @@ Page({
     articleType: 1,
     Height: "",
     commentType:1,
-    replayIds:''
+    replayIds:'',
+    parentId:''
   },
   deleteBtns() {
     Dialog.confirm({
@@ -80,17 +81,18 @@ Page({
       this.setData({ 
         showBtns: true ,
         commentType:2,
-        replayIds:e.currentTarget.dataset.id
+        replayIds:e.currentTarget.dataset.id,
+        parentId:e.currentTarget.dataset.parentid,
       });
     }
   },
-  sendBtns(parentId = "") {
+  sendBtns() {
     let params = {
       articleId: this.data.articleId,
       articleType: this.data.articleType,
       userId: wx.getStorageSync("userId"),
       commentType: this.data.commentType,
-      parentId: "",
+      parentId: this.data.parentId,
       content: this.data.reviewValue,
       userIds: this.data.replayIds, //用户id
     };

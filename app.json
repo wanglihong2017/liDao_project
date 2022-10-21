@@ -22,10 +22,10 @@
     "pages/headLines/index"
   ],
   "requiredPrivateInfos": [
-    "getFuzzyLocation"
+    "getLocation"
   ],
   "permission": {
-    "scope.userFuzzyLocation": {
+    "scope.userLocation": {
       "desc": "你的位置信息将用于展示附近鱼友的信息"
     }
   },

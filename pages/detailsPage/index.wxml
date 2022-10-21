@@ -62,18 +62,18 @@
                 <van-icon wx:if="{{item.isGiveUp===1}}" color="#ed3f14" name="like" />
             </view>
         </view>
-        <view class="reply_box" wx:if="{{isMypublish}}"><van-button round  bindtap="replyBtns" data-id="{{item.userId}}" size="mini">回复</van-button></view>  
+        <view class="reply_box"><van-button round  bindtap="replyBtns" data-id="{{item.userId}}" data-parentid = "{{item.id}}" size="mini">回复</van-button></view>  
         <view class="flex-row flex-align-c serch_box" wx:if="{{item.detailList.length!=0}}">
             <view class="serch_header"></view>
             <view class="flex-row flex-align-c" wx:for="{{item.detailList}}" wx:for-item="pro" wx:key="{{pro.parentId}}">
                 <view class="reply_header">
-                    <image class="" src="{{pro.replyUserImgPath}}"></image>
+                    <image class="" src="{{pro.userImgPath}}"></image>
                 </view>
                 <view class="reply_text">
-                    <view class="sub_text">{{pro.replyUserName}}</view>
+                    <view class="sub_text">{{pro.userName}}</view>
                     <view class="comment_text">
                         回复
-                        <text class="sub_text">{{pro.userName}}</text>
+                        <text class="sub_text">{{pro.replyUserName}}</text>
                         <text class="comment_text">{{pro.content}}</text>
                     </view>
                 </view>
