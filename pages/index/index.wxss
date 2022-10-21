@@ -23,9 +23,14 @@
     padding: 6px;
 }
 .water_flow_text{
-    padding: 6px;
+    padding: 0 12rpx;
     color: #bbbec4;
     font-size: 24rpx;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    margin: 12rpx 0;
 }
 .search_header_box{
     position: relative;

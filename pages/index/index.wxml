@@ -45,7 +45,7 @@
             <text>{{item.title}}</text>
           </view>
           <view class="water_flow_text">
-            <text>{{item.content}}</text>
+            {{item.content}}
           </view>
         </view>
         <view class="flex-row flex-justify-b foot_box">
