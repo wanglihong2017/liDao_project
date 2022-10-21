@@ -112,7 +112,7 @@ Page({
       url:`/pages/detailsPage/index?articleId=${e.currentTarget.dataset.id}&type=1`
     })
   },
-  getList(lastNewId="",lastHot=""){
+  getList(lastNewId="",lastHot=""){ 
     let params = {
       lastNewId:lastNewId,
       lastHot:lastHot,

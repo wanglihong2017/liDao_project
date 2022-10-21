@@ -28,7 +28,7 @@
            <van-icon name="delete-o" />
         </view>
         <view wx:if="{{!isMypublish}}" class="delete_box" bindtap="addFollowBtn" data-isFollow="{{details.isFollow}}">
-            <van-button round  size="mini" color="{{details.isFollow===0?'#ef3f14':'#999'}}" type="info">{{details.isFollow===0?'关注':'已关注'}}</van-button>
+            <van-button round  icon="friends-o" size="small" color="{{details.isFollow===0?'#ef3f14':'#999'}}" type="info">{{details.isFollow===0?'关注':'已关注'}}</van-button>
         </view>
           
     </view>
@@ -91,7 +91,9 @@
         </van-search>
     </view>
     <!-- 底部评论点赞 -->
-    <view class="flex-row flex-align-c prize_box">
+    <view class="prize_box">
+         <van-divider />
+         <view class="flex-row flex-align-c">
         <van-search value="{{ value }}" label="" disabled bindtap="openSearchBtn" placeholder="说点什么" use-left-icon-slot="true"   shape="round" 	 bind:change="onChange" bind:search="onSearch">
             <view slot="left-icon" bind:tap="onClick"><van-icon name="edit" /></view>
             <view slot="action" bind:tap="onClick">搜索</view>
@@ -113,6 +115,7 @@
               <text wx:if="{{details.hot}}">{{details.hot}}</text>
               <text wx:else>评论</text>
         </view>
-          
     </view>
+    </view>
+      
 </view>

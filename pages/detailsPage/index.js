@@ -101,6 +101,12 @@ Page({
           reviewValue: "",
         });
         this.getCommentList(this.data.articleId, this.data.articleType);
+        wx.requestSubscribeMessage({
+          tmplIds: ['K8g9-dXi_ulaSklVdDvQ84-GeP3rDSt0YuDzyIc2_5Y'],
+          success (res) {
+            console.log('res',res)
+          }
+        })
       }
     });
     this.setData({ showBtns: false });
