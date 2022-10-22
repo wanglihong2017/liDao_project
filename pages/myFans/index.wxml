@@ -7,12 +7,16 @@
                 </view>
                 <view class="head_text">
                     <view class="details">{{item.userName}}</view>
-                    <text class="details">发帖 * {{item.articleCount}}</text>
+                    <text class="details">时间{{item.createAt}}</text>
+                    <view class="details">发帖数量*{{item.articleCount}}</view>
                 </view>
             </view>
             <van-button  type="info"  color="#ed3f14" size="mini">回粉</van-button>
         </view>
-        <van-divider />
+       <view class="border_bottom">
+         <van-divider />
+       </view>
+         
     </view>
     <van-empty wx:if="{{followArrey.length===0}}" description="多发帖子，可以获得更多粉丝哦" />
 </view>
