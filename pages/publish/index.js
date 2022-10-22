@@ -51,7 +51,9 @@ Page({
     addressPopup:false,
     getchooseIndex:0,
     getarticleType:1,
-    draftType:0
+    draftType:0,
+    title:'填写标题会有更多赞哦',
+    messageText:'说说此刻的心情'
   },
   uploadsimgs(){
     let that = this
@@ -184,9 +186,9 @@ Page({
       })
       return false
     }
-    if(this.data.titlemessage.length<6){
+    if(this.data.titlemessage.length<2){
       wx.showToast({
-        title: `标题至少6个字`,
+        title: `标题至少2个字`,
         icon: 'error',
       })
       return false
@@ -295,6 +297,10 @@ Page({
     this.getUserFollowFish()
     if(options.articleType){
       this.data.getarticleType = 2
+      this.setData({
+        title:'请输入锦鲤的品种',
+        messageText:'锦鲤的发病时间、血统、岁数、详细原因'
+      })
     }
     if(options.draft){
       this.data.draftType = options.draft
