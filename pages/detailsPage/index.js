@@ -182,7 +182,11 @@ Page({
     api_getDetails(params).then((res) => {
       let { code, data } = res;
       if (code == 0) {
-        this.setData({ details: data })
+        this.setData({ 
+          details: data,
+          articleType:data.articleType
+        })
+        this.getCommentList(data.id, data.articleType);
         if(wx.getStorageSync("userId")==data.userId){
           this.setData({isMypublish: true})
          }
@@ -225,8 +229,8 @@ Page({
   onLoad(options) {
     this.getDetails(options.articleId);
     this.data.articleId = options.articleId;
-    this.data.articleType = options.type;
-    this.getCommentList(options.articleId, options.type);
+    // this.data.articleType = options.type;
+    // this.getCommentList(options.articleId, options.type);
     if (app.globalData.userImg) {
       this.setData({
         headImgs: app.globalData.userImg,

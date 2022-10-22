@@ -45,7 +45,7 @@
     </view>
     <van-empty  wx:if="{{commentList.length==0}}" description="这里是一片芳草地" />
     <!-- 评论列表 -->
-    <view  wx:for="{{commentList}}" wx:key="{{index}}">
+    <view  wx:for="{{commentList}}" wx:key="index">
         <view class="flex-row flex-align-c serch_box">
             <view class="serch_header">
                 <image class="" src="{{item.userImgPath}}"></image>
