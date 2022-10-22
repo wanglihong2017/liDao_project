@@ -184,6 +184,20 @@ Page({
       })
       return false
     }
+    if(this.data.titlemessage.length<6){
+      wx.showToast({
+        title: `标题至少6个字`,
+        icon: 'error',
+      })
+      return false
+    }
+    if(this.data.textmessage.length<12){
+      wx.showToast({
+        title: `标题至少12个字`,
+        icon: 'error',
+      })
+      return false
+    }
     var filePath
     if(this.data.getchooseIndex===0){
       filePath = this.data.fileimgsList
