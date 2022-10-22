@@ -40,7 +40,13 @@ Page({
     })
   },
   goInqueryBtns(){
-    this.subscribeMessage()
+    if(wx.getStorageSync('userId')){
+      this.subscribeMessage()
+    }else{
+      wx.navigateTo({
+        url: '/pages/logo/index'
+      })
+    }
   },
   getInquiryList(){
     let params = {
