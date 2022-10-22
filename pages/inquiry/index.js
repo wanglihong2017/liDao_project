@@ -9,7 +9,10 @@ Page({
   data: {
     inquiryvalue: '',
     active: 0,
-    onLineData:[]
+    onLineData:[],
+    lastNewId:'',
+    lastHot:'',
+    noloadings:false
   },
   onChange(e) {
     this.setData({
@@ -102,10 +105,10 @@ Page({
       url: '/pages/othersDetails/index'
     })
   },
-  getInquiryList(){
+  getInquiryList(lastNewId,lastHot){
     let params = {
-      lastNewId:'',
-      lastHot:'',
+      lastNewId,
+      lastHot,
       pageSize:10,
       searchText:'',
       userId:wx.getStorageSync('userId') || ''
@@ -113,9 +116,17 @@ Page({
     api_onlineAsk(params).then((res)=>{
       let { code,data } = res
       if(code==='0'){
-        this.setData({
-          onLineData:data.fishArticleList
-        })
+        if(data.fishArticleList.length!=0){
+          this.setData({
+            onLineData:[...data.fishArticleList],
+            lastNewId:data.lastNewId,
+            lastHot:data.lastHot
+          })
+        }else{
+          this.setData({
+            noloadings:true
+          })
+        }
       }
     })
   },
@@ -134,7 +145,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.getInquiryList()
+    this.getInquiryList(this.data.lastNewId,this.data.lastHot)
   },
 
   /**
@@ -184,5 +195,17 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  onPullDownRefresh(){
+    setTimeout(()=>{
+      wx.stopPullDownRefresh()
+    },500)
+  },
+  onReachBottom(){
+    if(!(this.data.lastNewId===-1 && this.data.lastHot===-1)){
+       if(this.data.lastNewId!='' && this.data.lastHot!=''){
+         this.getInquiryList(this.data.lastNewId,this.data.lastHot)
+       }
+    }
   }
 })

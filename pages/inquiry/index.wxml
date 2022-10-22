@@ -55,4 +55,8 @@
             <van-button  icon="smile-comment-o" size="small" round type="danger">去问诊</van-button>
     </view>
     <van-empty wx:if="{{onLineData.length===0}}" description="暂无数据" />
+    <view wx:if="{{noloadings}}" class="no_modoer">
+        <text>我是有底线的</text>
+    </view>
+      
 </view>

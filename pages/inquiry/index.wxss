@@ -69,3 +69,9 @@
     width: 70%;
     margin: 10rpx auto;
 }
+.no_modoer{
+    text-align: center;
+    color: #999;
+    font-size: 24rpx;
+    padding-bottom: 40rpx;
+}
