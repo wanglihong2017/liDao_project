@@ -235,8 +235,7 @@ Page({
   },
   addAdressBtn(){
     let that = this
-    wx.getLocation ({
-      isHighAccuracy: true,
+    wx.getFuzzyLocation ({
       type: "wgs84",
       success (res) {
         that.data.latitude = res.latitude

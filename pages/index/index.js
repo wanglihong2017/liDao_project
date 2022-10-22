@@ -28,8 +28,7 @@ Page({
       twoProducts:[]
      })
      let that  = this
-    wx.getLocation ({
-      isHighAccuracy: true,
+    wx.getFuzzyLocation ({
       type: "wgs84",
       success (res) {
       let params = {
