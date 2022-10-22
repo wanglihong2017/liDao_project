@@ -104,7 +104,6 @@ Page({
           reviewValue: "",
         });
         this.getCommentList(this.data.articleId, this.data.articleType);
-        console.log('wwwqq',this.data.articleType==2)
         if(this.data.articleType==2){
           this.subscribeMessage()
         }
