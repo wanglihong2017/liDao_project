@@ -4,7 +4,8 @@
     "van-cell": "@vant/weapp/cell/index",
     "van-dialog": "@vant/weapp/dialog/index",
     "van-icon": "@vant/weapp/icon/index",
-    "foots":"/components/foot/index"
+    "foots":"/components/foot/index",
+    "van-button": "@vant/weapp/button/index"
   },
   "navigationBarTitleText": "我的"
 }

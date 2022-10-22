@@ -23,8 +23,12 @@
     color: #ccc;
 }
 .classify_box{
-    width: 70%;
-    margin:40rpx 0;
+   width: 100%;
+   margin: 40rpx 0;
+   align-items: center;
+}
+.classify_box_left{
+    width: 80%;
 }
 .classify_text{
    width:25%;

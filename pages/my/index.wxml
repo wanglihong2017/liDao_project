@@ -1,5 +1,5 @@
 <view class="details_box" >
-        <view class="flex-row flex-align-c" bindtap="setPersonal">
+        <view class="flex-row flex-align-c">
             <view class="head_image">
                 <image src="{{userData.imgPath}}"></image>
             </view>
@@ -9,7 +9,8 @@
             </view>
         </view>
         <view class="classify_box flex-row">
-            <view class="classify_text" bindtap="goFansBtn" >
+           <view class="classify_box_left flex-row">
+              <view class="classify_text" bindtap="goFansBtn" >
                 <view>{{detailsData.followCount}}</view>
                 <view class="follow_btns">粉丝</view>
             </view>
@@ -21,6 +22,11 @@
                 <view>{{detailsData.giveUp}}</view>
                 <view class="follow_btns">获赞</view>
             </view>
+           </view>
+            <view>
+                <van-button round icon="setting-o" bindtap="setPersonal" size="mini">编辑</van-button>
+            </view>
+               
         </view>
         <view class="advert_image">
             <image  src="https://m15.360buyimg.com/mobilecms/jfs/t1/128333/23/6966/317320/5f0c56ccE8e34a762/82d420d57c9b0193.jpg!cr_1125x449_0_166!q70.jpg"/>
