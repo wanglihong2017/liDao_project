@@ -10,9 +10,13 @@
         </view>
         <view class="classify_box flex-row">
            <view class="classify_box_left flex-row">
-              <view class="classify_text" bindtap="goFansBtn" >
+            <view class="classify_text" bindtap="goFansBtn" >
                 <view>{{detailsData.followCount}}</view>
                 <view class="follow_btns">粉丝</view>
+            </view>
+             <view class="classify_text" bindtap="gomyFollowCountBtn" >
+                <view>{{detailsData.myFollowCount}}</view>
+                <view class="follow_btns">关注</view>
             </view>
              <view class="classify_text" bindtap="goCollectBtn">
                 <view>{{detailsData.collectionCount}}</view>

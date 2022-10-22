@@ -56,6 +56,11 @@ Page({
       url: '/pages/draftBox/index'
     })
   },
+  gomyFollowCountBtn(){
+    wx.navigateTo({
+      url: '/pages/myFollow/index'
+    })
+  },
   giveUpNums(){
     this.setData({
       upShow:true
