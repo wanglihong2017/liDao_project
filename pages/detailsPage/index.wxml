@@ -89,9 +89,24 @@
     <!-- 评论弹框 -->
     <van-overlay show="{{ showBtns }}" bind:click="onClickHide" />
     <view class="foots_input_box" wx:if="{{showBtns}}">
-        <van-search ref="searchText" focus="{{showBtns}}" shape="round" value="{{ reviewValue }}" placeholder="喜欢就给个评论支持一下~" use-action-slot bind:change="reviewValueonChange">
+        <!-- <van-search ref="searchText" focus="{{showBtns}}" shape="round" value="{{ reviewValue }}" placeholder="喜欢就给个评论支持一下~" use-action-slot bind:change="reviewValueonChange">
             <view slot="action" bind:tap="sendBtns">发送</view>
-        </van-search>
+        </van-search> -->
+        <van-field
+            value="{{ reviewValue }}"
+            center
+            clearable
+            label=""
+            type="text"
+            placeholder="喜欢就给个评论支持一下~"
+            use-button-slot
+            focus="{{showBtns}}"
+            bind:change="reviewValueonChange"
+        >
+            <van-button slot="button" bind:tap="sendBtns" size="small" type="danger">
+            发送 
+            </van-button>
+        </van-field>
     </view>
     <!-- 底部评论点赞 -->
     <view class="prize_box">
