@@ -33,10 +33,10 @@
             </view>
         </view>
         <view class="flex-row row_border">
-            <view class="border-row">
+            <!-- <view class="border-row">
                 <van-icon name="chat-o" />
                 <text class="get_num">{{item.hot}}</text>
-            </view>
+            </view> -->
             <view class="border-row">
                 <van-icon name="like-o" />
                 <text class="get_num">{{item.giveUpQty}}</text>
