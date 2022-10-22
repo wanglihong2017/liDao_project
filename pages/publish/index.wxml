@@ -44,7 +44,7 @@
     </view>
     <view class="foot_adress" bindtap="addAdressBtn">
         <!-- <van-icon name="location-o" /> -->
-        <van-button plain hairline icon="location-o">添加地点</van-button>
+        <van-button plain size="small" round  color="#ed3f14" icon="location-o">添加地点</van-button>
         <!-- <text class="address">添加地点</text> -->
     </view>
     <view class="foot_adress" wx:if="{{addressName}}">
