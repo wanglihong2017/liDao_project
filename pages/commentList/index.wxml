@@ -14,7 +14,7 @@
         </view>
         <view class="comment_foots flex-row flex-justify-b">
             <!-- <van-button icon="chat-o" plain size="mini" color="#495060" bindtap="commentBtn" custom-style="border: none;" type="primary"> -->
-            <van-button icon="chat-o" plain size="mini" color="#495060" custom-style="border: none;" type="primary">
+            <van-button icon="chat-o"  data-id="{{item.articleId}}" data-tzid="{{item.id}}" data-userImg = "{{item.userImgPath}}" catchtap="goDetails" plain size="mini" color="#495060" custom-style="border: none;" type="primary">
                 回复评论
             </van-button>
         </view>

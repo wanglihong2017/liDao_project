@@ -104,15 +104,21 @@ Page({
           reviewValue: "",
         });
         this.getCommentList(this.data.articleId, this.data.articleType);
-        wx.requestSubscribeMessage({
-          tmplIds: ['K8g9-dXi_ulaSklVdDvQ84-GeP3rDSt0YuDzyIc2_5Y'],
-          success (res) {
-            console.log('res',res)
-          }
-        })
+        console.log('wwwqq',this.data.articleType==2)
+        if(this.data.articleType==2){
+          this.subscribeMessage()
+        }
       }
     });
     this.setData({ showBtns: false });
+  },
+  subscribeMessage(){
+    wx.requestSubscribeMessage({
+      tmplIds: ['K8g9-dXi_ulaSklVdDvQ84-GeP3rDSt0YuDzyIc2_5Y'],
+      success (res) {
+        console.log('res',res)
+      }
+    })
   },
   onClickHide() {
     this.setData({ showBtns: false });

@@ -18,6 +18,7 @@
     padding-bottom: 16rpx;
     font-size: 26rpx;
     margin-top: 10rpx;
+    width: 600rpx;
 }
 .title_box .sub_title{
     font-size: 20rpx;
