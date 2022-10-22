@@ -1,3 +1,4 @@
+<wxs src="./../../utils/public.wxs" module="public"></wxs>
 <view>
     <van-search value="{{ inquiryvalue }}" placeholder="请输入搜索关键词" use-action-slot bind:change="onChange">
         <view slot="action" bind:tap="onSearch">搜索</view>
@@ -8,46 +9,51 @@
         <van-tab title="最多评论"></van-tab>
     </van-tabs> -->
     <!-- 详情页 -->
-    <view class="comment_list_boxs" bindtap="goDetails" wx:if="{{onLineData.length!=0}}" wx:for="{{onLineData}}" wx:key="index" data-id="{{item.id}}" data-userImg = "{{item.userImgPath}}">
-       <view class="comment_boxs">
-            <view class="comment_header">
-            <image src="{{item.userImgPath}}"></image>
-        </view>
-        <view class="comment_foots">
-            <view class="comment_foots_header">{{item.userName}}</view>
-            <view>
-                <text class="comment_foots_title">{{item.createAt }}</text>
+    <view class="comment_list_boxs" bindtap="goDetails" wx:if="{{onLineData.length!=0}}" wx:for="{{onLineData}}" wx:key="index" data-id="{{item.id}}" data-userImg="{{item.userImgPath}}">
+        <view class="comment_boxs_imgs">
+            <view class="comment_boxs">
+                <view class="comment_header">
+                    <image src="{{item.userImgPath}}"></image>
+                </view>
+                <view class="comment_foots">
+                    <view class="comment_foots_header">{{item.userName}}</view>
+                    <view>
+                        <text class="comment_foots_title">{{item.createAt }}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="imgs_right">
+                <image src="{{public.getImgs(item.imgPath,1)}}"></image>
             </view>
         </view>
-       </view>
-       <view class="comment_text">
-           <view class="comment_text_header">
-               {{item.title}}
-           </view>
-            <view class="comment_foots_title" wx:if="{{item.topic && item.topic!='undefined'}}">
-                <text>{{item.topic}}</text>
-            </view>   
-       </view>
-       <view class="flex-row row_border">
-          <view class="border-row">
-             <van-icon name="chat-o" />
-             <text class="get_num">{{item.hot}}</text>
-          </view>  
-          <view class="border-row">
-             <van-icon name="like-o" />
-             <text class="get_num">{{item.giveUpQty}}</text>
-          </view> 
-           <view class="border-row">
-             <van-icon name="star-o" />
-             <text class="get_num">{{item.collectionQty}}</text>
-          </view>   
-       </view>
-      <van-divider />
+        <view class="comment_text">
+            <view class="comment_text_header">{{item.title}}</view>
+            <view class="comment_foots_title" wx:if="{{item.content && item.content!='undefined'}}">
+                <text>{{item.content}}</text>
+            </view>
+        </view>
+        <view class="flex-row row_border">
+            <view class="border-row">
+                <van-icon name="chat-o" />
+                <text class="get_num">{{item.hot}}</text>
+            </view>
+            <view class="border-row">
+                <van-icon name="like-o" />
+                <text class="get_num">{{item.giveUpQty}}</text>
+            </view>
+            <view class="border-row">
+                <van-icon name="star-o" />
+                <text class="get_num">{{item.collectionQty}}</text>
+            </view>
+        </view>
+        <van-divider />
     </view>
     <!-- 我要提问 -->
     <view class="foot_plus" bindtap="goInqueryBtns">
         <van-icon name="plus" />
-        <view><text class="">我要问诊</text></view>
+        <view>
+            <text class="">我要问诊</text>
+        </view>
     </view>
     <van-empty wx:if="{{onLineData.length===0}}" description="暂无数据" />
 </view>

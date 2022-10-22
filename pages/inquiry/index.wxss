@@ -34,8 +34,8 @@
     font-size: 26rpx;
 }
 .comment_text{
-    width: 90%;
-    margin: 20rpx auto;
+    width: 70%;
+    margin: 10rpx auto;
 }
 .get_num{
     display: inline-block;
@@ -54,4 +54,20 @@
 .foot_plus text{
   font-size: 26rpx;
   color: #999;
+}
+.imgs_right{
+    width: 120rpx;
+    height: 120rpx;
+}
+.imgs_right  image{
+    width: 100%;
+    height: 100%;
+}
+.comment_boxs_imgs{
+    width: 100%;
+    display: flex;
+}
+.row_border{
+    width: 70%;
+    margin: 10rpx auto;
 }
