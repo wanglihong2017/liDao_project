@@ -44,12 +44,10 @@
     font-size: 20rpx;
 }
 .foot_plus{
-    width: 120rpx;
-    height: 100rpx;
     text-align: center;
     position: fixed;
-    right: 0;
-    bottom: 80rpx;
+    right: 10rpx;
+    bottom: 160rpx;
 }
 .foot_plus text{
   font-size: 26rpx;

@@ -51,10 +51,7 @@
     </view>
     <!-- 我要提问 -->
     <view class="foot_plus" bindtap="goInqueryBtns">
-        <van-icon name="plus" />
-        <view>
-            <text class="">我要问诊</text>
-        </view>
+            <van-button  icon="smile-comment-o" size="small" round type="danger">去问诊</van-button>
     </view>
     <van-empty wx:if="{{onLineData.length===0}}" description="暂无数据" />
 </view>
