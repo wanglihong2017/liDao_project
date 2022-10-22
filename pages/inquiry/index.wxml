@@ -42,8 +42,9 @@
                  <van-icon name="like"  color="#ed3f14" wx:if="{{item.isGiveUp===1}}"/>
                 <text class="get_num">{{item.giveUpQty}}</text>
             </view>
-            <view class="border-row">
-                <van-icon name="star-o" />
+            <view class="border-row" catchtap="starBtns" data-item="{{item}}">
+                <van-icon name="star-o" wx:if="{{item.isCollection==0}}" />
+                <van-icon name="star" wx:if="{{item.isCollection==1}}" color="#ed3f14" />
                 <text class="get_num">{{item.collectionQty}}</text>
             </view>
         </view>

@@ -1,5 +1,5 @@
 // pages/inquiry/index.js
-import {api_onlineAsk,api_giveUp} from '../../utils/api'
+import {api_onlineAsk,api_giveUp,api_collectionUp} from '../../utils/api'
 const app = getApp();
 Page({
 
@@ -68,6 +68,30 @@ Page({
           this.setData({ //异步刷新，就是渲染
               [isGiveUp] : getData.isGiveUp === 1 ? 0 : 1, //修改值为0
               [giveUpQty] :getData.isGiveUp === 1 ? giveUpQtyNum-1:giveUpQtyNum+1
+          })
+      }
+    });
+  },
+  starBtns(e){
+    let getData = e.currentTarget.dataset.item 
+    let params = {
+      userId: wx.getStorageSync("userId"),
+      targetUserId: getData.userId,
+      id: getData.id,
+      articleType:getData.articleType,
+      upType: 1,
+      type: getData.isCollection === 1 ? 0 : 1,
+    };
+    api_collectionUp(params).then((res) => {
+      let { code } = res;
+      if (code === "0") {
+          var index =  this.data.onLineData.findIndex((item)=> item.id === getData.id)
+          var isCollection = "onLineData[" + index + "].isCollection" //这里必须这样拼接
+          var collectionQty = "onLineData[" + index + "].collectionQty"
+          var collectionQtyNum = this.data.onLineData[index].collectionQty
+          this.setData({ //异步刷新，就是渲染
+              [isCollection] : getData.isCollection === 1 ? 0 : 1, //修改值为0
+              [collectionQty] :getData.isCollection === 1 ? collectionQtyNum-1:collectionQtyNum+1
           })
       }
     });
