@@ -96,6 +96,12 @@ Page({
       }
     });
   },
+  goMydetails(e){
+    app.globalData.othersDetails = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url: '/pages/othersDetails/index'
+    })
+  },
   getInquiryList(){
     let params = {
       lastNewId:'',
