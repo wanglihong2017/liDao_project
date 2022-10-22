@@ -8,7 +8,7 @@
         <van-tab title="最多评论"></van-tab>
     </van-tabs> -->
     <!-- 详情页 -->
-    <view class="comment_list_boxs" bindtap="goDetails" wx:if="{{onLineData.length!=0}}" wx:for="{{onLineData}}" key="{{index}}" data-id="{{item.id}}" data-userImg = "{{item.userImgPath}}">
+    <view class="comment_list_boxs" bindtap="goDetails" wx:if="{{onLineData.length!=0}}" wx:for="{{onLineData}}" wx:key="index" data-id="{{item.id}}" data-userImg = "{{item.userImgPath}}">
        <view class="comment_boxs">
             <view class="comment_header">
             <image src="{{item.userImgPath}}"></image>

@@ -17,7 +17,7 @@
         <van-tab title="视频上传">
             <view class="tips_text">请上传视频</view>
              <view class="video_img">
-                <view  class="video_img_box" wx:for="{{videoList}}" key="{{index}}">
+                <view  class="video_img_box" wx:for="{{videoList}}" wx:key="index">
                    <view class="video_boxs">
                      <video id="myVideo" src="{{item.tempFilePath}}" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
                    </view>

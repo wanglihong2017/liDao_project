@@ -40,9 +40,7 @@ Page({
     })
   },
   goInqueryBtns(){
-    wx.navigateTo({
-      url:'/pages/publish/index?articleType=1'
-    })
+    this.subscribeMessage()
   },
   getInquiryList(){
     let params = {
@@ -57,6 +55,17 @@ Page({
       if(code==='0'){
         this.setData({
           onLineData:data.fishArticleList
+        })
+      }
+    })
+  },
+  subscribeMessage(){
+    wx.requestSubscribeMessage({
+      tmplIds: ['K8g9-dXi_ulaSklVdDvQ84-GeP3rDSt0YuDzyIc2_5Y'],
+      success (res) {
+        console.log('res',res)
+        wx.navigateTo({
+          url:'/pages/publish/index?articleType=1'
         })
       }
     })
