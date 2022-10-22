@@ -37,8 +37,9 @@
                 <van-icon name="chat-o" />
                 <text class="get_num">{{item.hot}}</text>
             </view> -->
-            <view class="border-row">
-                <van-icon name="like-o" />
+            <view class="border-row"  catchtap="giveUpBtns"  data-item="{{item}}">
+                <van-icon name="like-o"  wx:if="{{item.isGiveUp===0}}"/>
+                 <van-icon name="like"  color="#ed3f14" wx:if="{{item.isGiveUp===1}}"/>
                 <text class="get_num">{{item.giveUpQty}}</text>
             </view>
             <view class="border-row">

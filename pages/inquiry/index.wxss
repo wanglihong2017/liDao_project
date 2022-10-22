@@ -57,7 +57,7 @@
 }
 .imgs_right{
     width: 120rpx;
-    height: 120rpx;
+    height: 100%;
 }
 .imgs_right  image{
     width: 100%;
