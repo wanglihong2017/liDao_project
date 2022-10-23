@@ -20,8 +20,10 @@ Page({
     }
   },
   goFollowDetails(e){
-    app.globalData.othersDetails = e.currentTarget.dataset.item
-    app.globalData.userImg = e.currentTarget.dataset.userimg
+    app.globalData.othersDetails = {
+      userId:wx.getStorageSync("userId") || "",
+      targetId:e.currentTarget.dataset.item.postUserId,
+    }
     api_read({id:e.currentTarget.dataset.item.id}).then((res)=>{
       console.log('wwqq',res)
     })
