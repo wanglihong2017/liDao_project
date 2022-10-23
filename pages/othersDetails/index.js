@@ -36,7 +36,6 @@ Page({
     })
   },
   getDetails(){
-    console.log('app.globalData.othersDetails', app.globalData.othersDetails)
     api_getTargetUserInfo(app.globalData.othersDetails).then((res)=>{
       console.log(res)
       let { code,data } = res

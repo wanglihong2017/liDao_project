@@ -148,7 +148,10 @@ Page({
       this.getList()
   },
   goMydetails(e){
-    app.globalData.othersDetails = e.currentTarget.dataset.item
+    app.globalData.othersDetails = {
+      userId:wx.getStorageSync("userId") || "",
+      targetId:e.currentTarget.dataset.userid,
+    }
     wx.navigateTo({
       url: '/pages/othersDetails/index'
     })
@@ -238,3 +241,4 @@ Page({
     }
   }
 });
+
