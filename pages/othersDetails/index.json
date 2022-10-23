@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "waterfall": "/components/waterfall-layout/waterfall",
-    "waterfall-item": "/components/waterfall-layout/waterfall-item"
+    "waterfall-item": "/components/waterfall-layout/waterfall-item",
+    "van-button": "@vant/weapp/button/index"
   }
 }

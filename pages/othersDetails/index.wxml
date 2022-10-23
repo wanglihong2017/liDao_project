@@ -10,7 +10,15 @@
                 <view class="sub_title">{{headDatas.createAt}}</view>
             </view>
         </view>
-        <view class="posts_all">共发布:{{headDatas.articleCount}}帖子</view>
+        <view class="posts_all flex-row flex-align-c flex-justify-b">
+          <view>
+            共发布:{{headDatas.articleCount}}帖子
+          </view>
+          <view bindtap="addFollowBtn" data-isFollow="{{headDatas.isFollow}}">
+             <van-button round  icon="friends-o" size="small" color="{{headDatas.isFollow===0?'#ef3f14':'#999'}}" type="info">{{headDatas.isFollow===0?'关注':'已关注'}}</van-button>
+          </view>
+            
+        </view>
           
     </view>
      <!-- <waterfall custom-class="waterfall-box" loading="{{updateLoading}}" isAllLoaded="{{isAllLoaded}}">

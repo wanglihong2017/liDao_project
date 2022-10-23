@@ -1,4 +1,4 @@
-import { api_getfollowUserList,api_getTargetUserInfo } from '../../utils/api'
+import { api_getfollowUserList,api_getTargetUserInfo,api_addFollow} from '../../utils/api'
 const app =  getApp();
 Page({
   /**
@@ -24,7 +24,7 @@ Page({
       userId:wx.getStorageSync('userId') || '',
       lastNewId:'',
       pageSize:10,
-      followUserId:app.globalData.othersDetails.userId
+      followUserId:app.globalData.othersDetails.targetId
     }
     api_getfollowUserList(params).then((res)=>{
       let {code,data} = res
@@ -45,6 +45,19 @@ Page({
           headDatas:data
         })
       }
+    })
+  },
+  addFollowBtn(e){
+    let index = e.currentTarget.dataset.isfollow
+    let params = {
+      userId: wx.getStorageSync("userId") || "",
+      followUserId:app.globalData.othersDetails.targetId,
+      type: index === 1 ? 2 :1 ,
+    }
+    api_addFollow(params).then((res)=>{
+       if(res.code === '0'){
+        this.getDetails()
+       }
     })
   },
   onLoad(options) {
