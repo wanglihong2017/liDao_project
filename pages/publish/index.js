@@ -175,27 +175,13 @@ Page({
   async publishBtns(){
     if(this.data.titlemessage===''){
       wx.showToast({
-        title: `请输入标题`,
+        title: `标题不能为空哦`,
         icon: 'error',
       })
       return false
     }else if(this.data.textmessage===''){
       wx.showToast({
-        title: `请说说此时的心情`,
-        icon: 'error',
-      })
-      return false
-    }
-    if(this.data.titlemessage.length<2){
-      wx.showToast({
-        title: `标题至少2个字`,
-        icon: 'error',
-      })
-      return false
-    }
-    if(this.data.textmessage.length<12){
-      wx.showToast({
-        title: `标题至少12个字`,
+        title: `内容不能为空哦`,
         icon: 'error',
       })
       return false

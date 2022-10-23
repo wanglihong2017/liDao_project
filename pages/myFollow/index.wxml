@@ -1,5 +1,5 @@
 <view>
-    <view wx:for="{{followArrey}}" wx:key="index" data-item="{{item}}" bindtap="goFans">
+    <view wx:for="{{followArrey}}" wx:key="index" data-userId="{{item.userId}}" bindtap="goFans">
         <view class="follow_box flex-row flex-align-c flex-justify-b">
             <view class="flex-row flex-align-c">
                 <view class="head_imgs">
