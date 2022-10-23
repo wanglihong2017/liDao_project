@@ -87,6 +87,21 @@ Page({
       });
     }
   },
+  replyBtnsList(e){
+     console.log('222',e.currentTarget.dataset.item)
+    if (!wx.getStorageSync("token")) {
+      wx.navigateTo({
+        url: "/pages/logo/index",
+      });
+    } else {
+      this.setData({ 
+        showBtns: true ,
+        commentType:2,
+        replayIds:e.currentTarget.dataset.item.id,
+        parentId:e.currentTarget.dataset.item.parentId,
+      });
+    }
+  },
   sendBtns() {
     let params = {
       articleId: this.data.articleId,

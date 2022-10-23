@@ -70,7 +70,7 @@
                 </view>
                 <view class="reply_text">
                     <view class="sub_text">{{pro.replyUserId===getuserId ?'作者':pro.userName}}</view>
-                    <view class="comment_text">
+                    <view class="comment_text" catchtap="replyBtnsList" data-item = "{{pro}}">
                         回复
                         <text class="sub_text">{{pro.replyUserName +':'}}</text>
 
