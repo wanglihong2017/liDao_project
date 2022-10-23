@@ -12,7 +12,7 @@
     <view class="comment_list_boxs" bindtap="goDetails" wx:if="{{onLineData.length!=0}}" wx:for="{{onLineData}}" wx:key="index" data-id="{{item.id}}" data-userImg="{{item.userImgPath}}">
         <view class="comment_boxs_imgs">
             <view class="comment_boxs">
-                <view class="comment_header" catchtap="goMydetails"  data-item="{{item}}">
+                <view class="comment_header" catchtap="goMydetails"   data-userId="{{item.userId}}">
                     <image src="{{item.userImgPath}}"></image>
                 </view>
                 <view class="comment_foots">
