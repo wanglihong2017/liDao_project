@@ -238,10 +238,10 @@ Page({
        }
     })
   },
-  goMydetails(){
+  goMydetails(e){
     app.globalData.othersDetails = {
       userId:wx.getStorageSync("userId") || "",
-      targetId:this.data.details.userId,
+      targetId:e.currentTarget.dataset.userid,
     }
     wx.navigateTo({
       url: '/pages/othersDetails/index'

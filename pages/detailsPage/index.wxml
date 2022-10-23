@@ -38,7 +38,7 @@
         <text class="serch_box_text">共{{countNum}}条评论</text>
     </view>
     <view class="flex-row flex-align-c serch_box">
-        <view class="serch_header" catchtap="goMydetails" >
+        <view class="serch_header" catchtap="goMydetails"  data-userId ="{{details.userId}}">
             <image class="" src="{{headImgs}}"></image>
         </view>
         <van-search style="width:90%" shape="round" bindtap="openSearchBtn" background="#fff" disabled placeholder="喜欢就给个评论支持一下~"></van-search>
@@ -47,7 +47,7 @@
     <!-- 评论列表 -->
     <view  wx:for="{{commentList}}" wx:key="index">
         <view class="flex-row flex-align-c serch_box">
-            <view class="serch_header">
+            <view class="serch_header"  catchtap="goMydetails"  data-userId ="{{item.userId}}">
                 <image class="" src="{{item.userImgPath}}"></image>
             </view>
             <view class="title_box">
@@ -65,7 +65,7 @@
         <view class="reply_box"><van-button round  bindtap="replyBtns" data-id="{{item.userId}}" data-parentid = "{{item.id}}" size="mini">回复</van-button></view>  
         <view class="reply_text_box" wx:if="{{item.detailList.length!=0}}">
             <view class="flex-row replay_padding" wx:for="{{item.detailList}}" wx:for-item="pro" wx:key="index">
-                <view class="reply_header">
+                <view class="reply_header"  catchtap="goMydetails"  data-userId ="{{pro.userId}}">
                     <image class="" src="{{pro.userImgPath}}"></image>
                 </view>
                 <view class="reply_text">
