@@ -28,6 +28,15 @@ Page({
       reviewValue: e.detail,
     })
   },
+  goMydetails(e){
+    app.globalData.othersDetails = {
+      userId:wx.getStorageSync("userId") || "",
+      targetId:e.currentTarget.dataset.userid,
+    }
+    wx.navigateTo({
+      url: '/pages/othersDetails/index'
+    })
+  },
   goDetails(e){
     app.globalData.userImg = e.currentTarget.dataset.userimg
     api_read({id:e.currentTarget.dataset.tzid}).then((res)=>{

@@ -6,7 +6,7 @@
     </van-tabbar>
     <view class="details_box" wx:for="{{listComment}}" wx:key="index" bindtap="goDetails" data-id="{{item.id}}" data-articleId ="{{item.articleId}}" data-userImg = "{{item.postUserImgPath}}">
         <view class="flex-row details_list">
-            <view class="head_image">
+            <view class="head_image"  catchtap="goMydetails"   data-userId="{{item.postUserId}}">
                 <image src="{{item.postUserImgPath}}"></image>
             </view>
             <view class="title_box">

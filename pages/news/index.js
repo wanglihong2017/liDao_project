@@ -50,6 +50,15 @@ Page({
       }
     })
   },
+  goMydetails(e){
+    app.globalData.othersDetails = {
+      userId:wx.getStorageSync("userId") || "",
+      targetId:e.currentTarget.dataset.userid,
+    }
+    wx.navigateTo({
+      url: '/pages/othersDetails/index'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

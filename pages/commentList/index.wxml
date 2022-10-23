@@ -2,7 +2,7 @@
     <view class="details_box" wx:for="{{listComment}}" wx:key="index">
         <view class="flex-row flex-justify-b flex-align-c details_list"  data-id="{{item.articleId}}" data-tzid="{{item.id}}" data-userImg = "{{item.userImgPath}}" bindtap="goDetails">
             <view class="flex-row flex-align-c">
-                <view class="head_image">
+                <view class="head_image"  catchtap="goMydetails"   data-userId="{{item.postUserId}}">
                     <image src="{{item.postUserImgPath}}"></image>
                 </view>
                 <view class="title_box">
