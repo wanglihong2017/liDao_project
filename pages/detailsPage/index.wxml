@@ -38,7 +38,7 @@
         <text class="serch_box_text">共{{countNum}}条评论</text>
     </view>
     <view class="flex-row flex-align-c serch_box">
-        <view class="serch_header">
+        <view class="serch_header" catchtap="goMydetails" >
             <image class="" src="{{headImgs}}"></image>
         </view>
         <van-search style="width:90%" shape="round" bindtap="openSearchBtn" background="#fff" disabled placeholder="喜欢就给个评论支持一下~"></van-search>

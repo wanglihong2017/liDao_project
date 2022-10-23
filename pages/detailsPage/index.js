@@ -223,6 +223,12 @@ Page({
        }
     })
   },
+  goMydetails(){
+    app.globalData.othersDetails = this.data.details
+    wx.navigateTo({
+      url: '/pages/othersDetails/index'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
