@@ -1,4 +1,4 @@
-import { api_getfollowUserList } from '../../utils/api'
+import { api_getfollowUserList,api_getTargetUserInfo } from '../../utils/api'
 const app =  getApp();
 Page({
   /**
@@ -35,13 +35,22 @@ Page({
       }
     })
   },
+  getDetails(){
+    console.log('app.globalData.othersDetails', app.globalData.othersDetails)
+    api_getTargetUserInfo(app.globalData.othersDetails).then((res)=>{
+      console.log(res)
+      let { code,data } = res
+      if(code==='0'){
+        this.setData({
+          headDatas:data
+        })
+      }
+    })
+  },
   onLoad(options) {
-    this.getfollowUserList()
     if(app.globalData.othersDetails){
-      this.setData({
-        headDatas:app.globalData.othersDetails
-      })
-      console.log('app.globalData.othersDetails',app.globalData.othersDetails.userImgPath)
+      this.getDetails()
+      this.getfollowUserList()
     }
   },
 

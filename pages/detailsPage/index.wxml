@@ -64,7 +64,7 @@
         </view>
         <view class="reply_box"><van-button round  bindtap="replyBtns" data-id="{{item.userId}}" data-parentid = "{{item.id}}" size="mini">回复</van-button></view>  
         <view class="reply_text_box" wx:if="{{item.detailList.length!=0}}">
-            <view class="flex-row replay_padding" wx:for="{{item.detailList}}" wx:for-item="pro" wx:key="{{pro.parentId}}">
+            <view class="flex-row replay_padding" wx:for="{{item.detailList}}" wx:for-item="pro" wx:key="index">
                 <view class="reply_header">
                     <image class="" src="{{pro.userImgPath}}"></image>
                 </view>

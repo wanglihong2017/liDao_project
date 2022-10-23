@@ -3,14 +3,14 @@
     <view class="details_box">
         <view class="flex-row flex-align-c">
             <view class="head_image">
-                <image src="{{ headDatas.userImgPath || headDatas.imgPath || headDatas.postUserImgPath}}"></image>
+                <image src="{{ headDatas.imgPath}}"></image>
             </view>
             <view class="title_box">
-                <view class="official">{{headDatas.userName || headDatas.postUserName}}</view>
+                <view class="official">{{headDatas.userName}}</view>
                 <view class="sub_title">{{headDatas.createAt}}</view>
             </view>
         </view>
-        <view class="posts_all">共发布:{{headDatas.articleCount || products.length}}帖子</view>
+        <view class="posts_all">共发布:{{headDatas.articleCount}}帖子</view>
           
     </view>
      <!-- <waterfall custom-class="waterfall-box" loading="{{updateLoading}}" isAllLoaded="{{isAllLoaded}}">

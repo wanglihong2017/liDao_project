@@ -31,6 +31,7 @@ const api_deleteDraft = (params) => request(baseUrl +'/luckyfish/fisharticle/v1/
 const api_read = (params) => request(baseUrl +'/luckyfish/message/v1/read',{...params},'POST',2) //消息已读
 const api_userinfo = (params) => request(baseUrl +'/luckyfish/user/v1/update',{...params},'POST',2) //修改个人信息
 const api_getOtFishList = (params) => request(baseUrl +'/luckyfish/fisharticle/v1/getOtFishList',{...params},'GET',2) //修改个人信息
+const api_getTargetUserInfo = (params) => request(baseUrl +'/luckyfish/user/v1/getTargetUserInfo',{...params},'GET',2) //修改个人信息
 module.exports = {
     api_getCity,
     api_checktiken,
@@ -62,5 +63,6 @@ module.exports = {
     api_deleteDraft,
     api_read,
     api_userinfo,
-    api_getOtFishList
+    api_getOtFishList,
+    api_getTargetUserInfo
 }

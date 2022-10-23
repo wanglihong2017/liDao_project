@@ -239,7 +239,10 @@ Page({
     })
   },
   goMydetails(){
-    app.globalData.othersDetails = this.data.details
+    app.globalData.othersDetails = {
+      userId:wx.getStorageSync("userId") || "",
+      targetId:this.data.details.userId,
+    }
     wx.navigateTo({
       url: '/pages/othersDetails/index'
     })
