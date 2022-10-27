@@ -68,11 +68,12 @@
             </van-button>
         </view>
         <view class="reply_text_box" wx:if="{{item.detailList.length!=0}}">
-            <view class="flex-row replay_padding" wx:for="{{item.detailList}}" wx:for-item="pro" wx:key="index">
-                <view class="reply_header" wx:if="{{index<=5}}" catchtap="goMydetails" data-userId="{{pro.userId}}">
+            <block  wx:for="{{item.detailList}}" wx:for-item="pro" wx:key="index">
+               <view  class="flex-row replay_padding" wx:if="{{index<5}}">
+                  <view class="reply_header" catchtap="goMydetails" data-userId="{{pro.userId}}">
                     <image class="" src="{{pro.userImgPath}}"></image>
                 </view>
-                <view class="reply_text" wx:if="{{index<=5}}">
+                <view class="reply_text">
                     <view class="sub_text">{{pro.replyUserId===getuserId ?'作者':pro.userName}}</view>
                     <view class="comment_text">
                         <text class="comment_text">回复:</text>
@@ -83,14 +84,16 @@
                         </text>
                     </view>
                 </view>
-            </view>
-            <van-collapse accordion value="{{ activeName }}" bind:change="onChange">
-                <van-collapse-item title="更多评论回复" name="1">
-                    <view class="flex-row replay_padding" wx:for="{{item.detailList}}" wx:for-item="pro" wx:key="index">
-                        <view class="reply_header" wx:if="{{index>5}}" catchtap="goMydetails" data-userId="{{pro.userId}}">
+               </view>
+            </block>
+            <van-collapse accordion value="{{ activeName }}" bind:change="onChange" border="{{false}}">
+                <van-collapse-item title="更多评论回复"  size="20" name="1">
+                    <block  wx:for="{{item.detailList}}" wx:for-item="pro" wx:key="index">
+                       <view class="flex-row replay_padding"  wx:if="{{index>=5}}">
+                           <view class="reply_header" catchtap="goMydetails" data-userId="{{pro.userId}}">
                             <image class="" src="{{pro.userImgPath}}"></image>
                         </view>
-                        <view class="reply_text" wx:if="{{index>5}}">
+                        <view class="reply_text" >
                             <view class="sub_text">
                                 {{pro.replyUserId===getuserId ?'作者':pro.userName}}
                             </view>
@@ -103,7 +106,9 @@
                                 </text>
                             </view>
                         </view>
-                    </view>
+                       </view>
+                         
+                    </block>
                 </van-collapse-item>
             </van-collapse>
         </view>

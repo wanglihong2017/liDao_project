@@ -191,6 +191,7 @@ Page({
     });
   },
   onChange(event) {
+    console.log(event.detail)
     this.setData({
       activeName: event.detail,
     });
