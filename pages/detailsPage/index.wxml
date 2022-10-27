@@ -5,49 +5,49 @@
             <block wx:for="{{public.getImgs(details.imgPath)}}" wx:key="*this">
                 <swiper-item>
                     <view class="image_box">
-                        <image class="" show-menu-by-longpress  mode="widthFix" bindload='imgHeight' src="{{item}}" />
+                        <image class="" show-menu-by-longpress mode="widthFix" bindload='imgHeight' src="{{item}}" />
                     </view>
                 </swiper-item>
             </block>
         </swiper>
     </view>
     <view class="container_box" wx:if="{{details.imgType===2}}">
-         <video id="myVideo" autoplay 	danmu-btn="{{false}}" src="{{details.imgPath}}" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+        <video id="myVideo" autoplay danmu-btn="{{false}}" src="{{details.imgPath}}" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
     </view>
-      
     <view class="section_text">
         <view class="title_text">{{details.title}}</view>
         <view class="describe_text">{{details.content}}</view>
     </view>
     <view class="time_box flex-row flex-justify-b">
         <view>
-           <van-icon name="guide-o" />
+            <van-icon name="guide-o" />
             <text>{{details.createAt}} {{details.cityName}}</text>
         </view>
-         <view wx:if="{{isMypublish}}" class="delete_box" bindtap="deleteBtns">
-           <van-icon size='20' color="#ed3f14" name="delete-o" />
+        <view wx:if="{{isMypublish}}" class="delete_box" bindtap="deleteBtns">
+            <van-icon size='20' color="#ed3f14" name="delete-o" />
         </view>
         <view wx:if="{{!isMypublish}}" class="delete_box" bindtap="addFollowBtn" data-isFollow="{{details.isFollow}}">
-            <van-button round  icon="friends-o" size="small" color="{{details.isFollow===0?'#ef3f14':'#999'}}" type="info">{{details.isFollow===0?'关注':'已关注'}}</van-button>
+            <van-button round icon="friends-o" size="small" color="{{details.isFollow===0?'#ef3f14':'#999'}}" type="info">
+                {{details.isFollow===0?'关注':'已关注'}}
+            </van-button>
         </view>
-          
     </view>
-      <van-dialog id="van-dialog" />
-       <van-divider />
+    <van-dialog id="van-dialog" />
+    <van-divider />
     <view class="serch_box">
         <text class="serch_box_text">共{{countNum}}条评论</text>
     </view>
     <view class="flex-row flex-align-c serch_box">
-        <view class="serch_header" catchtap="goMydetails"  data-userId ="{{details.userId}}">
+        <view class="serch_header" catchtap="goMydetails" data-userId="{{details.userId}}">
             <image class="" src="{{headImgs}}"></image>
         </view>
         <van-search style="width:90%" shape="round" bindtap="openSearchBtn" background="#fff" disabled placeholder="喜欢就给个评论支持一下~"></van-search>
     </view>
-    <van-empty  wx:if="{{commentList.length==0}}" description="这里是一片芳草地" />
+    <van-empty wx:if="{{commentList.length==0}}" description="这里是一片芳草地" />
     <!-- 评论列表 -->
-    <view  wx:for="{{commentList}}" wx:key="index">
+    <view wx:for="{{commentList}}" wx:key="index">
         <view class="flex-row flex-align-c serch_box">
-            <view class="serch_header"  catchtap="goMydetails"  data-userId ="{{item.userId}}">
+            <view class="serch_header" catchtap="goMydetails" data-userId="{{item.userId}}">
                 <image class="" src="{{item.userImgPath}}"></image>
             </view>
             <view class="title_box">
@@ -57,87 +57,99 @@
                     <tetx class="sub_text">{{item.createAt}}</tetx>
                 </view>
             </view>
-            <view bindtap="changeLike" class="get_box" data-isGiveUp = "{{item.isGiveUp}}" data-id = "{{item.id}}">
+            <view bindtap="changeLike" class="get_box" data-isGiveUp="{{item.isGiveUp}}" data-id="{{item.id}}">
                 <van-icon wx:if="{{item.isGiveUp===0}}" color="#000" name="like-o" />
                 <van-icon wx:if="{{item.isGiveUp===1}}" color="#ed3f14" name="like" />
             </view>
         </view>
-        <view class="reply_box"><van-button round  bindtap="replyBtns" data-id="{{item.userId}}" data-parentid = "{{item.id}}" size="mini">回复</van-button></view>  
+        <view class="reply_box">
+            <van-button round bindtap="replyBtns" data-id="{{item.userId}}" data-parentid="{{item.id}}" size="mini">
+                回复
+            </van-button>
+        </view>
         <view class="reply_text_box" wx:if="{{item.detailList.length!=0}}">
             <view class="flex-row replay_padding" wx:for="{{item.detailList}}" wx:for-item="pro" wx:key="index">
-                <view class="reply_header"  catchtap="goMydetails"  data-userId ="{{pro.userId}}">
+                <view class="reply_header" wx:if="{{index<=5}}" catchtap="goMydetails" data-userId="{{pro.userId}}">
                     <image class="" src="{{pro.userImgPath}}"></image>
                 </view>
-                <view class="reply_text">
+                <view class="reply_text" wx:if="{{index<=5}}">
                     <view class="sub_text">{{pro.replyUserId===getuserId ?'作者':pro.userName}}</view>
                     <view class="comment_text">
                         <text class="comment_text">回复:</text>
                         <text class="sub_text">{{pro.replyUserName +':'}}</text>
-
                         <text class="comment_text">{{pro.content}}</text>
-                        <text class="replay_list_text"  catchtap="replyBtnsList" data-item = "{{pro}}">回复</text>
+                        <text class="replay_list_text" catchtap="replyBtnsList" data-item="{{pro}}">
+                            回复
+                        </text>
                     </view>
                 </view>
             </view>
+            <van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+                <van-collapse-item title="更多评论回复" name="1">
+                    <view class="flex-row replay_padding" wx:for="{{item.detailList}}" wx:for-item="pro" wx:key="index">
+                        <view class="reply_header" wx:if="{{index>5}}" catchtap="goMydetails" data-userId="{{pro.userId}}">
+                            <image class="" src="{{pro.userImgPath}}"></image>
+                        </view>
+                        <view class="reply_text" wx:if="{{index>5}}">
+                            <view class="sub_text">
+                                {{pro.replyUserId===getuserId ?'作者':pro.userName}}
+                            </view>
+                            <view class="comment_text">
+                                <text class="comment_text">回复:</text>
+                                <text class="sub_text">{{pro.replyUserName +':'}}</text>
+                                <text class="comment_text">{{pro.content}}</text>
+                                <text class="replay_list_text" catchtap="replyBtnsList" data-item="{{pro}}">
+                                    回复
+                                </text>
+                            </view>
+                        </view>
+                    </view>
+                </van-collapse-item>
+            </van-collapse>
         </view>
         <view class="bord_text_line">
-             <van-divider />
+            <van-divider />
         </view>
-          
     </view>
-    <view  class="comment_list"></view>
-      
+    <view class="comment_list"></view>
     <!-- 评论弹框 -->
     <van-overlay show="{{ showBtns }}" bind:click="onClickHide" />
     <view class="foots_input_box" wx:if="{{showBtns}}">
         <!-- <van-search ref="searchText" focus="{{showBtns}}" shape="round" value="{{ reviewValue }}" placeholder="喜欢就给个评论支持一下~" use-action-slot bind:change="reviewValueonChange">
             <view slot="action" bind:tap="sendBtns">发送</view>
         </van-search> -->
-        <van-field
-            value="{{ reviewValue }}"
-            center
-            clearable
-            label=""
-            type="text"
-            placeholder="喜欢就给个评论支持一下~"
-            use-button-slot
-            focus="{{showBtns}}"
-            bind:change="reviewValueonChange"
-        >
-            <van-button slot="button" bind:tap="sendBtns" size="small" type="danger">
-            发送 
-            </van-button>
+        <van-field value="{{ reviewValue }}" center clearable label="" type="text" placeholder="喜欢就给个评论支持一下~" use-button-slot focus="{{showBtns}}" bind:change="reviewValueonChange">
+            <van-button slot="button" bind:tap="sendBtns" size="small" type="danger">发送</van-button>
         </van-field>
     </view>
     <!-- 底部评论点赞 -->
     <view class="prize_box">
-         <van-divider />
-         <view class="flex-row flex-align-c">
-        <van-search value="{{ value }}" label="" disabled bindtap="openSearchBtn" placeholder="说点什么" use-left-icon-slot="true"   shape="round" 	 bind:change="onChange" bind:search="onSearch">
-            <view slot="left-icon" bind:tap="onClick"><van-icon name="edit" /></view>
-            <view slot="action" bind:tap="onClick">搜索</view>
-        </van-search>
-        <view class="flex-row flex-align-c serch_bos" bindtap="likeBtns" data-isGiveUp="{{details.isGiveUp}}">
-            <van-icon name="like-o" wx:if="{{details.isGiveUp==0}}" />
-            <van-icon name="like"wx:if="{{details.isGiveUp==1}}"  color="#ed3f14" />
-            <text wx:if="{{details.giveUpQty}}">{{details.giveUpQty}}</text>
-            <text wx:else>点赞</text>
-        </view>
-        <view class="flex-row flex-align-c serch_bos" bindtap="starBtns" data-collectionQty = "{{details.isCollection}}">
-              <van-icon name="star-o" wx:if="{{details.isCollection==0}}" />
-              <van-icon name="star" wx:if="{{details.isCollection==1}}" color="#ed3f14" />
-              <text wx:if="{{details.collectionQty}}">{{details.collectionQty}}</text>
-              <text wx:else>收藏</text>
-        </view>
-         <view class="flex-row flex-align-c serch_bos" bindtap="openSearchBtn">
-             <van-icon name="chat-o" />
-              <text wx:if="{{details.hot}}">{{details.hot}}</text>
-              <text wx:else>评论</text>
+        <van-divider />
+        <view class="flex-row flex-align-c">
+            <van-search value="{{ value }}" label="" disabled bindtap="openSearchBtn" placeholder="说点什么" use-left-icon-slot="true" shape="round" bind:change="onChange" bind:search="onSearch">
+                <view slot="left-icon" bind:tap="onClick">
+                    <van-icon name="edit" />
+                </view>
+                <view slot="action" bind:tap="onClick">搜索</view>
+            </van-search>
+            <view class="flex-row flex-align-c serch_bos" bindtap="likeBtns" data-isGiveUp="{{details.isGiveUp}}">
+                <van-icon name="like-o" wx:if="{{details.isGiveUp==0}}" />
+                <van-icon name="like" wx:if="{{details.isGiveUp==1}}" color="#ed3f14" />
+                <text wx:if="{{details.giveUpQty}}">{{details.giveUpQty}}</text>
+                <text wx:else>点赞</text>
+            </view>
+            <view class="flex-row flex-align-c serch_bos" bindtap="starBtns" data-collectionQty="{{details.isCollection}}">
+                <van-icon name="star-o" wx:if="{{details.isCollection==0}}" />
+                <van-icon name="star" wx:if="{{details.isCollection==1}}" color="#ed3f14" />
+                <text wx:if="{{details.collectionQty}}">{{details.collectionQty}}</text>
+                <text wx:else>收藏</text>
+            </view>
+            <view class="flex-row flex-align-c serch_bos" bindtap="openSearchBtn">
+                <van-icon name="chat-o" />
+                <text wx:if="{{details.hot}}">{{details.hot}}</text>
+                <text wx:else>评论</text>
+            </view>
         </view>
     </view>
-    </view>
-    <view style="height:66rpx">
-        
-    </view>
-      
+    <view style="height:66rpx"></view>
 </view>

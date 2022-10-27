@@ -35,7 +35,8 @@ Page({
     commentType:1,
     replayIds:'',
     parentId:'',
-    getuserId:''
+    getuserId:'',
+    activeName:false
   },
   deleteBtns() {
     Dialog.confirm({
@@ -187,6 +188,11 @@ Page({
       if (code === "0") {
         this.getDetails(this.data.articleId);
       }
+    });
+  },
+  onChange(event) {
+    this.setData({
+      activeName: event.detail,
     });
   },
   getDetails(id) {

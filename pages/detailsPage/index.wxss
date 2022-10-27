@@ -131,7 +131,7 @@
   padding: 10rpx;
 }
 .replay_padding{
-  margin: 20rpx 0;
+  padding: 10rpx 0;
 }
 .replay_list_text{
   display: inline-block;
