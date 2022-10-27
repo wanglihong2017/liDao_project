@@ -86,7 +86,7 @@
                 </view>
                </view>
             </block>
-            <van-collapse accordion value="{{ activeName }}" bind:change="onChange" border="{{false}}">
+            <van-collapse accordion  wx:if="{{item.detailList.length>=5}}" value="{{ activeName }}" bind:change="onChange" border="{{false}}">
                 <van-collapse-item title="更多评论回复"  size="20" name="1">
                     <block  wx:for="{{item.detailList}}" wx:for-item="pro" wx:key="index">
                        <view class="flex-row replay_padding"  wx:if="{{index>=5}}">
