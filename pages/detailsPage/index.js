@@ -98,7 +98,7 @@ Page({
         showBtns: true ,
         commentType:2,
         replayIds:e.currentTarget.dataset.item.id,
-        parentId:e.currentTarget.dataset.item.parentId,
+        parentId:e.currentTarget.dataset.item.id,
       });
     }
   },
