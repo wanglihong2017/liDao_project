@@ -98,4 +98,11 @@ Page({
       path: '/pages/index/index?id=123'
     }
   },
+  onShareAppMessage(){
+    return {
+      title: '鲤道带你了解最新锦鲤咨询',
+      path: '/pages/index/index',
+      imageUrl:'http://files.q.lidaokoi.com/FopCeXU7xI3nEYIOaZl4EdWJeqWd'
+    }
+  },
 })

@@ -135,7 +135,14 @@ Page({
   onShareTimeline () {
     return {
       title: '鲤道带你了解最新锦鲤咨询',
-      path: '/pages/index/index?id=123'
+      path: '/pages/index/index'
+    }
+  },
+  onShareAppMessage(){
+    return {
+      title: '鲤道带你了解最新锦鲤咨询',
+      path: '/pages/index/index',
+      imageUrl:'http://files.q.lidaokoi.com/FopCeXU7xI3nEYIOaZl4EdWJeqWd'
     }
   },
 
@@ -149,7 +156,4 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage() {
-
-  }
 })
