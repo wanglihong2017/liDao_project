@@ -4,5 +4,4 @@ module.exports.getImgs = function(imgs,index=2) {
    }else{
       return imgs.split(',')
    }
-   
  }

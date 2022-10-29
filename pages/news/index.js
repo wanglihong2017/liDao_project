@@ -41,9 +41,12 @@ Page({
   getList(){
     api_getNewMessageList({ userId:wx.getStorageSync('userId') || '',}).then((res)=>{
       let {code,data} = res
+      console.log('data',data)
       if(code==='0'){
         this.setData({
-          listComment:data.giveUpList
+          listComment:data.giveUpList,
+          commentList:[...data.commentList],
+          followList:data.followList
         })
         app.globalData.followList = data.followList
         app.globalData.commentList = data.commentList
