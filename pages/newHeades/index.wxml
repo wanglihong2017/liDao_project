@@ -1,9 +1,10 @@
+<wxs src="./../../utils/article.wxs" module="article"></wxs>
 <view class="consult_box" wx:for="{{consultList}}" bindtap="gosalePage" data-url = "{{item.content}}">
     <view>
        <image style="width:100%"  mode="widthFix"   src="{{item.imgPath}}"></image>
     </view>
     <view class="title_text">
-        <!-- <rich-text nodes="{{item.content}}"></rich-text> -->
+        <rich-text wx:if="{{!article.setUrl(item.content)}}" nodes="{{item.content}}" class="details_text"></rich-text>
         <text >{{item.title}}</text>   
     </view>  
     <van-divider />

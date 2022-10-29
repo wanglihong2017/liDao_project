@@ -28,9 +28,12 @@ Page({
     })
   },
   gosalePage(e){
-    wx.navigateTo({
-      url: '/pages/salePage/index?url='+e.currentTarget.dataset.url
-    })
+    let getUrl = e.currentTarget.dataset.url
+    if(getUrl.indexOf('http')>=0 ||getUrl.indexOf('https')>=0){
+      wx.navigateTo({
+        url: '/pages/salePage/index?url='+ getUrl
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
