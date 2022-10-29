@@ -239,6 +239,12 @@ Page({
          this.getList(this.data.lastNewId,this.data.lastHot)
        }
     }
+  },
+  onShareTimeline () {
+    return {
+      title: '鲤道带你了解最新锦鲤咨询',
+      path: '/pages/index/index?id=123'
+    }
   }
 });
 

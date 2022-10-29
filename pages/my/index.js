@@ -132,6 +132,12 @@ Page({
   onPullDownRefresh() {
 
   },
+  onShareTimeline () {
+    return {
+      title: '鲤道带你了解最新锦鲤咨询',
+      path: '/pages/index/index?id=123'
+    }
+  },
 
   /**
    * 页面上拉触底事件的处理函数

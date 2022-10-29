@@ -77,7 +77,12 @@ Page({
   onHide() {
 
   },
-
+  onShareTimeline () {
+    return {
+      title: '鲤道带你了解最新锦鲤咨询',
+      path: '/pages/index/index?id=123'
+    }
+  },
   /**
    * 生命周期函数--监听页面卸载
    */

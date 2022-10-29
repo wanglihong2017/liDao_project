@@ -92,7 +92,10 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage() {
-
-  }
+   onShareTimeline () {
+    return {
+      title: '鲤道带你了解最新锦鲤咨询',
+      path: '/pages/index/index?id=123'
+    }
+  },
 })
