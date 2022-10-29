@@ -27,6 +27,11 @@ Page({
       }
     })
   },
+  gosalePage(e){
+    wx.navigateTo({
+      url: '/pages/salePage/index?url='+e.currentTarget.dataset.url
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
