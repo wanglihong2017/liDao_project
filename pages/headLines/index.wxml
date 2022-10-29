@@ -1,16 +1,16 @@
 <wxs src="./../../utils/article.wxs" module="article"></wxs>
-<view class="consult_box" wx:for="{{consultList}}" bindtap="gosalePage" data-url="{{item.content}}">
-    <view>
-         <image  wx:if="{{item.imgType==1}}" style="width:100%" mode="widthFix" src="{{item.imgPath}}"></image>
+<view class="consult_box" wx:for="{{consultList}}" bindtap="gosalePage" data-imgtype='{{item.imgType}}' data-url="{{item.content}}">
+    <view class="img_box">
+         <image  style="width:100%" mode="widthFix" src="{{item.imgPath}}"></image>
          <image class="video_imgs" wx:if="{{item.imgType==2}}" src="https://files.q.lidaokoi.com/imgs/video_play-dad4325811.png" mode="aspectFit" lazy-load="false" binderror="" bindload="" />
     </view>
     <view>
         <text class="">{{item.title}}</text>
-        <rich-text wx:if="{{!article.setUrl(item.content)}}" class="details_text" nodes="{{item.content}}"></rich-text>
+        <rich-text wx:if="{{!article.setUrl(item.content) && item.imgType==1}}" class="details_text" nodes="{{item.content}}"></rich-text>
     </view>
     <van-divider />
 </view>
 <van-empty wx:if="{{consultList.length===0}}" description="暂无数据" />
-<van-popup show="{{ upshowBtns }}" wx:if="{{upshowBtns}}" custom-style="height: 50%" close-icon="close" closeable="{{true}}" position="bottom" bind:close="onClose">
+<van-popup show="{{ upshowBtns }}" wx:if="{{upshowBtns}}" custom-style="height: 60%" close-icon="close" closeable="{{true}}" position="bottom" bind:close="onClose">
     <player-component vid="{{vid}}" playerId="tvp"></player-component>
 </van-popup>

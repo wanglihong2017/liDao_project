@@ -29,12 +29,6 @@ Page({
       }
     })
   },
-  clickBtns(){
-    this.setData({
-      upshowBtns:true,
-      vid:'z3355fcoaiw'
-    })
-  },
   onClose(){
     this.setData({
       upshowBtns:false,
@@ -42,11 +36,19 @@ Page({
     })
   },
   gosalePage(e){
+    if(e.currentTarget.dataset.imgtype===2){
+      this.setData({
+        upshowBtns:true,
+        vid:e.currentTarget.dataset.url
+      })
+      return false
+    }
     let getUrl = e.currentTarget.dataset.url
-    if(getUrl.indexOf('http')>=0 ||getUrl.indexOf('https')>=0){
+    if(e.currentTarget.dataset.imgtype===1 && getUrl.indexOf('http')>=0 ||getUrl.indexOf('https')>=0){
       wx.navigateTo({
         url: '/pages/salePage/index?url='+ getUrl
       })
+      return false
     }
   },
   /**
