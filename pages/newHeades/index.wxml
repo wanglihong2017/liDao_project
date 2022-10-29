@@ -1,0 +1,11 @@
+<view class="consult_box" wx:for="{{consultList}}" bindtap="gosalePage" data-url = "{{item.content}}">
+    <view>
+       <image style="width:100%"  mode="widthFix"   src="{{item.imgPath}}"></image>
+    </view>
+    <view class="title_text">
+        <!-- <rich-text nodes="{{item.content}}"></rich-text> -->
+        <text >{{item.title}}</text>   
+    </view>  
+    <van-divider />
+</view>
+<van-empty wx:if="{{consultList.length===0}}" description="暂无数据" />

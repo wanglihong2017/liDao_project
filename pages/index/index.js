@@ -94,7 +94,7 @@ Page({
       })
     }else if(event.detail.index===2 && event.detail.title ==='鲤道头条'){
       wx.navigateTo({
-        url: '/pages/headLines/index?index=4'
+        url: '/pages/newHeades/index?index=4'
       })
     }else if(event.detail.index===3 && event.detail.title ==='答鱼友问'){
       wx.navigateTo({
