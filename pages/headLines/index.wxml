@@ -1,12 +1,15 @@
 <wxs src="./../../utils/article.wxs" module="article"></wxs>
-<view class="consult_box" wx:for="{{consultList}}" bindtap="gosalePage" data-url = "{{item.content}}">
+<view class="consult_box" wx:for="{{consultList}}" bindtap="gosalePage" data-url="{{item.content}}">
     <view>
-       <image style="width:100%;height:300rpx"  mode="widthFix"   src="{{item.imgPath}}"></image>
+        <image style="width:100%;height:300rpx" mode="widthFix" src="{{item.imgPath}}"></image>
     </view>
     <view>
-        <text class="">{{item.title}}</text>  
-         <rich-text wx:if="{{!article.setUrl(item.content)}}" class="details_text" nodes="{{item.content}}"></rich-text> 
-    </view>  
+        <text class="">{{item.title}}</text>
+        <rich-text wx:if="{{!article.setUrl(item.content)}}" class="details_text" nodes="{{item.content}}"></rich-text>
+    </view>
     <van-divider />
 </view>
 <van-empty wx:if="{{consultList.length===0}}" description="暂无数据" />
+<van-popup show="{{ upshowBtns }}" wx:if="{{upshowBtns}}" custom-style="height: 50%" close-icon="close" closeable="{{true}}" position="bottom" bind:close="onClose">
+    <player-component vid="{{vid}}" playerId="tvp"></player-component>
+</van-popup>

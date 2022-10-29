@@ -7,7 +7,9 @@ Page({
    */
   data: {
     setNum:'',
-    consultList:[]
+    consultList:[],
+    upshowBtns:false,
+    vid:''
   },
   getList(){
     let params = {
@@ -25,6 +27,18 @@ Page({
           consultList:data.fishArticleList
         })
       }
+    })
+  },
+  clickBtns(){
+    this.setData({
+      upshowBtns:true,
+      vid:'z3355fcoaiw'
+    })
+  },
+  onClose(){
+    this.setData({
+      upshowBtns:false,
+      vid:''
     })
   },
   gosalePage(e){
@@ -55,7 +69,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+   
   },
 
   /**
