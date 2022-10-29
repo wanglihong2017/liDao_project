@@ -1,8 +1,5 @@
 module.exports.setUrl = function(str) {
-    console.log(str)
     var index = str.indexOf('http') || str.indexOf('https')
-    console.log(str.indexOf('http'))
-    console.log('1112234',index)
     if(index>=0){
         return true
     }else{

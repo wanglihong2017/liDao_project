@@ -7,7 +7,9 @@ Page({
    */
   data: {
     setNum:'',
-    consultList:[]
+    consultList:[],
+    upshowBtns:false,
+    vid:''
   },
   getList(){
     let params = {
@@ -28,12 +30,26 @@ Page({
     })
   },
   gosalePage(e){
-    let getUrl = e.currentTarget.dataset.url
-    if(getUrl.indexOf('http')>=0 ||getUrl.indexOf('https')>=0){
-      wx.navigateTo({
-        url: '/pages/salePage/index?url='+getUrl
+    if(e.currentTarget.dataset.imgtype===2){
+      this.setData({
+        upshowBtns:true,
+        vid:e.currentTarget.dataset.url
       })
+      return false
     }
+    let getUrl = e.currentTarget.dataset.url
+    if(e.currentTarget.dataset.imgtype===1 && getUrl.indexOf('http')>=0 ||getUrl.indexOf('https')>=0){
+      wx.navigateTo({
+        url: '/pages/salePage/index?url='+ getUrl
+      })
+      return false
+    }
+  },
+  onClose(){
+    this.setData({
+      upshowBtns:false,
+      vid:''
+    })
   },
   /**
    * 生命周期函数--监听页面加载

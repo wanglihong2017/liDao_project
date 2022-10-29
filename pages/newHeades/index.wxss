@@ -17,3 +17,12 @@
 .title_text text{
     color: #999;
 }
+.img_box{
+    position: relative;
+}
+.video_imgs{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
