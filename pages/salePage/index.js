@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options)
+    console.log('222222',options)
     if(options){
       this.setData({
         lidaoSrc: options.url
@@ -70,7 +70,7 @@ Page({
   onShareAppMessage(){
     return {
       title: '鲤道带你了解最新锦鲤咨询',
-      path: '/pages/index/index',
+      path: '/pages/salePage/index?url='+ this.data.lidaoSrc,
       imageUrl:'http://files.q.lidaokoi.com/FopCeXU7xI3nEYIOaZl4EdWJeqWd'
     }
   },

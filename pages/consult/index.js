@@ -33,8 +33,15 @@ Page({
   },
   onShareTimeline () {
     return {
-      title: '鲤道带你了解最新锦鲤咨询',
-      path: '/pages/index/index?id=123'
+      title: '鲤道带你了解最新锦鲤拍卖咨询',
+      path: '/pages/consult/index?id=123'
+    }
+  },
+  onShareAppMessage(){
+    return {
+      title: '鲤道带你了解最新锦鲤拍卖咨询',
+      path: '/pages/consult/index',
+      imageUrl:'http://files.q.lidaokoi.com/FopCeXU7xI3nEYIOaZl4EdWJeqWd'
     }
   },
   /**
@@ -89,7 +96,4 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage() {
-
-  }
 })

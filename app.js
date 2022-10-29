@@ -40,7 +40,6 @@ App({
             withShareTicket: true,
             menus: ['shareAppMessage', 'shareTimeline']
           })
-          this.onShareAppMessage()
         }
     })
   },
