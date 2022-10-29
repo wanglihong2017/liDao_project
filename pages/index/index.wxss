@@ -58,6 +58,8 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
+    background-image: url('https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eq8DllzNbk2Qib55ibOlK8uF0TbFYicXnHMQSttOzB4zkicH0R5icZxsFQzpItTKrs2aYcbiaV2ficLpZxwQ/132');
+    background-size: 100% 100%;
 }
 .headimgs_text{
     width: 180rpx;

@@ -1,7 +1,8 @@
 <wxs src="./../../utils/article.wxs" module="article"></wxs>
 <view class="consult_box" wx:for="{{consultList}}" bindtap="gosalePage" data-url="{{item.content}}">
     <view>
-        <image style="width:100%;height:300rpx" mode="widthFix" src="{{item.imgPath}}"></image>
+         <image  wx:if="{{item.imgType==1}}" style="width:100%" mode="widthFix" src="{{item.imgPath}}"></image>
+         <image class="video_imgs" wx:if="{{item.imgType==2}}" src="https://files.q.lidaokoi.com/imgs/video_play-dad4325811.png" mode="aspectFit" lazy-load="false" binderror="" bindload="" />
     </view>
     <view>
         <text class="">{{item.title}}</text>
