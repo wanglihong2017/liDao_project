@@ -16,7 +16,8 @@ Page({
     choosseActive:0,
     setCodeNun:1,
     lastNewId:'',
-    lastHot:''
+    lastHot:'',
+    pageNum:1
   },
   // 事件处理函数
   onChange(event) {
@@ -118,13 +119,16 @@ Page({
       lastHot:lastHot,
       pageSize:10,
       searchText:'',
-      userId:wx.getStorageSync('userId') || ''
+      userId:wx.getStorageSync('userId') || '',
+      pageNum:this.data.pageNum
     }
+    console.log('params',params)
     api_getFishList(params).then((res)=>{
       let {code,data} = res
       if(code === '0' ){
          this.data.lastNewId = data.lastNewId
          this.data.lastHot = data.lastHot
+         this.data.pageNum += 1
          let getData= [...this.data.products,...data.fishArticleList]
          this.setData({
           products:getData
