@@ -1,4 +1,4 @@
-import { api_getfollowUserList,api_getTargetUserInfo,api_addFollow} from '../../utils/api'
+import { api_getfollowUserList,api_getTargetUserInfo,api_addFollow,api_giveUp} from '../../utils/api'
 const app =  getApp();
 Page({
   /**
@@ -15,6 +15,30 @@ Page({
     wx.navigateTo({
       url:`/pages/detailsPage/index?articleId=${e.currentTarget.dataset.id}&type=1`
     })
+  },
+  giveUpBtns(e){
+    let getData = e.currentTarget.dataset.item 
+    let params = {
+      userId: wx.getStorageSync("userId"),
+      targetUserId: getData.userId,
+      id: getData.id,
+      articleType:getData.articleType,
+      upType: 1,
+      type: getData.isGiveUp === 1 ? 0 : 1,
+    };
+    api_giveUp(params).then((res) => {
+      let { code } = res;
+      if (code === "0") {
+          var index =  this.data.products.findIndex((item)=> item.id === getData.id)
+          var isGiveUp = "products[" + index + "].isGiveUp" //这里必须这样拼接
+          var giveUpQty = "products[" + index + "].giveUpQty"
+          var giveUpQtyNum = this.data.products[index].giveUpQty
+          this.setData({ //异步刷新，就是渲染
+              [isGiveUp] : getData.isGiveUp === 1 ? 0 : 1, //修改值为0
+              [giveUpQty] :getData.isGiveUp === 1 ? giveUpQtyNum-1:giveUpQtyNum+1
+          })
+      }
+    });
   },
   /**
    * 生命周期函数--监听页面加载
