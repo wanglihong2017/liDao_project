@@ -12,9 +12,9 @@ module.exports = {
              'token':wx.getStorageSync('token') || ''
         }
       }
-        wx.showLoading({
-             title: '加载中',
-        })
+        // wx.showLoading({
+        //      title: '加载中',
+        // })
     // 使用Promise封装一层
         return new Promise((resolve, reject) => {
             wx.request({
@@ -33,7 +33,7 @@ module.exports = {
                     else if (res.statusCode === 200) {
                     // 将response的数据resolve出去
                         resolve(res.data)
-                        wx.hideLoading()
+                        // wx.hideLoading()
                     } else {
                         wx.showToast({
                                 title: res.data.message,
