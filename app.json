@@ -37,6 +37,7 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
   "plugins": {
     "player": {
        "version": "2.0.0",

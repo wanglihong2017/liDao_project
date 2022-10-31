@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "van-uploader": "@vant/weapp/uploader/index",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-field": "@vant/weapp/field/index",
