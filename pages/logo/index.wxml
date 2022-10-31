@@ -1,6 +1,6 @@
 <view class="my_box">
     <view>
-        <image class="img_logo" src="../../assets/logo.png" />
+        <image class="img_logo" src="https://files.q.lidaokoi.com/imgs/logo3.jpeg" />
     </view>
     <view class='content'>
         <view>请绑定手机号</view>
