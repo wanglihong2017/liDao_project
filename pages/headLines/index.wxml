@@ -11,6 +11,6 @@
     <van-divider />
 </view>
 <van-empty wx:if="{{consultList.length===0}}" description="暂无数据" />
-<van-popup show="{{ upshowBtns }}" wx:if="{{upshowBtns}}" custom-style="height: 60%" close-icon="close" closeable="{{true}}" position="bottom" bind:close="onClose">
+<van-popup show="{{ upshowBtns }}" round  wx:if="{{upshowBtns}}" custom-style="height: 100%" close-icon="close" closeable="{{true}}" position="bottom" bind:close="onClose">
     <player-component vid="{{vid}}" playerId="tvp"></player-component>
 </van-popup>

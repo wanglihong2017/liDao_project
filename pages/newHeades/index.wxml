@@ -5,8 +5,8 @@
         <image class="video_imgs" wx:if="{{item.imgType==2}}" src="https://files.q.lidaokoi.com/imgs/video_play-dad4325811.png" mode="aspectFit" lazy-load="false" binderror="" bindload="" />
     </view>
     <view class="title_text">
+        <text  class="text_headers">{{item.title}}</text>   
         <rich-text wx:if="{{!article.setUrl(item.content)  && item.imgType==1}}" nodes="{{item.content}}" class="details_text"></rich-text>
-        <text >{{item.title}}</text>   
     </view>  
     <van-divider />
 </view>

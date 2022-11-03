@@ -1,10 +1,11 @@
 .consult_box{
-    width: 680rpx;
-    margin: 0 auto 20rpx;
+   width: 90%;
+   margin: 0 auto;
 }
 .consult_box text{
-    color: #999;
-    font-size: 24rpx;
+  color: #000;
+  font-size: 36rpx;
+  word-break:break-all;
 }
 .details_text{
     font-size: 26rpx;
@@ -18,4 +19,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+.video_up_box{
+  width: 750rpx;
+  min-height: 600%;
 }

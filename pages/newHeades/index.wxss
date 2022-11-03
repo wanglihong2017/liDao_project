@@ -1,6 +1,6 @@
 .consult_box{
-    width: 680rpx;
-    margin: 0 auto 20rpx;
+   width: 90%;
+   margin: 0 auto;
 }
 .title_text{
     padding: 10px 0;
@@ -15,10 +15,15 @@
     font-size: 24rpx;
 }
 .title_text text{
-    color: #999;
+    color: #000;
+    font-size: 36rpx;
+    word-break:break-all;
 }
 .img_box{
     position: relative;
+}
+.text_headers{
+  padding-bottom: 10rpx;
 }
 .video_imgs{
     position: absolute;
