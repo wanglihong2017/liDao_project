@@ -9,16 +9,17 @@ Page({
     setNum:'',
     consultList:[],
     upshowBtns:false,
-    vid:''
+    vid:'',
+    inputValue:''
   },
-  getList(){
+  getList(text=""){
     let params = {
       articleType:this.data.setNum,
       pageSize:10,
       pageNum:1,
       userId:wx.getStorageSync('userId'),
       lastNewId:'',
-      searchText:''
+      searchText:text,
     }
     api_getOtFishList(params).then((res)=>{
       let { code,data }= res
@@ -29,6 +30,17 @@ Page({
       }
     })
   },
+  onChange(e) {
+    console.log(e.detail)
+    this.setData({
+      inputValue: e.detail,
+    });
+    this.getList(e.detail)
+    //  console.log(this.data.inputValue)
+  },
+  // onSearch(){
+  //   this.getList()
+  // },
   gosalePage(e){
     if(e.currentTarget.dataset.imgtype===2){
       this.setData({

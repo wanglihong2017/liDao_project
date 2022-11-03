@@ -1,13 +1,16 @@
 <wxs src="./../../utils/article.wxs" module="article"></wxs>
-<view class="consult_box" wx:for="{{consultList}}" bindtap="gosalePage"  data-imgtype='{{item.imgType}}' data-url = "{{item.content}}">
+<van-search value="{{ inputValue }}" show-action placeholder="请输入搜索关键词"  bind:change="onChange"  action-text="搜索"  bind:search="onSearch">
+ <view slot="action" bind:tap="onSearch">搜索</view>
+ </van-search>
+<view class="consult_box" wx:for="{{consultList}}" bindtap="gosalePage" data-imgtype='{{item.imgType}}' data-url="{{item.content}}">
     <view class="img_box">
-       <image style="width:100%"  mode="widthFix"   src="{{item.imgPath}}"></image>
+        <image style="width:100%" mode="widthFix" src="{{item.imgPath}}"></image>
         <image class="video_imgs" wx:if="{{item.imgType==2}}" src="https://files.q.lidaokoi.com/imgs/video_play-dad4325811.png" mode="aspectFit" lazy-load="false" binderror="" bindload="" />
     </view>
     <view class="title_text">
-        <text  class="text_headers">{{item.title}}</text>   
+        <text class="text_headers">{{item.title}}</text>
         <rich-text wx:if="{{!article.setUrl(item.content)  && item.imgType==1}}" nodes="{{item.content}}" class="details_text"></rich-text>
-    </view>  
+    </view>
     <van-divider />
 </view>
 <van-empty wx:if="{{consultList.length===0}}" description="暂无数据" />
