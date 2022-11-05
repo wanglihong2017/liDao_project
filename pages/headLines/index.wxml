@@ -1,4 +1,13 @@
 <wxs src="./../../utils/article.wxs" module="article"></wxs>
+<van-search
+  value="{{ inputValue }}"
+  placeholder="请输入"
+  use-action-slot
+  bind:change="onChange"
+  bind:search="onSearch">
+  <view slot="action" bind:tap="onSearch">搜索</view>
+</van-search>
+
 <view class="consult_box" wx:for="{{consultList}}" bindtap="gosalePage" data-imgtype='{{item.imgType}}' data-url="{{item.content}}">
     <view class="img_box">
          <image  style="width:100%" mode="widthFix" src="{{item.imgPath}}"></image>

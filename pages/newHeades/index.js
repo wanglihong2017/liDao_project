@@ -31,7 +31,6 @@ Page({
     })
   },
   onChange(e) {
-    console.log(e.detail)
     this.setData({
       inputValue: e.detail,
     });
@@ -40,9 +39,6 @@ Page({
   },
   onSearch(){
     this.getList(this.data.inputValue)
-  },
-  onCancel(){
-    console.log('wwwwwqqqqw')
   },
   gosalePage(e){
     if(e.currentTarget.dataset.imgtype===2){

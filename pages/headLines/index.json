@@ -3,6 +3,7 @@
     "van-divider": "@vant/weapp/divider/index",
     "van-empty": "@vant/weapp/empty/index",
     "player-component": "plugin://player/video",
-    "van-popup": "@vant/weapp/popup/index"
+    "van-popup": "@vant/weapp/popup/index",
+    "van-search": "@vant/weapp/search/index"
   }
 }
