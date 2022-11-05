@@ -6,16 +6,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    consultList:[]
+    consultList:[],
+    inputValue:''
   },
-  getList(){
+  getList(text=''){
     let params = {
       articleType:3,
       pageSize:10,
       pageNum:1,
       userId:wx.getStorageSync('userId'),
       lastNewId:'',
-      searchText:''
+      searchText:text
     }
     api_getOtFishList(params).then((res)=>{
       let { code,data }= res
@@ -25,6 +26,15 @@ Page({
         })
       }
     })
+  },
+  onChange(e){
+    // console.log(e.detail)
+    this.setData({
+      inputValue:e.detail
+    })
+  },
+  onSearch(){
+    this.getList(this.data.inputValue)
   },
   gosalePage(e){
     wx.navigateTo({

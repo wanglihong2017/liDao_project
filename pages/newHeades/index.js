@@ -35,12 +35,15 @@ Page({
     this.setData({
       inputValue: e.detail,
     });
-    this.getList(e.detail)
+    // this.getList(e.detail)
     //  console.log(this.data.inputValue)
   },
-  // onSearch(){
-  //   this.getList()
-  // },
+  onSearch(){
+    this.getList(this.data.inputValue)
+  },
+  onCancel(){
+    console.log('wwwwwqqqqw')
+  },
   gosalePage(e){
     if(e.currentTarget.dataset.imgtype===2){
       this.setData({
