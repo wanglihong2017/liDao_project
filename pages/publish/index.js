@@ -1,5 +1,5 @@
 // pages/publish/index.js
-import { api_getToken,api_addfisharticle,api_getUserFollowFish,api_getCity,api_deleteDraft} from "../../utils/api";
+import {api_getHuatiList, api_getToken,api_addfisharticle,api_getUserFollowFish,api_getCity,api_deleteDraft} from "../../utils/api";
 const app = getApp()
 Page({
   /**
@@ -315,9 +315,21 @@ Page({
       }
     }
     this.upPop()
+    this.getList()
   },
   userBtns(){
     this.setData({userPopup:true})
+  },
+  getList(){
+    api_getHuatiList().then((res)=>{
+      console.log('res',res)
+      let {code,data} = res
+      if(code==='0'){
+        this.setData({
+          actions:data
+        })
+      }
+    })
   },
   onUserClose(){
     this.setData({userPopup:false})

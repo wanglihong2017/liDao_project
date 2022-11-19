@@ -32,6 +32,7 @@ const api_read = (params) => request(baseUrl +'/luckyfish/message/v1/read',{...p
 const api_userinfo = (params) => request(baseUrl +'/luckyfish/user/v1/update',{...params},'POST',2) //修改个人信息
 const api_getOtFishList = (params) => request(baseUrl +'/luckyfish/fisharticle/v1/getOtFishList',{...params},'GET',2) //修改个人信息
 const api_getTargetUserInfo = (params) => request(baseUrl +'/luckyfish/user/v1/getTargetUserInfo',{...params},'GET',2) //修改个人信息
+const api_getHuatiList = (params) => request(baseUrl +'/luckyfish/topic/v1/getList',{...params},'GET',2) //话题列表
 module.exports = {
     api_getCity,
     api_checktiken,
@@ -64,5 +65,6 @@ module.exports = {
     api_read,
     api_userinfo,
     api_getOtFishList,
-    api_getTargetUserInfo
+    api_getTargetUserInfo,
+    api_getHuatiList
 }
