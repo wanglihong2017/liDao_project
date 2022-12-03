@@ -1,26 +1,33 @@
 <view>
     <view class="details_box" wx:for="{{listComment}}" wx:key="index">
-        <view class="flex-row flex-justify-b flex-align-c details_list"  data-id="{{item.articleId}}" data-tzid="{{item.id}}" data-userImg = "{{item.userImgPath}}" bindtap="goDetails">
-            <view class="flex-row flex-align-c">
-                <view class="head_image"  catchtap="goMydetails"   data-userId="{{item.postUserId}}">
-                    <image src="{{item.postUserImgPath}}"></image>
+        <view class="flex-row flex-justify-b flex-align-c details_list" data-id="{{item.articleId}}" data-tzid="{{item.id}}" data-userImg="{{item.userImgPath}}" bindtap="goDetails">
+            <view class="flex-row flex-align-c box_boxs">
+                <view class="flex-row flex-align-c left_boxs">
+                    <view class="head_image" catchtap="goMydetails" data-userId="{{item.postUserId}}">
+                        <image src="{{item.postUserImgPath}}"></image>
+                    </view>
+                    <view class="title_box">
+                        <view class="sub_title">{{item.postUserName}}</view>
+                        <view class="official">{{item.commentContent}}</view>
+                        <view class="sub_title">
+                            {{item.articleType===1?'鱼友圈':'在线问诊'}}{{item.createAt}}
+                        </view>
+                    </view>
                 </view>
-                <view class="title_box">
-                    <view class="sub_title">{{item.postUserName}}</view>
-                    <view class="official">{{item.commentContent}}</view>
-                    <view class="sub_title">{{item.articleType===1?'鱼友圈':'在线问诊'}}{{item.createAt}}</view>
+                <view class="right_imgs">
+                    <image src="{{item.imgPath}}"></image>
                 </view>
             </view>
         </view>
         <view class="comment_foots flex-row flex-justify-b">
             <!-- <van-button icon="chat-o" plain size="mini" color="#495060" bindtap="commentBtn" custom-style="border: none;" type="primary"> -->
-            <van-button icon="chat-o"  data-id="{{item.articleId}}" data-tzid="{{item.id}}" data-userImg = "{{item.userImgPath}}" catchtap="goDetails" plain size="mini" color="#495060" custom-style="border: none;" type="primary">
+            <van-button icon="chat-o" data-id="{{item.articleId}}" data-tzid="{{item.id}}" data-userImg="{{item.userImgPath}}" catchtap="goDetails" plain size="mini" color="#495060" custom-style="border: none;" type="primary">
                 回复评论
             </van-button>
         </view>
         <van-divider />
     </view>
-     <van-empty wx:if="{{listComment.length===0}}" description="多发帖子可以获得更多评论哦~" />
+    <van-empty wx:if="{{listComment.length===0}}" description="多发帖子可以获得更多评论哦~" />
     <!-- 评论弹框 -->
     <!-- <van-overlay show="{{ showBtns }}" bind:click="onClickHide" />
     <view class="foots_input_box" wx:if="{{showBtns}}">

@@ -22,3 +22,14 @@
     font-size: 20rpx;
     color: #ccc;
 }
+.left_list{
+    flex: 1;
+}
+.right_image{
+    width: 100rpx;
+    margin-left: 10rpx;
+}
+.right_image image{
+    width: 100%;
+    height: 100%;
+}

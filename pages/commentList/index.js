@@ -40,7 +40,7 @@ Page({
   getReadList(){
     api_read({
       userId:wx.getStorageSync("userId") || "",
-      type:1
+      type:3
     }).then((res)=>{
       console.log('wwqq',res)
     })
