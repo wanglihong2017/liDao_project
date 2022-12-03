@@ -17,19 +17,22 @@ Page({
       this.setData({
         listComment:app.globalData.followList
       })
+      this.getReadList()
     }
+  },
+  getReadList(){
+    api_read({
+      userId:wx.getStorageSync("userId") || "",
+      type:1
+    }).then((res)=>{
+      console.log('wwqq',res)
+    })
   },
   goFollowDetails(e){
     app.globalData.othersDetails = {
       userId:wx.getStorageSync("userId") || "",
       targetId:e.currentTarget.dataset.item.postUserId,
     }
-    api_read({
-      userId:wx.getStorageSync("userId") || "",
-      type:2
-    }).then((res)=>{
-      console.log('wwqq',res)
-    })
     wx.navigateTo({
       url: '/pages/othersDetails/index'
     })

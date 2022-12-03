@@ -31,12 +31,6 @@ Page({
   goDetails(e){
     // console.log(e.currentTarget.dataset)
     // app.globalData.userImg = e.currentTarget.dataset.userimg
-    api_read({
-      userId:wx.getStorageSync("userId") || "",
-      type:1
-    }).then((res)=>{
-      console.log('wwqq',res)
-    })
     wx.navigateTo({
       url:`/pages/detailsPage/index?articleId=${e.currentTarget.dataset.articleid}&type=1`
     })
@@ -53,6 +47,7 @@ Page({
         })
         app.globalData.followList = data.followList
         app.globalData.commentList = data.commentList
+        this.getReadList()
       }
     })
   },
@@ -63,6 +58,14 @@ Page({
     }
     wx.navigateTo({
       url: '/pages/othersDetails/index'
+    })
+  },
+  getReadList(){
+    api_read({
+      userId:wx.getStorageSync("userId") || "",
+      type:1
+    }).then((res)=>{
+      console.log('wwqq',res)
     })
   },
   /**

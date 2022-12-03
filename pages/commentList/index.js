@@ -37,14 +37,16 @@ Page({
       url: '/pages/othersDetails/index'
     })
   },
-  goDetails(e){
-    // app.globalData.userImg = e.currentTarget.dataset.userimg
+  getReadList(){
     api_read({
       userId:wx.getStorageSync("userId") || "",
-      type:3
+      type:1
     }).then((res)=>{
       console.log('wwqq',res)
     })
+  },
+  goDetails(e){
+    // app.globalData.userImg = e.currentTarget.dataset.userimg
     wx.navigateTo({
       url:`/pages/detailsPage/index?articleId=${e.currentTarget.dataset.id}&type=1`
     })
@@ -57,6 +59,7 @@ Page({
       this.setData({
         listComment:app.globalData.commentList
       })
+      this.getReadList()
     }
   },
 
