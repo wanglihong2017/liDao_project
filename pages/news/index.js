@@ -29,9 +29,12 @@ Page({
     }
   },
   goDetails(e){
-    console.log(e.currentTarget.dataset)
-    app.globalData.userImg = e.currentTarget.dataset.userimg
-    api_read({id:e.currentTarget.dataset.id}).then((res)=>{
+    // console.log(e.currentTarget.dataset)
+    // app.globalData.userImg = e.currentTarget.dataset.userimg
+    api_read({
+      userId:wx.getStorageSync("userId") || "",
+      type:1
+    }).then((res)=>{
       console.log('wwqq',res)
     })
     wx.navigateTo({
