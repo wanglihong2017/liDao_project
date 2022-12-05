@@ -15,7 +15,8 @@
                     </view>
                 </view>
                 <view class="right_imgs">
-                    <image src="{{item.imgPath}}"></image>
+                    <image   wx:if="{{item.imgType==2}}" src="{{item.imgPath}}"></image>
+                    <image  wx:if="{{item.imgType==2}}" src="{{item.imgPath+'?vframe/jpg/offset/0'}}" mode="aspectFill"></image>
                 </view>
             </view>
         </view>
